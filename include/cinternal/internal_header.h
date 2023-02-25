@@ -59,6 +59,9 @@
 		#define CPPUTLS_32_BIT
 	#endif
 #elif defined(__GNUC__) || defined(__clang__) || defined(LINUX_GCC)
+
+	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
+
     #define CPPUTILS_MAY_ALIAS  __attribute__ ((__may_alias__))
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
 	#if __GNUC__>=7
@@ -78,18 +81,27 @@
     #define CPPUTILS_IMPORT_FROM_DLL
 	#define CPPUTILS_THREAD_LOCAL		__thread
 #elif defined(__CYGWIN__)
+
+	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
+
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
 	#define CPPUTILS_BEFORE_CPP_17_FALL_THR	__attribute__ ((fallthrough)) ;
     #define CPPUTILS_DLL_PUBLIC		__attribute__((dllexport))
     #define CPPUTILS_DLL_PRIVATE
     #define CPPUTILS_IMPORT_FROM_DLL	__attribute__((dllimport))
 #elif defined(__MINGW64__) || defined(__MINGW32__)
+
+	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
+
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
 	#define CPPUTILS_BEFORE_CPP_17_FALL_THR	__attribute__ ((fallthrough)) ;
     #define CPPUTILS_DLL_PUBLIC		_declspec(dllexport)
     #define CPPUTILS_DLL_PRIVATE
     #define CPPUTILS_IMPORT_FROM_DLL	_declspec(dllimport)
 #elif defined(__SUNPRO_CC)
+
+	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void f(void); _Pragma(init  (f)) static void f(void)
+
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
 	// #define CPPUTILS_BEFORE_CPP_17_FALL_THR	__attribute__ ((fallthrough)) ; // ???
 	#define CPPUTILS_BEFORE_CPP_17_FALL_THR
@@ -237,6 +249,7 @@
 
 
 #define CPPUTILS_NO_NULL
+#define CPPUTILS_ARG_NO_NULL
 
 #define CPPUTILS_STRINGIFY(_x)                CPPUTILS_STRINGIFY_PRIV_RAW(_x)
 #define CPPUTILS_STRINGIFY_PRIV_RAW(_x)		#_x

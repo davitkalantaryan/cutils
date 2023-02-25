@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{463ccee4-1119-46ff-ba85-6c9332e20162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\.github">
+      <UniqueIdentifier>{284969b1-57e2-4e48-903d-5dd3f92ee249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\.github\workflows">
+      <UniqueIdentifier>{36503c4a-d2e4-401b-a382-93a1797f5fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\scripts">
+      <UniqueIdentifier>{dda0acc1-843a-48bf-8206-d783f9f8af9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\src">
+      <UniqueIdentifier>{98325e77-e799-4323-95ab-2d3975ebd80c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\src\tests">
+      <UniqueIdentifier>{49322167-70df-4652-bfb6-a1726f763067}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\utils\entry_cinternal_all.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\tests\main_c_global_initer_test.c">
+      <Filter>files\src\tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\.gitattributes">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\..\.gitignore">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\..\README.md">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\..\.github\workflows\check_merge_to_master_and_develop.yml">
+      <Filter>files\.github\workflows</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_build_all.bat">
+      <Filter>files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_prepare_host.bat">
+      <Filter>files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_prepare_repository.bat">
+      <Filter>files\scripts</Filter>
+    </None>
+  </ItemGroup>
+</Project>
