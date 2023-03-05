@@ -29,44 +29,58 @@ static void CinternalDefaultDataCleaner(void* a_pData) {
 
 
 struct CPPUTILS_DLL_PRIVATE SCinternalLList {
+	TypeCinternalAllocator			allocator;
+	TypeCinternalDeallocator		deallocator;
 	struct SCinternalLListItem*		first;
 	size_t							m_size;
 };
 
 
-CINTERNAL_EXPORT CinternalLList_t CInternalLListCreate(void)
+CINTERNAL_EXPORT CinternalLList_t CInternalLListCreateEx(TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator)
 {
-	CinternalLList_t pRet = CPPUTILS_STATIC_CAST(CinternalLList_t, calloc(1, sizeof(struct SCinternalLList)));
-	//if (!pRet) {
-	//	return CPPUTILS_NULL;
-	//}
+	CinternalLList_t pRet;
+
+	a_allocator = a_allocator ? a_allocator : (&malloc);
+
+	pRet = CPPUTILS_STATIC_CAST(CinternalLList_t, (*a_allocator)(sizeof(struct SCinternalLList)));
+	if (!pRet) {
+		return CPPUTILS_NULL;
+	}
+
+	pRet->allocator = a_allocator;
+	pRet->deallocator = a_deallocator ? a_deallocator : (&free);
+	pRet->first = CPPUTILS_NULL;
+	pRet->m_size = 0;
+
 	return pRet;
 }
 
 
-CINTERNAL_EXPORT void	CInternalLListDestroyEx(CinternalLList_t a_list, TypeCinternalDataCleaner a_cleaner)
+CINTERNAL_EXPORT void	CInternalLListDestroyEx(CinternalLList_t a_list, TypeCinternalDeallocator a_remainingDataCleaner)
 {
 	struct SCinternalLListItem* pItemTmp, * pItem = a_list->first;
 
-	a_cleaner = a_cleaner ? a_cleaner : (&CinternalDefaultDataCleaner);
+	a_remainingDataCleaner = a_remainingDataCleaner ? a_remainingDataCleaner : (&CinternalDefaultDataCleaner); // if null, then data should not be cleaned
 
 	while (pItem) {
 		pItemTmp = pItem->nextInList;
-		(*a_cleaner)(pItem->data);
-		free(pItem);
+		(*a_remainingDataCleaner)(pItem->data);
+		(*(a_list->deallocator))(pItem);
 		pItem = pItemTmp;
 	}
 
-	free(a_list);
+	(*(a_list->deallocator))(a_list);
 }
 
 
 CINTERNAL_EXPORT CInternalLListIterator CInternalLListAddDataToFront(CinternalLList_t a_list, const void* a_data)
 {
-	struct SCinternalLListItem* pItem = CPPUTILS_STATIC_CAST(struct SCinternalLListItem*, calloc(1, sizeof(struct SCinternalLListItem)));
+	struct SCinternalLListItem* pItem = CPPUTILS_STATIC_CAST(struct SCinternalLListItem*, (*(a_list->allocator))(sizeof(struct SCinternalLListItem)));
 	if (!pItem) {
 		return CPPUTILS_NULL;
 	}
+
+	pItem->prevIList = CPPUTILS_NULL;
 
 	pItem->data = CPPUTILS_CONST_CAST(void*, a_data);
 
@@ -81,7 +95,7 @@ CINTERNAL_EXPORT CInternalLListIterator CInternalLListAddDataToFront(CinternalLL
 }
 
 
-CINTERNAL_EXPORT CInternalLListIterator CInternalLListFirstItem(CinternalLList_t a_list)
+CINTERNAL_EXPORT CInternalLListIterator CInternalLListFirstItem(ConstCinternalLList_t a_list)
 {
 	return a_list->first;
 }
@@ -103,11 +117,11 @@ CINTERNAL_EXPORT void CInternalLListRemoveData(CinternalLList_t a_list, CInterna
 
 	--(a_list->m_size);
 
-	free(CPPUTILS_CONST_CAST(struct SCinternalLListItem*, a_iterator));
+	(*(a_list->deallocator))(CPPUTILS_CONST_CAST(struct SCinternalLListItem*, a_iterator));
 }
 
 
-CINTERNAL_EXPORT size_t CInternalLListSize(CinternalLList_t a_list)
+CINTERNAL_EXPORT size_t CInternalLListSize(ConstCinternalLList_t a_list)
 {
 	return a_list->m_size;
 }

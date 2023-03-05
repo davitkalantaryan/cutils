@@ -15,7 +15,8 @@
 CPPUTILS_BEGIN_C
 
 typedef size_t(*TypeCinternalHasher)(const void* key, size_t keySize);
-typedef void(*TypeCinternalDataCleaner)(void*);
+typedef void(*TypeCinternalDeallocator)(void*);
+typedef void*(*TypeCinternalAllocator)(size_t);
 
 
 CPPUTILS_END_C

@@ -60,6 +60,7 @@
 	#endif
 #elif defined(__GNUC__) || defined(__clang__) || defined(LINUX_GCC)
 
+	#define CPPUTILS_GCC_FAMILY		1
 	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
 
     #define CPPUTILS_MAY_ALIAS  __attribute__ ((__may_alias__))
@@ -82,6 +83,7 @@
 	#define CPPUTILS_THREAD_LOCAL		__thread
 #elif defined(__CYGWIN__)
 
+	#define CPPUTILS_GCC_FAMILY		1
 	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
 
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
@@ -91,6 +93,7 @@
     #define CPPUTILS_IMPORT_FROM_DLL	__attribute__((dllimport))
 #elif defined(__MINGW64__) || defined(__MINGW32__)
 
+	#define CPPUTILS_GCC_FAMILY		1
 	#define CPPUTILS_C_CODE_INITIALIZER(f)	static void __attribute__ ((__constructor__)) f(void)
 
 	#define CPPUTILS_UNREACHABLE_CODE(_code)	_code ;
@@ -311,6 +314,100 @@
 
 
 #define CPPUTILS_ARG_NONULL
+
+
+#if defined(__APPLE__) && (defined(__GNUC__)  || defined(__xlC__)  || defined(__xlc__))
+    #include <TargetConditionals.h>
+    #if defined(TARGET_OS_MAC) && TARGET_OS_MAC
+        #define CPPUTILS_OS_DARWIN
+        #define CPPUTILS_OS_BSD4
+        #ifdef LP64
+            #define CPPUTILS_OS_DARWIN64
+        #else
+            #define CPPUTILS_OS_DARWIN32
+        #endif
+        #if defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE
+            #define CPPUTILS_PLATFORM_UIKIT
+            #if defined(TARGET_OS_WATCH) && TARGET_OS_WATCH
+                #define CPPUTILS_OS_WATCHOS
+            #elif defined(TARGET_OS_TV) && TARGET_OS_TV
+                #define CPPUTILS_OS_TVOS
+            #else
+                // TARGET_OS_IOS is only available in newer SDKs,
+                // so assume any other iOS-based platform is iOS for now
+                #define CPPUTILS_OS_IOS
+            #endif
+        #else
+            // TARGET_OS_OSX is only available in newer SDKs,
+            // so assume any non iOS-based platform is macOS for now
+            #define CPPUTILS_OS_MACOS
+            #define CPPUTILS_OS_MAC 1
+        #endif
+    #else
+        #error "CPPUTILS has not been ported to this Apple platform"
+    #endif
+#endif  //  #if defined(__APPLE__) && (defined(__GNUC__)  defined(__xlC__)  defined(__xlc__))
+
+
+#if defined(_CPPUNWIND) || !defined(_MSC_VER)
+#define CPPUTILS_TRY		try
+#define CPPUTILS_CATCH()	catch(...)
+#else
+#define CPPUTILS_TRY		__try
+#define CPPUTILS_CATCH()	__except (EXCEPTION_EXECUTE_HANDLER)
+#endif
+
+#define CPPUTILS_STRINGIZER(_arg)		#_arg
+#define CPPUTILS_STRVAL(_var)			CPPUTILS_STRINGIZER(_var)
+
+
+#define CPPUTILS_NAME_WITH_NUM_RAWEX(_var,_num)		_var ## _num
+#define CPPUTILS_NAME_WITH_NUM_RAW(_var,_num)		CPPUTILS_NAME_WITH_NUM_RAWEX(_var,_num)
+#define CPPUTILS_NAME_WITH_CNTR(_var)				CPPUTILS_NAME_WITH_NUM_RAW(_var,__COUNTER__)
+#define CPPUTILS_NAME_WITH_LINE(_var)				CPPUTILS_NAME_WITH_NUM_RAW(_var,__LINE__)
+
+
+#ifdef _MSC_VER
+
+#define CPPUTILS_INSERT_COMMENT_TO_BIN_RAW_RAW(_sectionVar,_sectionName,_comment)				\
+	__pragma(section(_sectionName,read))														\
+	CPPUTILS_EXTERN_C __declspec(allocate(_sectionName)) const char _sectionVar[] = _comment;	\
+	__pragma(comment(linker, "/include:" CPPUTILS_FNAME_PREFIX CPPUTILS_STRVAL(_sectionVar)))
+
+#elif defined(__APPLE__)
+
+#define CPPUTILS_INSERT_COMMENT_TO_BIN_RAW_RAW(_sectionVar,_sectionName,_comment)				\
+    const char __attribute__((section("__DATA," _sectionName),used)) _sectionVar[] = _comment;
+
+#elif defined(CPPUTILS_GCC_FAMILY)
+
+#define CPPUTILS_INSERT_COMMENT_TO_BIN_RAW_RAW(_sectionVar,_sectionName,_comment)				\
+    const char _sectionVar[] __attribute__((section(_sectionName))) = _comment;
+
+#else
+
+#define CPPUTILS_INSERT_COMMENT_TO_BIN_RAW_RAW(_sectionVar,_sectionName,_comment)				\
+	_Pragma("GCC diagnostic push")                                                              \
+    _Pragma("GCC diagnostic ignored \"-Wunused-const-variable\"")                               \
+    const char _sectionVar[] = _comment;                                                        \
+    _Pragma("GCC diagnostic pop")
+
+#endif  // #ifdef _MSC_VER
+
+
+#ifdef __cplusplus
+#define CPPUTILS_CODE_INITIALIZER(_func)					\
+	static void _func(void);								\
+	class CPPUTILS_DLL_PRIVATE ___IniterClass_ ## _func{	\
+		public:												\
+			___IniterClass_ ## _func (){					\
+				_func();									\
+			}												\
+	}static ___initerMember_ ## _func;						\
+	void _func(void)
+#else
+#define CPPUTILS_CODE_INITIALIZER			CPPUTILS_C_CODE_INITIALIZER
+#endif
 
 
 #endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_INTERNAL_HEADER_H
