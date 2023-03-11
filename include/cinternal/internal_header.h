@@ -54,7 +54,6 @@
     #define CPPUTILS_DLL_PUBLIC		__declspec(dllexport)
     #define CPPUTILS_DLL_PRIVATE
     #define CPPUTILS_IMPORT_FROM_DLL	__declspec(dllimport)
-	#define CPPUTILS_THREAD_LOCAL		__declspec(thread)
 	#if !defined(_WIN64) && !defined(_M_ARM64)
 		#define CPPUTLS_32_BIT
 	#endif
@@ -80,7 +79,6 @@
     #define CPPUTILS_DLL_PUBLIC
     #define CPPUTILS_DLL_PRIVATE		__attribute__((visibility("hidden")))
     #define CPPUTILS_IMPORT_FROM_DLL
-	#define CPPUTILS_THREAD_LOCAL		__thread
 #elif defined(__CYGWIN__)
 
 	#define CPPUTILS_GCC_FAMILY		1
@@ -404,9 +402,22 @@
 				_func();									\
 			}												\
 	}static ___initerMember_ ## _func;						\
-	void _func(void)
+	static void _func(void)
 #else
 #define CPPUTILS_CODE_INITIALIZER			CPPUTILS_C_CODE_INITIALIZER
+#endif
+
+
+#ifdef CPPUTILS_CPP_11_DEFINED
+	#define CPPUTILS_THREAD_LOCAL			thread_local
+#else
+	#ifdef _MSC_VER
+		#define CPPUTILS_THREAD_LOCAL		__declspec(thread)
+	#elif defined(CPPUTILS_GCC_FAMILY)
+		#define CPPUTILS_THREAD_LOCAL		__thread
+	#else
+		#define CPPUTILS_THREAD_LOCAL		__thread
+	#endif
 #endif
 
 

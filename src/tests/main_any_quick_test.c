@@ -13,6 +13,17 @@
 #include <stdio.h>
 #include <assert.h>
 
+#ifdef _WIN32
+#include <cinternal/disable_compiler_warnings.h>
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <Windows.h>
+#define CintrSleepMsIntr(_x)	SleepEx(_x,TRUE)
+#else
+#include <unistd.h>
+#define CintrSleepMsIntr(_x)	usleep(CPPUTILS_STATIC_CAST(useconds_t,1000*(_x)))
+#endif
+
 #define CINTERNALS_GLB_CONS_DSGN_VAL	1
 
 
@@ -28,6 +39,7 @@ CPPUTILS_CODE_INITIALIZER(code_init) {
 
 int main(void)
 {
+	int nCounter = 0;
 	CPPUTILS_FLAGS_UN(nm1, nm2)flags;
 	//union {
 	//	uint64_t all;
@@ -47,6 +59,11 @@ int main(void)
 	flags.b2.nm1_both = CPPUTILS_MAKE_BITS_TRUE;
 	assert(flags.b.nm1_false == 0);
 	printf("flags.b.nm1_false = %d\n", (int)flags.b.nm1_false);
+
+	while (nCounter < 1000) {
+		CintrSleepMsIntr(1000);
+		printf("nCounter = %d\n",++nCounter);
+	}
 
 	return 0;
 }
