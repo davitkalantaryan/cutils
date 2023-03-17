@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\windows_ld_preload\main_cinternal_core_windows_ld_preload.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_load_lib_on_remote_process_sys_windows.c">
+    <ClCompile Include="..\..\..\src\tests\main_app_to_hack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

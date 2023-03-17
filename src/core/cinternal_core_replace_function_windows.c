@@ -10,12 +10,8 @@
 
 #ifdef _WIN32
 
-#include <cinternal/replace_function.h>
+#include <cinternal/replace_function_sys.h>
 #include <string.h>
-#include <cinternal/disable_compiler_warnings.h>
-#include <WinSock2.h>
-#include <WS2tcpip.h>
-#include <Windows.h>
 #include <Psapi.h>
 
 
@@ -33,7 +29,8 @@ struct CPPUTILS_DLL_PRIVATE SReplaceDataInitial {
 static void MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID, size_t a_count,struct SCInternalReplaceFunctionData* a_replaceData);
 
 
-static inline void CInternalReplaceFunctionsForModulePrepareDataInline(HMODULE a_hModule, struct SReplaceDataInitial* CPPUTILS_ARG_NONULL a_pData,size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData) {
+static inline void CInternalReplaceFunctionsForModulePrepareDataInline(HMODULE a_hModule, struct SReplaceDataInitial* CPPUTILS_ARG_NONULL a_pData,
+                size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData) {
     size_t ind;
     MODULEINFO modInfo = { 0 };
     // Find the base address
@@ -67,23 +64,41 @@ static inline void CInternalReplaceFunctionsForModuleInline(HMODULE a_hModule,si
 }
 
 
+CINTERNAL_EXPORT void CInternalReplaceFunctionsForModule(HMODULE a_hModule, size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
+{
+    CInternalReplaceFunctionsForModuleInline(a_hModule, a_count, a_replaceData);
+}
+
+
 CINTERNAL_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
 {
-    DWORD cbNeeded;
-    HMODULE hMods[1024];
+    DWORD cbNeededIn, cbNeededOut;
+    HMODULE hMod;
+    HMODULE* pMods;
     DWORD dwFinalSize, i;
+    const HANDLE curProcHeap = GetProcessHeap();
     const HANDLE curProcHandle = GetCurrentProcess();
     
-    if (!EnumProcessModules(curProcHandle, hMods, sizeof(hMods), &cbNeeded)) {
+    if (!EnumProcessModules(curProcHandle, &hMod, 0, &cbNeededIn)) {
         return;
     }
 
-    cbNeeded /= sizeof(HMODULE);
-    dwFinalSize = (cbNeeded < 1024) ? cbNeeded : 1024;
+    pMods = HeapAlloc(curProcHeap, 0, (SIZE_T)cbNeededIn);
+    if (!pMods) {
+        return;
+    }
+
+    if (!EnumProcessModules(curProcHandle, pMods, cbNeededIn, &cbNeededOut)) {
+        return;
+    }
+
+    dwFinalSize = (cbNeededIn < cbNeededOut) ? (cbNeededIn/ sizeof(HMODULE)) : (cbNeededOut / sizeof(HMODULE));
 
     for (i = 0; i < dwFinalSize; ++i) {
-        CInternalReplaceFunctionsForModuleInline(hMods[i], a_count, a_replaceData);
+        CInternalReplaceFunctionsForModuleInline(pMods[i], a_count, a_replaceData);
     }
+
+    HeapFree(curProcHeap, 0, pMods);
 }
 
 
@@ -111,9 +126,12 @@ static void MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID
             pIIBM = (PIMAGE_IMPORT_BY_NAME)(a_pAddress + pITD->u1.AddressOfData);
             if (!strcmp(a_replaceData[ind].funcname, (const char*)(pIIBM->Name))) {
                 VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(size_t), PAGE_READWRITE, &dwOld);
-                pFirstThunkTest->u1.Function = (size_t)a_replaceData[ind].newFuncAddress;
+                if ((((const void*)(pFirstThunkTest->u1.Function)) == a_replaceData[ind].replaceIfAddressIs) || (!(a_replaceData[ind].replaceIfAddressIs))) {
+                    a_replaceData[ind].replaceIfAddressIs = (const void*)pFirstThunkTest->u1.Function;
+                    pFirstThunkTest->u1.Function = (size_t)a_replaceData[ind].newFuncAddress;
+                    a_replaceData[ind].bFound = true;
+                }
                 VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(size_t), dwOld, &dwOldTmp);
-                a_replaceData[ind].bFound = true;
                 break; 
             }  //  if (!strcmp(a_replaceData->funcname, (const char*)(pIIBM->Name))) {
             pFirstThunkTest++;

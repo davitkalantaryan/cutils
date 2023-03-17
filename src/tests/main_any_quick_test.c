@@ -9,6 +9,7 @@
 #include <cinternal/export_symbols.h>
 #include <cinternal/flagshelper.h>
 #include <cinternal/insert_info_to_bin.h>
+#include <cinternal/parser/tokenizer01.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <assert.h>

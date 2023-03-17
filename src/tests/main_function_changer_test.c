@@ -64,7 +64,8 @@ int main(void)
 	aReplaceData[1].funcname = "free";
 	aReplaceData[1].newFuncAddress = &MyFree;
 
-	CInternalReplaceFunctions(2, aReplaceData);
+	//CInternalReplaceFunctions(2, aReplaceData);
+	CInternalReplaceFunctionsAllModules(2, aReplaceData);
 
 	pMem = malloc(100);
 	printf("pMem = %p\n", pMem);

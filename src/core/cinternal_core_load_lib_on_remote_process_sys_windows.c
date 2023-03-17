@@ -21,7 +21,7 @@
 CPPUTILS_BEGIN_C
 
 
-static DWORD CInternalLoadLibOnRemoteProcessSysInline(HANDLE a_hProcess, const char* a_libraryName) {
+static inline DWORD CInternalLoadLibOnRemoteProcessSysInline(HANDLE a_hProcess, const char* a_libraryName) {
 	DWORD dwThreadId;
 	HANDLE hThread;
 	SIZE_T szWritten;

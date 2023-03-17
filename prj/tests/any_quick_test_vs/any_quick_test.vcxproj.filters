@@ -25,6 +25,24 @@
     <Filter Include="Header Files\include\cinternal\hash">
       <UniqueIdentifier>{e2ac7877-2c67-4f66-8038-c797fbb74077}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\include\cinternal\parser">
+      <UniqueIdentifier>{90f6ba8f-f475-4dfc-b758-578593d83e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src">
+      <UniqueIdentifier>{6218e036-da3c-4130-ab63-048b957a3a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\include">
+      <UniqueIdentifier>{6b52bdfd-27d1-4c22-9afc-67ea08f9118a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\include\private">
+      <UniqueIdentifier>{12e747f9-b671-4aa6-9e28-8a1311813c54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\include\private\cinternal">
+      <UniqueIdentifier>{23372132-3a95-4b23-90b3-de1ca7b80989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\include\private\cinternal\parser">
+      <UniqueIdentifier>{7e9c1a7c-97ca-450b-97aa-b4b1544e4826}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c">
@@ -34,6 +52,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\cinternal_core_list_llist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer01_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_load_lib_on_remote_process_sys_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_replace_function_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -69,6 +102,27 @@
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cinternal\insert_info_to_bin.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\parser\tokenizer01.h">
+      <Filter>Header Files\include\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_windows_p.h">
+      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\parser\argparser01.h">
+      <Filter>Header Files\include\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\endian.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\load_lib_on_remote_process_sys.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\replace_function.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\replace_function_sys.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
   </ItemGroup>

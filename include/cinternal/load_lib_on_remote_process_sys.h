@@ -25,8 +25,6 @@ CPPUTILS_BEGIN_C
 
 CINTERNAL_EXPORT bool		CInternalLoadLibOnRemoteProcessSys(HANDLE a_hProcess, const char* a_libraryName);
 CINTERNAL_EXPORT HMODULE	CInternalLoadLibOnRemoteProcessAnGetModuleSys(HANDLE a_hProcess, const char* a_libraryName);
-CINTERNAL_EXPORT bool		CInternalFreeLibOnRemoteProcessSys(HANDLE a_hProcess, HMODULE a_module);
-
 
 CPPUTILS_END_C
 
