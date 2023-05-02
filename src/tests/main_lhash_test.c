@@ -6,68 +6,75 @@
 //
 
 
-#include <cinternal/hash/lhash.h>
+#include <cinternal/hash/dllhash.h>
+#include <cinternal/unit_test.h>
 #include <stdio.h>
-#include <assert.h>
 
 #define CINTR_TEST_HASH_DATA1		2
 #define CINTR_TEST_HASH_DATA2		4
 
 
-static void TestHash(CinternalLHash_t a_hash, const void* a_key1, size_t keySize1, const void* a_key2, size_t keySize2);
+static void TestHash(CinternalDLLHash_t a_hash, const void* a_key1, size_t keySize1, const void* a_key2, size_t keySize2);
 
 int main(void)
 {
 	const int key1 = 1;
 	const int key2 = 2;
-	CinternalLHash_t aHash;
+	CinternalDLLHash_t aHash;
+	CinternalDLLHashItem_t pItem;
 
-	aHash = CInternalLHashCreateRawMem(1024);
+	aHash = CInternalDLLHashCreateRawMem(1024);
 	if (!aHash) {
 		perror("\n");
 		return 1;
 	}
-	CInternalLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA1, &key1, sizeof(int));
-	CInternalLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA2, &key2, sizeof(int));
+
+	CInternalDLLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA1, &key1, sizeof(int));
+	pItem = CInternalDLLHashFind(aHash, &key1, sizeof(int));
+	CinternalUnitTestAssertCheck(pItem);
+	CInternalDLLHashRemoveDataEx(aHash, pItem);
+
+	CInternalDLLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA1, &key1, sizeof(int));
+	CInternalDLLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA2, &key2, sizeof(int));
 	TestHash(aHash, &key1, sizeof(int), &key2, sizeof(int));
-	CInternalLHashDestroy(aHash);
+	CInternalDLLHashDestroy(aHash);
 
 
-	aHash = CInternalLHashCreateSmlInt(1024);
+	aHash = CInternalDLLHashCreateSmlInt(1024);
 	if (!aHash) {
 		perror("\n");
 		return 1;
 	}
-	CInternalLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA1, CInternalSmallIntHPair(1));
-	CInternalLHashAddDataEvenIfExist(aHash, (void*)CINTR_TEST_HASH_DATA2, CInternalSmallIntHPair(2));
-	TestHash(aHash, CInternalSmallIntHPair(1), CInternalSmallIntHPair(2));
-	CInternalLHashDestroy(aHash);
+	CInternalDLLHashAddDataEvenIfExistSmlInt(aHash, (void*)CINTR_TEST_HASH_DATA1, 1);
+	CInternalDLLHashAddDataEvenIfExistSmlInt(aHash, (void*)CINTR_TEST_HASH_DATA2, 2);
+	TestHash(aHash, CInternalSmallIntHPairFn(1), CInternalSmallIntHPairFn(2));
+	CInternalDLLHashDestroy(aHash);
 
 	return 0;
 }
 
 
-static void TestHash(CinternalLHash_t a_hash, const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2)
+static void TestHash(CinternalDLLHash_t a_hash, const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2)
 {
-	CInternalLHashIterator pItem;
+	CinternalDLLHashItem_t pItem;
 	int nNumber;
 
-	assert(CInternalLHashSize(a_hash) == 2);
+	CinternalUnitTestAssertCheck(CInternalDLLHashSize(a_hash) == 2);
 
 	nNumber = 0;
-	pItem = CInternalLHashFirstItem(a_hash);
+	pItem = CInternalDLLHashFirstItem(a_hash);
 	while (pItem) {
 		++nNumber;
-		pItem = pItem->nextInList;
+		pItem = CInternalDLLHashItemFromDLListIterator(CInternalDLListIteratorFromDLLHashItem(pItem)->next);
 	}
 
-	assert(nNumber == 2);
+	CinternalUnitTestAssertCheck(nNumber == 2);
 
-	pItem = CInternalLHashFind(a_hash, a_key1, a_keySize1);
-	assert(pItem);
-	assert(((size_t)pItem->data) == CINTR_TEST_HASH_DATA1);
+	pItem = CInternalDLLHashFind(a_hash, a_key1, a_keySize1);
+	CinternalUnitTestAssertCheck(pItem);
+	CinternalUnitTestAssertCheck(((size_t)(pItem->data)) == CINTR_TEST_HASH_DATA1);
 
-	pItem = CInternalLHashFind(a_hash, a_key2, a_keySize2);
-	assert(pItem);
-	assert(((size_t)pItem->data) == CINTR_TEST_HASH_DATA2);
+	pItem = CInternalDLLHashFind(a_hash, a_key2, a_keySize2);
+	CinternalUnitTestAssertCheck(pItem);
+	CinternalUnitTestAssertCheck(((size_t)(pItem->data)) == CINTR_TEST_HASH_DATA2);
 }

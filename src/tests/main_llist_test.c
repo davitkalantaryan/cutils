@@ -6,44 +6,44 @@
 //
 
 
-#include <cinternal/list/llist.h>
+#include <cinternal/list/dllist.h>
+#include <cinternal/unit_test.h>
 #include <stdio.h>
-#include <assert.h>
 
 int main(void)
 {
 	int nNumber;
-	CInternalLListIterator pItem;
-	CinternalLList_t aList = CInternalLListCreate();
+	CinternalDLListItem_t pItem;
+	CinternalDLList_t aList = CInternalDLListCreate();
 
 	if (!aList) {
 		perror("\n");
 		return 1;
 	}
 
-	CInternalLListAddDataToFront(aList, (void*)1);
-	CInternalLListAddDataToFront(aList, (void*)2);
-	CInternalLListAddDataToFront(aList, (void*)3);
-	assert(CInternalLListSize(aList) == 3);
+	CInternalDLListAddDataToFront(aList, (void*)1);
+	CInternalDLListAddDataToFront(aList, (void*)2);
+	CInternalDLListAddDataToFront(aList, (void*)3);
+	CinternalUnitTestAssertCheck(CInternalDLListSize(aList) == 3);
 
 	nNumber = 0;
-	pItem = CInternalLListFirstItem(aList);
+	pItem = CInternalDLListFirstItem(aList);
 	while (pItem) {
 		++nNumber;
-		pItem = pItem->nextInList;
+		pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
 	}
 
-	assert(nNumber==3);
+	CinternalUnitTestAssertCheck(nNumber==3);
 	
-	pItem = CInternalLListFirstItem(aList);
-	assert(pItem);
-	assert(((size_t)pItem->data)==3);
+	pItem = CInternalDLListFirstItem(aList);
+	CinternalUnitTestAssertCheck(pItem);
+	CinternalUnitTestAssertCheck(((size_t)pItem->data)==3);
 
-	pItem = pItem->nextInList;
-	assert(pItem);
-	assert(((size_t)pItem->data) == 2);
+	pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
+	CinternalUnitTestAssertCheck(pItem);
+	CinternalUnitTestAssertCheck(((size_t)pItem->data) == 2);
 
-	CInternalLListDestroy(aList);
+	CInternalDLListDestroy(aList);
 
 	return 0;
 }

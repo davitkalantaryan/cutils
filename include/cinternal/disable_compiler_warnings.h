@@ -17,6 +17,7 @@
 #pragma warning(disable:4668)
 #pragma warning(disable:4820)
 #pragma warning(disable:5039) // 'TpSetCallbackCleanupGroup': pointer or reference to potentially throwing function
+#pragma warning (disable:4061) // enumerator 'MonAppHiderEventNone' in switch of enum
 #ifndef __cplusplus
 #pragma warning(disable:4255)
 #endif

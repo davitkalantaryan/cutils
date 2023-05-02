@@ -5,12 +5,11 @@
 # created by:	Davit Kalantaryan
 #
 
+TEMPLATE = lib
+
 include ( "$${PWD}/../../common/common_qt/sys_common.pri" )
 include ( "$${PWD}/../../common/common_qt/flags_common.pri" )
 
-DESTDIR     = "$${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/test"
-
-TEMPLATE = lib
 
 QT -= gui
 QT -= core
@@ -34,3 +33,5 @@ COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP
+
+OTHER_FILES += $$files($${PWD}/../insert_custom_info_into_bin_test_lib_mkfl/*.Makefile,false)

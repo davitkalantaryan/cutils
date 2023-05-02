@@ -11,47 +11,23 @@
 #define CINTERNAL_INCLUDE_CINTERNAL_FLAGSHELPER_H
 
 #include <cinternal/internal_header.h>
-#include <cinternal/macroses02.h>
 
-#define CPPUTILS_MAKE_BITS_POSITIVE     1
-#define CPPUTILS_MAKE_BITS_NEGATIVE     2
-#define CPPUTILS_MAKE_BITS_TRUE         1
-#define CPPUTILS_MAKE_BITS_FALSE        2
-#define CPPUTILS_INIT_BITS              0xaaaaaaaaaaaaaaaa
-
-#define CPPUTILS_POS_NEG_BITS_RAW(_type,_name) \
-    _type  _name ## _true : 1; \
-    _type  _name ## _false : 1
-
-#define CPPUTILS_POS_NEG_BITS(_name)  CPPUTILS_POS_NEG_BITS_RAW(uint64_t,_name)
-#define CPPUTILS_POS_NEG_BITS2(_a,_name)  CPPUTILS_POS_NEG_BITS(_name) ;
+#ifndef CINTERNAL_FLAGS_HELPER_VERSION
+#if defined(USING_CINTERNA_FLAGS_HELPER_VERSION2) || defined(USING_CINTERNAL_FLAGS_HELPER_VERSION2)
+#define CINTERNAL_FLAGS_HELPER_VERSION      2
+#else
+#define CINTERNAL_FLAGS_HELPER_VERSION      1
+#endif
+#endif
 
 
-#define CPPUTILS_BOTH_BITS_RAW(_type,_name) \
-    _type  _name ## _both : 2
-#define CPPUTILS_BOTH_BITS(_name)  CPPUTILS_BOTH_BITS_RAW(uint64_t,_name)
-#define CPPUTILS_BOTH_BITS2(_a,_name)  CPPUTILS_BOTH_BITS(_name) ;
-
-
-#define CPPUTILS_BITS_B(...) CPPUTILS_MACRO02_APPY(CPPUTILS_POS_NEG_BITS2,,__VA_ARGS__)
-#define CPPUTILS_BITS_B2(...) CPPUTILS_MACRO02_APPY(CPPUTILS_BOTH_BITS2,,__VA_ARGS__)
-
-
-#define CPPUTILS_FLAGS_UN_RAW(_name, _numberOfReserved,...)  \
-    union _name {  \
-        uint64_t  all; \
-        struct{ \
-            CPPUTILS_BITS_B(__VA_ARGS__)                \
-            uint64_t    reserved01 : _numberOfReserved; \
-        }b; \
-        struct{ \
-            CPPUTILS_BITS_B2(__VA_ARGS__)               \
-            uint64_t    reserved01 : _numberOfReserved; \
-        }b2;    \
-    }
-
-#define CPPUTILS_FLAGS_UN(...)    CPPUTILS_FLAGS_UN_RAW(,64-2*CPPUTILS_NARGS(__VA_ARGS__),__VA_ARGS__)
-#define CPPUTILS_FLAGS_UN_NM(_name,...)    CPPUTILS_FLAGS_UN_RAW(_name,64-2*CPPUTILS_NARGS(__VA_ARGS__),__VA_ARGS__)
+#if CINTERNAL_FLAGS_HELPER_VERSION == 1
+#include <cinternal/flagshelper01.h>
+#elif CINTERNAL_FLAGS_HELPER_VERSION == 2
+#include <cinternal/flagshelper02.h>
+#else
+#error this version of flags helper is not implemented
+#endif
 
 
 #endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_FLAGSHELPER_H

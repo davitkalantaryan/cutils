@@ -30,3 +30,5 @@ COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP
+
+OTHER_FILES += $$files($${PWD}/../c_global_initer_test_mkfl/*.Makefile,false)

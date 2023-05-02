@@ -22,26 +22,34 @@ env:
 
 jobs:
 
-    # matrix for debian linuxes (for now ubuntu-18.04 and ubuntu-20.04)
-    debian-linuxes:
+    # matrix for unix systems (for now ubuntu-20.04 and ubuntu-22.04, and macos)
+    unixes:
         runs-on: ${{ matrix.os }}
         strategy:
           matrix:
-            #os: [ubuntu-18.04, ubuntu-20.04, LinuxMint-19.3]
-            #os: [ubuntu-18.04, ubuntu-20.04]
-            # for time being let's use only one platform on matrix, because running is not free
-            os: [ubuntu-18.04]
+            #os: [ubuntu-20.04 ubuntu-22.04]
             include:
               # for all linuxes we should specify lC (lsbCode)
               # lC=$lsbCode=`lsb_release -c | cut -f 2` # for ubuntu18
-              - os: ubuntu-18.04
-                lC: bionic
-              #- os: ubuntu-20.04
-              #  lC: focal
+              #- os: ubuntu-18.04
+              #  lC: bionic
+              - os: ubuntu-20.04
+                lC: focal
+              - os: ubuntu-22.04
+                lC: jammy
+              - os: macos-latest
+                lC: mac
               #- os: LinuxMint-19.3
               #  lC: trica
         steps:
-            - uses: actions/checkout@v2
+            - name: Checking out repository
+              uses: actions/checkout@v3
+    
+            - name: Preparing host for ${{ matrix.os }}
+              run: ./scripts/unix_prepare_host.sh
+      
+            - name: Preparing repository for ${{ matrix.os }}
+              run: ./scripts/unix_prepare_repository.sh
 
             #- name: Install SSH key
             #  uses: shimataro/ssh-key-action@v2
@@ -50,7 +58,10 @@ jobs:
             #   #known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
             - name: Building
-              run: echo "will be implemented"
+              run: ./scripts/unix_build_all.sh
+
+            - name: testing test apps
+              run: ./scripts/unix_run_tests.sh
 
 
     # This is for windows
@@ -58,10 +69,10 @@ jobs:
         runs-on: windows-latest
         steps:
             - name: Checking out repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Setup MSBuild.exe
-              uses: microsoft/setup-msbuild@v1.0.2
+              uses: microsoft/setup-msbuild@v1.1
 
             - name: Setup developer command prompt
               uses: ilammy/msvc-dev-cmd@v1
@@ -77,11 +88,7 @@ jobs:
               run: cmd /C .\scripts\windows_build_all.bat
 
             - name: testing test apps
-              run: >
-                .\sys\win_x64\Debug\test\any_quick_test.exe
-                .\sys\win_x64\Debug\test\c_raii_test.exe
-                .\sys\win_x64\Debug\test\lhash_test.exe
-                .\sys\win_x64\Debug\test\llist_test.exe
+              run: cmd /C .\scripts\windows_run_tests.bat
 
     mac:
         #needs: prepare-ubuntu18-host

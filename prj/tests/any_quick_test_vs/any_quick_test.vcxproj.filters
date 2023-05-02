@@ -48,25 +48,25 @@
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_hash_lhash.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_list_llist.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer01_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_load_lib_on_remote_process_sys_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\cinternal_core_replace_function_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_list_dllist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_hash_dllhash.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,12 +92,6 @@
     <ClInclude Include="..\..\..\include\cinternal\macroses02.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\list\llist.h">
-      <Filter>Header Files\include\cinternal\list</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\hash\lhash.h">
-      <Filter>Header Files\include\cinternal\hash</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cinternal\macroses.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
@@ -116,13 +110,22 @@
     <ClInclude Include="..\..\..\include\cinternal\endian.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\load_lib_on_remote_process_sys.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cinternal\replace_function.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cinternal\replace_function_sys.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\list\dllist.h">
+      <Filter>Header Files\include\cinternal\list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\hash\dllhash.h">
+      <Filter>Header Files\include\cinternal\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\flagshelper01.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
   </ItemGroup>

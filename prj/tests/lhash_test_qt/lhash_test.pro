@@ -25,10 +25,12 @@ DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_lhash_test.c"              \
-        "$${PWD}/../../../src/core/cinternal_core_hash_lhash.c"
+	"$${PWD}/../../../src/core/cinternal_core_hash_dllhash.c"
 
 COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
 COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP
+
+OTHER_FILES += $$files($${PWD}/../lhash_test_mkfl/*.Makefile,false)

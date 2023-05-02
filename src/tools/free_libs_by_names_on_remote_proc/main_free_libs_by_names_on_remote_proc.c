@@ -1,19 +1,58 @@
 //
-// file:            main_free_library_by_name_on_remote.c
-// path:			src/tools/free_libs_by_names_on_remote_proc/main_free_library_by_name_on_remote.c
+// file:            main_free_libs_by_names_on_remote_proc.c
+// path:			src/tools/free_libs_by_names_on_remote_proc/main_free_libs_by_names_on_remote_proc.c
 // created on:		2023 Mar 17
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-//#define CINTERNAL_WINDOWS_LD_POSTFREE_WAIT_FOR_DEBUGGER
+
+//#define CINTERNAL_LD_POSTLOAD_WAIT_FOR_DEBUGGER		1
 
 #include <cinternal/export_symbols.h>
-#include <cinternal/load_lib_on_remote_process_sys.h>
+#include <cinternal/loadfreelib_on_remote_process.h>
 #include <cinternal/parser/argparser01.h>
-#include <cinternal/list/llist.h>
-#include <private/cinternal/parser/tokenizer02_windows_p.h>
+#include <cinternal/list/dllist.h>
+#include <private/cinternal/parser/tokenizer02_common_p.h>
+#include <stddef.h>
+
+#ifdef _WIN32
+#include <cinternal/disable_compiler_warnings.h>
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <Windows.h>
 #include <stdlib.h>
 #include <stdio.h>
+static char* GetEnvironmentVariableACint(const char* a_cpcName, char* a_pBuffer, size_t a_bufLen, size_t* a_pBytesReturned)
+{
+	*a_pBytesReturned = (size_t)GetEnvironmentVariableA(a_cpcName, a_pBuffer, (DWORD)a_bufLen);
+	return a_pBuffer;
+}
+#else
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+static char* GetEnvironmentVariableACint(const char* a_cpcName, char* a_pBuffer, size_t a_bufLen, size_t* a_pBytesReturned)
+{
+	//char* pRet = secure_getenv(a_cpcName);
+	char* pRet = getenv(a_cpcName);
+	if (!pRet) {
+		*a_pBytesReturned = 0;
+		return CPPUTILS_NULL;
+	}
+
+	(void)a_pBuffer;
+	*a_pBytesReturned = strlen(pRet);
+	if ((*a_pBytesReturned) > 0) {
+		(*a_pBytesReturned) = a_bufLen - 1;
+	}
+
+	return pRet;
+}
+#endif
+
 
 
 int main(int a_argc, char* a_argv[])
@@ -22,16 +61,16 @@ int main(int a_argc, char* a_argv[])
 	char** ppcArgv = a_argv + 1;
 	char** ppcArgvTmp;
 	int nArgcTmp, nArgcTmpTmp;
-	DWORD dwEnvLen;
+	char* pcEnvVar;
+	size_t szEnvLen;
 	char vcLdPpostloadEnvBuffer[1024];
 	const char* cpcNextArg;
-	CinternalLList_t aList;
-	CInternalLListIterator listIter;
-	HANDLE hProcess;
-	DWORD dwPid = 0;
+	CinternalDLList_t aList;
+	CinternalDLListItem_t pItem;
+	int nPid = 0;
 	int nRet;
 
-#if defined(CINTERNAL_WINDOWS_LD_POSTFREE_WAIT_FOR_DEBUGGER)
+#if defined(CINTERNAL_LD_POSTLOAD_WAIT_FOR_DEBUGGER)
 	fprintf(stdout, "Press any key then enter to continue "); fflush(stdout);
 	nRet = getchar();
 	CPPUTILS_STATIC_CAST(void, nRet);
@@ -40,7 +79,7 @@ int main(int a_argc, char* a_argv[])
 	//}
 #endif
 
-	aList = CInternalLListCreate();
+	aList = CInternalDLListCreate();
 	if (!aList) {
 		fprintf(stderr, "Unable create a list\n");
 		return 1;
@@ -48,7 +87,7 @@ int main(int a_argc, char* a_argv[])
 
 	cpcNextArg = CInternalFindEndTakeArg(&nArgc, ppcArgv, "---pid", &nRet, true);
 	if (cpcNextArg) {
-		dwPid = CPPUTILS_STATIC_CAST(DWORD, atoi(cpcNextArg));
+		nPid = atoi(cpcNextArg);
 	}
 
 	ppcArgvTmp = ppcArgv;
@@ -58,7 +97,7 @@ int main(int a_argc, char* a_argv[])
 		nArgcTmpTmp = nArgcTmp;
 		cpcNextArg = CInternalFindEndTakeArg(&nArgcTmp, ppcArgvTmp, "--libs", &nRet, true);
 		if (cpcNextArg) {
-			CInternalLListAddDataToFront(aList, cpcNextArg);
+			CInternalDLListAddDataToFront(aList, cpcNextArg);
 			nArgc -= (nArgcTmpTmp - nArgcTmp);
 			ppcArgvTmp += nRet;
 			nArgcTmp -= nRet;
@@ -69,39 +108,31 @@ int main(int a_argc, char* a_argv[])
 	}  //  while (nArgc > 0) {
 
 
-	if (dwPid < 1) {
+	if (nPid < 1) {
 		if (nArgc < 1) {
-			CInternalLListDestroy(aList);
+			CInternalDLListDestroy(aList);
 			fprintf(stderr, "PID of running application to inject DLL is not specified!\n");
 			return 1;
 		}
-		dwPid = CPPUTILS_STATIC_CAST(DWORD, atoi(ppcArgv[0]));
-		if (dwPid < 1) {
-			CInternalLListDestroy(aList);
+		nPid = atoi(ppcArgv[0]);
+		if (nPid < 1) {
+			CInternalDLListDestroy(aList);
 			fprintf(stderr, "PID of running application to inject DLL is not specified!\n");
 			return 1;
 		}
 	}  //  if (dwPid < 1) {
 
-	hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwPid);
-	if (!hProcess) {
-		CInternalLListDestroy(aList);
-		fprintf(stderr, "Unable to access process with the PID: %d!\n", (int)dwPid);
-		return 1;
+	pItem = CInternalDLListFirstItem(aList);
+	while (pItem) {
+		CInternalTokenizer02b((char*)(pItem->data), nPid);
+		pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
 	}
+	CInternalDLListDestroy(aList);
 
-	listIter = CInternalLListFirstItem(aList);
-	while (listIter) {
-		CInternalTokenizerWindows02a((char*)(listIter->data), hProcess);
-		listIter = listIter->nextInList;
-	}
-	CInternalLListDestroy(aList);
+	pcEnvVar = GetEnvironmentVariableACint("LD_POSTFREE", vcLdPpostloadEnvBuffer, 1023, &szEnvLen);
+	if ((szEnvLen > 0) && (szEnvLen < 1023)) {
+		CInternalTokenizer02b(pcEnvVar, nPid);
+	}  //  if ((szEnvLen > 0) && (szEnvLen < 1023)) {
 
-	dwEnvLen = GetEnvironmentVariableA("LD_POSTFREE", vcLdPpostloadEnvBuffer, 1023);
-	if ((dwEnvLen > 0) && (dwEnvLen < 1023)) {
-		CInternalTokenizerWindows02a(vcLdPpostloadEnvBuffer, hProcess);
-	}  //  if ((dwEnvLen > 0) && (dwEnvLen < 1023)) {
-
-	CloseHandle(hProcess);
 	return 0;
 }

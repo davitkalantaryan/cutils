@@ -78,9 +78,13 @@
 !/workspaces/*_vs/*.sln
 !/workspaces/*_vs/*.vcxproj
 !/workspaces/*_vs/*.vcxproj.filters
+#
+!/workspaces/*_mkfl/*Makefile*
 
 #/scripts/test_include_sourse.sh
 
 prj/tests/googletest_mult/Makefile.googletest_getter
 
 /.private
+
+*.cpp.autosave

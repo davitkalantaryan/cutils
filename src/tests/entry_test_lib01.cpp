@@ -13,16 +13,20 @@
 CPPUTILS_BEGIN_C
 
 
-static int entry_test_lib01_clean(void)
+static void entry_test_lib01_clean(void)
 {
 	printf("file:%s, ln:%d, fn:%s\n", __FILE__, __LINE__, __FUNCTION__);
-	return 0;
+    //return 0;
 }
 
 
 CPPUTILS_CODE_INITIALIZER(entry_test_lib01_init) {
 	printf("file:%s, ln:%d, fn:%s\n",__FILE__,__LINE__,__FUNCTION__);
-	_onexit(&entry_test_lib01_clean);
+//#ifdef _WIN32
+//    _onexit(&entry_test_lib01_clean);
+//#else
+    atexit(&entry_test_lib01_clean);
+//#endif
 }
 
 

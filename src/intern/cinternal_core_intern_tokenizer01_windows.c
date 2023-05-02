@@ -8,7 +8,8 @@
 
 #include <private/cinternal/parser/tokenizer01_windows_p.h>
 #include <cinternal/parser/tokenizer01.h>
-#include <cinternal/load_lib_on_remote_process_sys.h>
+#include <cinternal/loadfreelib_on_remote_process_sys.h>
+#include <stdio.h>
 
 
 CPPUTILS_BEGIN_C
@@ -17,7 +18,11 @@ CPPUTILS_BEGIN_C
 static int CinternalTokenizerForWindowsDllInject01a(void* a_clbkData, const char* a_cpcNextString)
 {
 	const HANDLE hProcess = (HANDLE)a_clbkData;
-	return CInternalLoadLibOnRemoteProcessSys(hProcess, a_cpcNextString)?0:-2;
+	if (CInternalLoadLibOnRemoteProcessSys(hProcess, a_cpcNextString)) {
+		return 0;
+	}
+	fprintf(stderr, "Unable to load library with the name:\"%s\"\n", a_cpcNextString);
+	return -2;
 }
 
 

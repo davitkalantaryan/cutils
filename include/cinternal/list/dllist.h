@@ -1,0 +1,50 @@
+//
+// file:            dllist.h
+// path:			include/cinternal/list/dllist.h
+// created on:		2023 Feb 25
+// created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
+// explanation:		Double Linked List
+//
+
+#ifndef CINTERNAL_INCLUDE_CINTERNAL_LIST_LLIST_H
+#define CINTERNAL_INCLUDE_CINTERNAL_LIST_LLIST_H
+
+#include <cinternal/export_symbols.h>
+#include <cinternal/common_data01.h>
+#include <cinternal/common_data02.h>
+
+
+CPPUTILS_BEGIN_C
+
+struct SCinternalDLList;
+typedef struct SCinternalDLList* CinternalDLList_t;
+typedef const struct SCinternalDLList* ConstCinternalDLList_t;
+
+struct SCinternalDLListItem {
+	struct SCinternalDLListIterator	itr;
+	void*							data;
+};
+typedef const struct SCinternalDLListItem* CinternalDLListItem_t;
+
+#define CInternalDLListIteratorFromDLListItem(_item_ptr)	(&((_item_ptr)->itr))
+#define CInternalDLListItemFromDLListIterator(_iter_ptr)	cpputils_container_of(_iter_ptr,const struct SCinternalDLListItem,itr)
+
+CINTERNAL_EXPORT CinternalDLList_t CInternalDLListCreateEx(TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
+CINTERNAL_EXPORT void	CInternalDLListDestroyEx(CinternalDLList_t CPPUTILS_ARG_NN a_list, TypeCinternalDeallocator a_remainingDataCleaner);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListFirstItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListLastItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list);
+CINTERNAL_EXPORT void	CInternalDLListRemoveData(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iterator);
+CINTERNAL_EXPORT size_t CInternalDLListSize(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataBeforeIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataAfterIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToFront(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data);
+CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToBack(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data);
+
+
+CPPUTILS_END_C
+
+#define CInternalDLListCreate()						CInternalDLListCreateEx(CPPUTILS_NULL,CPPUTILS_NULL)
+#define CInternalDLListDestroy(_list)				CInternalDLListDestroyEx(_list,CPPUTILS_NULL)
+
+
+#endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_LIST_LLIST_H

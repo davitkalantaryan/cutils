@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_load_lib_on_remote_process_sys_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\tools\windows_ld_preload\main_cinternal_core_windows_ld_preload.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,7 +24,7 @@
     <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
+    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

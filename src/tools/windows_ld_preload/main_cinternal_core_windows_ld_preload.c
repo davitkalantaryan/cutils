@@ -9,8 +9,7 @@
 //#define CINTERNAL_WINDOWS_LD_PRELOAD_WAIT_FOR_DEBUGGER		1
 
 #include <cinternal/export_symbols.h>
-#include <cinternal/load_lib_on_remote_process_sys.h>
-#include <cinternal/parser/argparser01.h>
+#include <cinternal/loadfreelib_on_remote_process_sys.h>
 #include <private/cinternal/parser/tokenizer01_windows_p.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,8 +19,10 @@
 #include <fcntl.h>
 #include <io.h>
 
-
-#define MAX_BUFFER_SIZE		4095
+#define CINTR_MAX_ENV_LEN					1023
+#define CINTR_MAX_CMD_LINE_BUFFER_SIZE		4095
+#define CINTR_LD_PRELOAD_ENV_NAME			"LD_PRELOAD"
+#define CINTR_PROC_NO_WAIT					"CINTR_PROC_NO_WAIT"
 
 static HANDLE	s_mainThreadHandle;
 
@@ -49,16 +50,13 @@ CPPUTILS_CODE_INITIALIZER(main_cinternal_core_windows_ld_preload_init) {
 
 int main(int a_argc, char* a_argv[])
 {
-	int nArgc = a_argc - 1;
-	char** ppcArgv = a_argv + 1;
 	DWORD dwEnvLen;
-	char vcLdPreloadEnvBuffer[1024];
-	const char *cpcAppToStart, *cpcNextArg;
-	bool bShouldWaitForProcess;
+	char vcEnvBuffer[CINTR_MAX_ENV_LEN + 1];
+	int nShouldWaitForProcess = 1;
 	BOOL bCrtPrcRet;
 	int ind, nRet;
 	size_t unOffset = 0;
-	char vcCmdLine[MAX_BUFFER_SIZE + 1];
+	char vcCmdLine[CINTR_MAX_CMD_LINE_BUFFER_SIZE + 1];
 	STARTUPINFOA aStartInfo;
 	PROCESS_INFORMATION aProcInf = { 0 };
 
@@ -71,24 +69,17 @@ int main(int a_argc, char* a_argv[])
 	//}
 #endif
 
-	cpcNextArg = CInternalFindEndTakeArg(&nArgc, ppcArgv, "---no-wait", &nRet,false);
-	bShouldWaitForProcess = (cpcNextArg == CPPUTILS_NULL);
-
 	if (a_argc < 1) {
 		fprintf(stderr, "name of application to start is not specified!\n");
 		return 1;
 	}
-	//else 
-	{
-		cpcAppToStart = ppcArgv[0];
-	}
 
 	vcCmdLine[0] = 0;
 
-	for (ind = 1; ind < nArgc; ++ind) {
-		nRet = snprintf(vcCmdLine + unOffset, MAX_BUFFER_SIZE - unOffset, " %s", ppcArgv[ind]);
+	for (ind = 1; ind < a_argc; ++ind) {
+		nRet = snprintf(vcCmdLine + unOffset, CINTR_MAX_CMD_LINE_BUFFER_SIZE - unOffset, " %s", a_argv[ind]);
 		unOffset += CPPUTILS_STATIC_CAST(size_t, nRet);
-		if (unOffset >= MAX_BUFFER_SIZE) {
+		if (unOffset >= CINTR_MAX_CMD_LINE_BUFFER_SIZE) {
 			break;
 		}
 	}  //  for (i = 2; i < a_argc; ++i) {
@@ -98,7 +89,7 @@ int main(int a_argc, char* a_argv[])
 	aStartInfo.wShowWindow = SW_SHOWNOACTIVATE;
 
 	bCrtPrcRet = CreateProcessA(
-		cpcAppToStart,			// lpApplicationName
+		a_argv[1],			// lpApplicationName
 		vcCmdLine,			// lpCommandLine
 		CPPUTILS_NULL,		// lpProcessAttributes
 		CPPUTILS_NULL,		// lpThreadAttributes
@@ -110,24 +101,25 @@ int main(int a_argc, char* a_argv[])
 		&aProcInf			// lpProcessInformation
 	);
 	if (!bCrtPrcRet) {
-		fprintf(stderr, "Unable to create process with the name %s\n", cpcAppToStart);
+		fprintf(stderr, "Unable to create process with the name %s\n", a_argv[1]);
 		return 1;
 	}
 
+	// let's check whether we should wait for child
+	dwEnvLen = GetEnvironmentVariableA(CINTR_PROC_NO_WAIT, vcEnvBuffer, CINTR_MAX_ENV_LEN);
+	if ((dwEnvLen > 0) && (dwEnvLen < CINTR_MAX_ENV_LEN)) {
+		nShouldWaitForProcess = atoi(vcEnvBuffer);
+	}  //  if ((dwEnvLen > 0) && (dwEnvLen < CINTR_MAX_ENV_LEN)) {
 
+	// before resuming thread/process we should read 'LD_PRELOAD' and preload all libraries
+	dwEnvLen = GetEnvironmentVariableA(CINTR_LD_PRELOAD_ENV_NAME, vcEnvBuffer, CINTR_MAX_ENV_LEN);
+	if ((dwEnvLen > 0) && (dwEnvLen < CINTR_MAX_ENV_LEN)) {
+		CInternalTokenizerWindows01a(vcEnvBuffer, aProcInf.hProcess);
+	}  //  if ((dwEnvLen > 0) && (dwEnvLen < CINTR_MAX_ENV_LEN)) {
 
-	{
-		// before resuming thread/process we should read 'LD_PRELOAD' and preload all libraries
-		dwEnvLen = GetEnvironmentVariableA("LD_PRELOAD", vcLdPreloadEnvBuffer, 1023);
-		if ((dwEnvLen > 0) && (dwEnvLen < 1023)) {
-			CInternalTokenizerWindows01a(vcLdPreloadEnvBuffer, aProcInf.hProcess);
-		}  //  if ((dwEnvLen > 0) && (dwEnvLen < 1023)) {
-	}
-
-
-
+	// all necessary libs preloaded (or tried to preload), time to resume the process
 	ResumeThread(aProcInf.hThread);
-	if (bShouldWaitForProcess) {
+	if (nShouldWaitForProcess) {
 		DWORD dwWaitResult;
 		s_mainThreadHandle = GetCurrentThread();
 		signal(SIGINT, &SignalHandler);
@@ -142,7 +134,6 @@ int main(int a_argc, char* a_argv[])
 	}
 	CloseHandle(aProcInf.hThread);
 	CloseHandle(aProcInf.hProcess);
-
 
 	return 0;
 }

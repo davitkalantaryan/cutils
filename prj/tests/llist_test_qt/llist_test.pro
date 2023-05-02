@@ -25,10 +25,12 @@ DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_llist_test.c"              \
-        "$${PWD}/../../../src/core/cinternal_core_list_llist.c"
+	"$${PWD}/../../../src/core/cinternal_core_list_dllist.c"
 
 COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
 COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP
+
+OTHER_FILES += $$files($${PWD}/../llist_test_mkfl/*.Makefile,false)

@@ -249,8 +249,9 @@
 #endif
 
 
-#define CPPUTILS_NO_NULL
 #define CPPUTILS_ARG_NO_NULL
+#define CPPUTILS_NO_NULL	CPPUTILS_ARG_NO_NULL
+#define CPPUTILS_ARG_NN		CPPUTILS_ARG_NO_NULL
 
 #define CPPUTILS_STRINGIFY(_x)                CPPUTILS_STRINGIFY_PRIV_RAW(_x)
 #define CPPUTILS_STRINGIFY_PRIV_RAW(_x)		#_x
@@ -418,6 +419,22 @@
 	#else
 		#define CPPUTILS_THREAD_LOCAL		__thread
 	#endif
+#endif
+
+
+#if defined(offsetof) || defined(offsetof_defined)
+	//#define	cpputils_offsetof		offsetof
+	#define cpputils_offsetof(_tp,_mem)		CPPUTILS_REINTERPRET_CAST(size_t,CPPUTILS_REINTERPRET_CAST(const char*,&(CPPUTILS_STATIC_CAST(_tp *,CPPUTILS_NULL)->_mem)))
+#else
+	#define cpputils_offsetof(_tp,_mem)		CPPUTILS_REINTERPRET_CAST(size_t,CPPUTILS_REINTERPRET_CAST(const char*,&(CPPUTILS_STATIC_CAST(_tp *,CPPUTILS_NULL)->_mem)))
+#endif
+
+
+#if defined(container_of) || defined(container_of_defined)
+	#define	cpputils_container_of					container_of
+#else
+	#define cpputils_container_of(_p,_tp,_mem)		((_tp*)(((char*)_p)-cpputils_offsetof(_tp,_mem)))
+	//#define cpputils_container_of(_p,_tp,_mem)			CPPUTILS_REINTERPRET_CAST((CPPUTILS_REINTERPRET_CAST(const char*,_p)-offsetof(_tp,_mem))
 #endif
 
 
