@@ -53,16 +53,18 @@ static void MyFree(void* a_ptr)
 int main(void)
 {
 	void* pMem;
-	struct SCInternalReplaceFunctionData aReplaceData[2];
+	struct SCInternalReplaceFunctionData aReplaceData[2] = {0};
 
 	s_originalMalloc = &malloc;
 	s_originalFree = &free;
 
 	aReplaceData[0].funcname = "malloc";
 	aReplaceData[0].newFuncAddress = &MyMalloc;
+	aReplaceData[0].replaceIfAddressIs = &malloc;
 
 	aReplaceData[1].funcname = "free";
 	aReplaceData[1].newFuncAddress = &MyFree;
+	aReplaceData[0].replaceIfAddressIs = &free;
 
 	//CInternalReplaceFunctions(2, aReplaceData);
 	CInternalReplaceFunctionsAllModules(2, aReplaceData);

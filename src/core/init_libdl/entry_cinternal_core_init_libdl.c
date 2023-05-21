@@ -8,6 +8,8 @@
 
 #include <cinternal/internal_header.h>
 
+#ifndef _WIN32
+
 #ifndef _GNU_SOURCE
 #define  _GNU_SOURCE
 #endif
@@ -38,6 +40,8 @@ CPPUTILS_CODE_INITIALIZER(entry_cinternal_core_init_libdl_initialize){
 	atexit(&entry_cinternal_core_init_libdl_clean);
 }
 
+
+#endif  //  #ifndef _WIN32
 
 
 CPPUTILS_END_C

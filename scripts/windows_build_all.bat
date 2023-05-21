@@ -20,6 +20,16 @@ set scriptDirectory=%~dp0
 cd /D "%scriptDirectory%.."
 set "repositoryRoot=%cd%\"
 
+if not defined PlatformToolsetVar (
+	set "PlatformToolsetVarMid=%VCToolsVersion:~0,2%"
+	set "PlatformToolsetVarEnd=%VCToolsVersion:~3,1%"
+	set "PlatformToolsetVar=v%PlatformToolsetVarMid%%PlatformToolsetVarEnd%"
+
+	rem todo: get rid of below code
+	set "PlatformToolsetVar=v143"
+	echo PlatformToolsetVar=%PlatformToolsetVar%
+)
+
 
 :: handling arguments
 ::set argC=0
@@ -53,7 +63,11 @@ for %%p in (%PlatformTarget%) do (
 	)
 )
 
+cd "%repositoryRoot%prj\tests\unit_test_test_mult"
+if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
+
+nmake -f unit_test_test.windows.Makefile Platform=x64 Configuration=Debug
 exit /b %ERRORLEVEL%
 
 

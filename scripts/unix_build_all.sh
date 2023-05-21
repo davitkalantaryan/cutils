@@ -29,3 +29,10 @@ cd workspaces/cinternal_all_mkfl
 unset CPPUTILS_DEBUG
 make -f cinternal_all.unix.Makefile
 make -f cinternal_all.unix.Makefile CPPUTILS_DEBUG=1
+
+
+cd ${repositoryRoot}/prj/tests/unit_test_test_mult
+unset CPPUTILS_DEBUG
+make -f unit_test_test.unix.Makefile
+# to make debug use line below
+make -f unit_test_test.unix.Makefile all CPPUTILS_DEBUG=1

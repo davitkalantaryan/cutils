@@ -54,3 +54,4 @@ cd ${repositoryRoot}/sys/${lsbCode}/Debug/test
 
 ./lhash_test
 ./llist_test
+./unittest

@@ -6,6 +6,8 @@ TEMPLATE = subdirs
 include ( "$${PWD}/../../prj/common/common_qt/flags_common.pri" )
 repositoryRoot = $${PWD}/../..
 
+INCLUDEPATH += $${PWD}/../../include
+
 SUBDIRS		+=	"$${repositoryRoot}/prj/tools/freelib_on_remote_proc_by_handle_qt/freelib_on_remote_proc_by_handle.pro"
 SUBDIRS		+=	"$${repositoryRoot}/prj/tools/free_libs_by_names_on_remote_proc_qt/free_libs_by_names_on_remote_proc.pro"
 SUBDIRS		+=	"$${repositoryRoot}/prj/tools/ld_postload_qt/ld_postload.pro"
@@ -22,6 +24,10 @@ SUBDIRS		+=	"$${repositoryRoot}/prj/tests/insert_custom_info_into_bin_test_lib_q
 SUBDIRS		+=	"$${repositoryRoot}/prj/tests/lhash_test_qt/lhash_test.pro"
 SUBDIRS		+=	"$${repositoryRoot}/prj/tests/llist_test_qt/llist_test.pro"
 SUBDIRS		+=	"$${repositoryRoot}/prj/tests/test_lib01_qt/test_lib01.pro"
+
+unitTestHere{
+    SUBDIRS		+=	"$${repositoryRoot}/prj/tests/unit_test_test_mult/unit_test_test.pro"
+}
 
 OTHER_FILES += $$files($${repositoryRoot}/docs/*.md,true)
 OTHER_FILES += $$files($${repositoryRoot}/docs/*.txt,true)

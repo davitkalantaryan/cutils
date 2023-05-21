@@ -7,16 +7,28 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lhash_test", "lhash_test.vc
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|ARM.Build.0 = Debug|ARM
+		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|ARM64.Build.0 = Debug|ARM64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|x64.ActiveCfg = Debug|x64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|x64.Build.0 = Debug|x64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|x86.ActiveCfg = Debug|Win32
 		{20235CB3-A739-4596-88F2-6995D611968A}.Debug|x86.Build.0 = Debug|Win32
+		{20235CB3-A739-4596-88F2-6995D611968A}.Release|ARM.ActiveCfg = Release|ARM
+		{20235CB3-A739-4596-88F2-6995D611968A}.Release|ARM.Build.0 = Release|ARM
+		{20235CB3-A739-4596-88F2-6995D611968A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{20235CB3-A739-4596-88F2-6995D611968A}.Release|ARM64.Build.0 = Release|ARM64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Release|x64.ActiveCfg = Release|x64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Release|x64.Build.0 = Release|x64
 		{20235CB3-A739-4596-88F2-6995D611968A}.Release|x86.ActiveCfg = Release|Win32

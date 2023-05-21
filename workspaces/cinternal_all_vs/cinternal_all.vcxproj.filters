@@ -104,5 +104,8 @@
     <None Include="..\..\scripts\windows_run_tests.bat">
       <Filter>files\scripts</Filter>
     </None>
+    <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
+      <Filter>files\scripts</Filter>
+    </None>
   </ItemGroup>
 </Project>
