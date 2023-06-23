@@ -27,12 +27,14 @@ echo repositoryRoot=$repositoryRoot
 
 cd workspaces/cinternal_all_mkfl
 unset CPPUTILS_DEBUG
-make -f cinternal_all.unix.Makefile
+make -f cinternal_all.unix.Makefile CPPUTILS_RELEASE=1
+unset CPPUTILS_RELEASE
 make -f cinternal_all.unix.Makefile CPPUTILS_DEBUG=1
 
 
 cd ${repositoryRoot}/prj/tests/unit_test_test_mult
 unset CPPUTILS_DEBUG
-make -f unit_test_test.unix.Makefile
+make -f unit_test_test.unix.Makefile  CPPUTILS_RELEASE=1
 # to make debug use line below
+unset CPPUTILS_RELEASE
 make -f unit_test_test.unix.Makefile all CPPUTILS_DEBUG=1

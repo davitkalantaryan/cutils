@@ -13,7 +13,12 @@
 #include <Windows.h>
 #include <Psapi.h>
 #include <winternl.h>
-#pragma warning (disable:4996)
+
+#ifdef _WIN64
+typedef ULONGLONG   CINT_TYPE_FNC;
+#else
+typedef DWORD   CINT_TYPE_FNC;
+#endif
 
 
 //#define FUNCTION_TO_HOOK  "HookedNtQuerySystemInformation"
@@ -30,7 +35,7 @@ typedef void* (*TypeMallocFnc)(size_t);
 static TypeMallocFnc    s_originalMalloc;
 
 
-void StartHook(const char* a_funcname, ULONGLONG a_newFuncAddress);
+void StartHook(const char* a_funcname, CINT_TYPE_FNC a_newFuncAddress);
 
 
 static void* MyMalloc(size_t a_size)
@@ -65,7 +70,7 @@ int main(void)
 
 
 
-bool MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID, const char* a_funcname, ULONGLONG a_newFuncAddress)
+bool MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID, const char* a_funcname, CINT_TYPE_FNC a_newFuncAddress)
 {
     bool bNotFound = true;
     char szAddress[64];
@@ -89,11 +94,11 @@ bool MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID, const
 
     // Write over function pointer
     DWORD dwOld = NULL;
-    VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(ULONGLONG), PAGE_READWRITE, &dwOld);
+    VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(CINT_TYPE_FNC), PAGE_READWRITE, &dwOld);
     pFirstThunkTest->u1.Function = a_newFuncAddress;
-    VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(ULONGLONG), dwOld, NULL);
+    VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(CINT_TYPE_FNC), dwOld, NULL);
 
-    sprintf(szAddress, "%s 0x%zX", (char*)(pIIBM->Name), (size_t)pFirstThunkTest->u1.Function);
+    sprintf_s(szAddress, 63, "%s 0x%zX", (char*)(pIIBM->Name), (size_t)pFirstThunkTest->u1.Function);
 
 #if 0
     if (a_pIDH->e_magic == IMAGE_DOS_SIGNATURE)
@@ -108,7 +113,7 @@ bool MakeHookForModule(LPBYTE a_pAddress, PIMAGE_IMPORT_DESCRIPTOR a_pIID, const
 }
 
 
-void StartHook(const char* a_funcname, ULONGLONG a_newFuncAddress) {
+void StartHook(const char* a_funcname, CINT_TYPE_FNC a_newFuncAddress) {
     MODULEINFO modInfo = { 0 };
     HMODULE hModule = GetModuleHandle(0);
 
@@ -165,6 +170,10 @@ NTSTATUS WINAPI HookedNtQuerySystemInformation(
     __in       ULONG                    SystemInformationLength,
     __out_opt  PULONG                   ReturnLength) 
 {
+    (void)SystemInformationClass;
+    (void)SystemInformation;
+    (void)SystemInformationLength;
+    (void)ReturnLength;
     return 0;
 }
 
@@ -210,7 +219,7 @@ void StartHookForHookedNtQuerySystemInformation() {
     pFirstThunkTest->u1.Function = (ULONGLONG)((size_t)HookedNtQuerySystemInformation);
     VirtualProtect((LPVOID) & (pFirstThunkTest->u1.Function), sizeof(DWORD), dwOld, NULL);
 
-    sprintf(szAddress, "%s 0x%zX", (char*)(pIIBM->Name), (size_t)pFirstThunkTest->u1.Function);
+    sprintf_s(szAddress, 63, "%s 0x%zX", (char*)(pIIBM->Name), (size_t)pFirstThunkTest->u1.Function);
 
 #if 0
     if (pIDH->e_magic == IMAGE_DOS_SIGNATURE)

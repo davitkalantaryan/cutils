@@ -15,15 +15,11 @@ QT -= core
 QT -= widgets
 CONFIG -= qt
 
-LIBS += -ldl
+LIBS += -pthread
 
-INCLUDEPATH += "$${PWD}/../../../src/include"
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
-
-#SOURCES += $$files($${PWD}/../../../src/core/*.c*,true)
-SOURCES	+=		\
-        "$${PWD}/../../../src/tests/main_unix_helper_to_get_sym_address_on_process.c"
+SOURCES += $$files($${PWD}/../../../src/tests/c_raii_ext_test/*.c*,false)
 
 COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
 COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
@@ -31,4 +27,4 @@ COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP
 
-OTHER_FILES += $$files($${PWD}/../ld_postload_mkfl/*.Makefile,false)
+OTHER_FILES += $$files($${PWD}/../c_raii_test_mkfl/*.Makefile,false)

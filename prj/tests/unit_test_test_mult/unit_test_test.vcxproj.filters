@@ -54,6 +54,15 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0002_fourstate_flags.c">
       <Filter>Source Files\unit_test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0003_c_raii.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0004_lw_mutex_recursive.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cinternal_core_lw_mutex_recursive.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\cinternal\list\dllist.h">

@@ -36,7 +36,8 @@ static void entry_cinternal_core_init_libdl_clean(void)
 
 
 CPPUTILS_CODE_INITIALIZER(entry_cinternal_core_init_libdl_initialize){
-	s_pLibDlhandle = dlopen("libdl.so",RTLD_NOW);
+
+    s_pLibDlhandle = dlopen("libdl.so",RTLD_NOW);
 	atexit(&entry_cinternal_core_init_libdl_clean);
 }
 

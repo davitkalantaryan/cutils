@@ -18,11 +18,9 @@ CONFIG -= qt
 LIBS += -pthread
 LIBS += -ldl
 
-repoRootPath=$${PWD}/../../..
 
 HOTPATCH_ROOT = $${PWD}/../../../.tests/hotpatch
 
-INCLUDEPATH += "$${PWD}/../../../include"
 INCLUDEPATH += "$${HOTPATCH_ROOT}/include"
 
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
@@ -35,8 +33,8 @@ SOURCES	+=		\
 		"$${HOTPATCH_ROOT}/src/loader.c"									\
 		"$${HOTPATCH_ROOT}/src/exedetails.c"
 
-COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
+COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
+COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP

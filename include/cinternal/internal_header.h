@@ -200,7 +200,7 @@
 #define CPPUTILS_DELETE             =delete;
 #define CPPUTILS_CONSTEXPR_STACK_ARRAY(_type,_name,_count)	_type _name[_count]
 #else
-#define CPPUTILS_NOEXCEPT	throw()
+#define CPPUTILS_NOEXCEPT
 #define CPPUTILS_NULL		NULL 
 #define CPPUTILS_OVERRIDE
 #define CPPUTILS_CONSTEXPR	const

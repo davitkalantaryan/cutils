@@ -59,12 +59,12 @@ int main(void)
 	s_originalFree = &free;
 
 	aReplaceData[0].funcname = "malloc";
-	aReplaceData[0].newFuncAddress = &MyMalloc;
-	aReplaceData[0].replaceIfAddressIs = &malloc;
+	aReplaceData[0].newFuncAddress = (void*)&MyMalloc;
+	aReplaceData[0].replaceIfAddressIs = (void*)&malloc;
 
 	aReplaceData[1].funcname = "free";
-	aReplaceData[1].newFuncAddress = &MyFree;
-	aReplaceData[0].replaceIfAddressIs = &free;
+	aReplaceData[1].newFuncAddress = (void*)&MyFree;
+	aReplaceData[0].replaceIfAddressIs = (void*)&free;
 
 	//CInternalReplaceFunctions(2, aReplaceData);
 	CInternalReplaceFunctionsAllModules(2, aReplaceData);

@@ -18,9 +18,6 @@ CONFIG -= qt
 LIBS += -pthread
 LIBS += -ldl
 
-repoRootPath=$${PWD}/../../..
-
-INCLUDEPATH += "$${PWD}/../../../include"
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
 
@@ -28,8 +25,8 @@ SOURCES += $$files($${PWD}/../../../src/core/*.c*,true)
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_linux_app_hacker_test.cpp"
 
-COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
+COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
+COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP

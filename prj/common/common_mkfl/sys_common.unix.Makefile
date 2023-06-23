@@ -69,10 +69,6 @@ endif
 ifndef ANDROID_CXX
 	ANDROID_CXX = $(ANDROID_NDK_BIN)/clang++
 endif
-# Android cc compiler
-ifndef ANDROID_CC
-	ANDROID_CC = $(ANDROID_NDK_BIN)/clang
-endif
 # Android ar
 ifndef ANDROID_AR
 	ANDROID_AR = $(ANDROID_NDK_BIN)/llvm-ar
@@ -88,12 +84,11 @@ endif
 
 #EMXX=env CCACHE_CPP2=1 ccache em++
 EMXX=em++
-EMCC=em
 
 COMMON_FLAGS	+= -I$(cinternalRepoRoot)/include
 
-CPPFLAGS	+=  $(COMMON_FLAGS)
-CFLAGS		+=  $(COMMON_FLAGS)
+CPPFLAGS		+=  $(COMMON_FLAGS)
+CFLAGS			+=  $(COMMON_FLAGS)
 
 DEBUG_FLAGS_DEBUG=-O0 -g
 DEBUG_FLAGS_RELEASE=-O3

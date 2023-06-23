@@ -17,9 +17,6 @@ CONFIG -= qt
 LIBS += -pthread
 LIBS += -ldl
 
-repoRootPath=$${PWD}/../../..
-
-INCLUDEPATH += "$${PWD}/../../../include"
 INCLUDEPATH += "$${PWD}/../../../src/include"
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
@@ -33,8 +30,8 @@ SOURCES	+=		\
         "$${PWD}/../../../src/intern/cinternal_core_intern_tokenizer01_common.c"        \
         "$${PWD}/../../../src/core/cinternal_core_loadfreelib_on_remote_process_unix.c"
 
-COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
+COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
+COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP

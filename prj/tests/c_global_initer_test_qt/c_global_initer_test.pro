@@ -17,16 +17,13 @@ CONFIG -= qt
 
 LIBS += -pthread
 
-repoRootPath=$${PWD}/../../..
-
-INCLUDEPATH += "$${PWD}/../../../include"
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_c_global_initer_test.c"
 
-COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
+COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
+COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP

@@ -2,11 +2,21 @@
 
 mkfile_path		=  $(abspath $(lastword $(MAKEFILE_LIST)))
 mkfile_dir		=  $(shell dirname $(mkfile_path))
-repoRootPathCppUtils	:= $(shell curDir=`pwd` && cd $(mkfile_dir)/../../.. && pwd && cd ${curDir})
-ifndef repoRootPath
-	repoRootPath	:= $(repoRootPathCppUtils)
+
+ifndef cinternalRepoRoot
+        cinternalRepoRoot	:= $(shell curDir=`pwd` && cd $(mkfile_dir)/../../.. && pwd && cd ${curDir})
 endif
+
+ifndef repositoryRoot
+        repositoryRoot	= $(cinternalRepoRoot)
+endif
+
+ifndef artifactRoot
+        artifactRoot	= $(repositoryRoot)
+endif
+
 osSystem		:= $(shell uname)
+
 ifeq ($(osSystem),Darwin)
 	lsbCode		:= mac
 	DEFAULT_CC	:= clang
@@ -75,21 +85,21 @@ endif
 #EMXX=env CCACHE_CPP2=1 ccache em++
 EMXX=em++
 
-COMMON_FLAGS	+= -I$(repoRootPathCppUtils)/include
+COMMON_FLAGS	+= -I$(cinternalRepoRoot)/include
 
 CPPFLAGS		+=  $(COMMON_FLAGS)
 
 DEBUG_FLAGS_DEBUG=-O0 -g
 DEBUG_FLAGS_RELEASE=-O3
 
-ifdef CPPUTILS_DEBUG
-	DEBUG_FLAGS=$(DEBUG_FLAGS_DEBUG) -DCPPUTILS_DEBUG
-	Configuration=Debug
-	nameExtension=d
-else
+ifdef CPPUTILS_RELEASE
 	DEBUG_FLAGS=$(DEBUG_FLAGS_RELEASE)
 	Configuration=Release
 	nameExtension=
+else
+	DEBUG_FLAGS=$(DEBUG_FLAGS_DEBUG) -DCPPUTILS_DEBUG
+	Configuration=Debug
+	nameExtension=d
 endif
 
 EMFLAGS+=$(COMMON_FLAGS)
@@ -108,28 +118,28 @@ ANDROID_FLAGS += -DANDROID
 ANDROID_FLAGS += $(ANDROID_ARCH)
 
 # host desktop
-$(repoRootPath)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.cc.o : %.cc
+$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.cc.o : %.cc
 	mkdir -p $(dir $@)
 	$(CXX_IN_USE) -c $(CPPFLAGS) $(DEBUG_FLAGS) -o $@ $<
 
-$(repoRootPath)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.cpp.o : $(repoRootPath)/src/%.cpp
+$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.cpp.o : $(artifactRoot)/src/%.cpp
 	mkdir -p $(@D)
 	$(CXX_IN_USE) -c $(CPPFLAGS) $(DEBUG_FLAGS) -o $@ $<
 
 # webassembly
-$(repoRootPath)/sys/wasm/$(Configuration)/.objects/$(targetName)/%.cc.bc : %.cc
+$(artifactRoot)/sys/wasm/$(Configuration)/.objects/$(targetName)/%.cc.bc : %.cc
 	mkdir -p $(@D)
 	$(EMXX) -c $(EMFLAGS) -o $@ $<
 
-$(repoRootPath)/sys/wasm/$(Configuration)/.objects/$(targetName)/%.cpp.bc : %.cpp
+$(artifactRoot)/sys/wasm/$(Configuration)/.objects/$(targetName)/%.cpp.bc : %.cpp
 	mkdir -p $(@D)
 	$(EMXX) -c $(EMFLAGS) -o $@ $<
 
 # android
-$(repoRootPath)/sys/android_$(ANDROID_ABI)/$(Configuration)/.objects/$(targetName)/%.cc.ao : %.cc
+$(artifactRoot)/sys/android_$(ANDROID_ABI)/$(Configuration)/.objects/$(targetName)/%.cc.ao : %.cc
 	mkdir -p $(@D)
 	$(ANDROID_CXX) -c $(ANDROID_FLAGS) -o $@ $<
 
-$(repoRootPath)/sys/android_$(ANDROID_ABI)/$(Configuration)/.objects/$(targetName)/%.cpp.ao : %.cpp
+$(artifactRoot)/sys/android_$(ANDROID_ABI)/$(Configuration)/.objects/$(targetName)/%.cpp.ao : %.cpp
 	mkdir -p $(@D)
 	$(ANDROID_CXX) -c $(ANDROID_FLAGS) -o $@ $<

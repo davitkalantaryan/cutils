@@ -17,9 +17,6 @@ CONFIG -= qt
 LIBS += -pthread
 LIBS += -ldl
 
-repoRootPath=$${PWD}/../../..
-
-INCLUDEPATH += "$${PWD}/../../../include"
 INCLUDEPATH += "$${PWD}/../../../src/include"
 DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
@@ -30,8 +27,8 @@ SOURCES	+=		\
         "$${PWD}/../../../src/core/cinternal_core_parser_argparser01.c"                                         \
         "$${PWD}/../../../src/core/cinternal_core_loadfreelib_on_remote_process_unix.c"
 
-COMMON_HDRS	= $$files($${repoRootPath}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${repoRootPath}/include/*.hpp,true)
+COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
+COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
 HEADERS += $$COMMON_HDRS
 HEADERS += $$COMMON_HDRSPP

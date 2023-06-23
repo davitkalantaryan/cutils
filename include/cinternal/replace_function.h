@@ -12,6 +12,12 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+#if defined(_MSC_VER)
+#pragma warning(disable: 4191)
+#pragma warning(disable: 4232)
+#else
+#endif
+
 #ifdef _WIN32
 
 

@@ -34,12 +34,11 @@ OTHER_FILES += $$files($${repositoryRoot}/docs/*.txt,true)
 OTHER_FILES += $$files($${repositoryRoot}/scripts/*.sh,true)
 OTHER_FILES += $$files($${repositoryRoot}/scripts/*.bat,true)
 OTHER_FILES += $$files($${repositoryRoot}/.github/*.yml,true)
+OTHER_FILES += $$files($${repositoryRoot}/prj/common/common_mkfl/*.Makefile,true)
+OTHER_FILES += $$files($${repositoryRoot}/workspaces/cinternal_all_mkfl/*.Makefile,true)
 
 OTHER_FILES	+=	\
         "$${repositoryRoot}/.gitattributes"						\
 	"$${repositoryRoot}/.gitignore"							\
 	"$${repositoryRoot}/LICENSE"							\
-	"$${repositoryRoot}/README.md"							\
-	"$${repositoryRoot}/workspaces/cinternal_all_mkfl/cinternal_all.unix.Makefile"	\
-	"$${PWD}/../../prj/common/common_mkfl/unix.common.Makefile"			\
-	"$${PWD}/../../prj/common/common_mkfl/windows.common.Makefile"
+        "$${repositoryRoot}/README.md"

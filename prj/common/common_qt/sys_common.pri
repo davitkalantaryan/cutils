@@ -15,13 +15,9 @@ STATIC_LIB_EXTENSION	= a
 LIB_PREFIX		= lib
 TARGET_PATH_EXTRA	=
 
-isEmpty( cinternalRepoRoot ) {
-	cinternalRepoRoot = $${PWD}/../../..
-}
 
-isEmpty( repositoryRoot ) {
-	repositoryRoot = $${cinternalRepoRoot}
-}
+include ($${PWD}/resolve_common.pri)
+
 
 isEmpty( TARGET_PATH ) {
 	contains( TEMPLATE, lib ) {
@@ -29,10 +25,6 @@ isEmpty( TARGET_PATH ) {
 	} else {
 	    TARGET_PATH=bin
 	}
-}
-
-isEmpty(artifactRoot) {
-    artifactRoot = $${repositoryRoot}
 }
 
 

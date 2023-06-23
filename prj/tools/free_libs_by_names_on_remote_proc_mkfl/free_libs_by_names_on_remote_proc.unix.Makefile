@@ -19,15 +19,15 @@ SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_list_dllist.c
 SOURCES += $(cinternalRepoRoot)/src/intern/cinternal_core_intern_tokenizer02_common.c                            
 SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_parser_tokenizer01.c
 
-all: $(repoRootPath)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName)
+all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName)
 
-$(repoRootPath)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName): \
-	$(SOURCES:%=$(repoRootPath)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)
+$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName): \
+        $(SOURCES:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)
 	@mkdir -p $(@D)
 	@$(LINK) $^ $(LIBS) -ldl $(LFLAGS) -o $@
 
 .PHONY: clean
 clean:
-	@rm -rf $(repoRootPath)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)
-	@rm -f  $(repoRootPath)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName)
-	@echo "  " cleaning of googletest complete !!!
+	@rm -rf $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)
+	@rm -f  $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName)
+	@echo "  " cleaning of $(targetName) complete !!!

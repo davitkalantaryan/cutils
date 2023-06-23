@@ -21,7 +21,7 @@
 
 typedef DWORD           CinternalTlsData;
 
-#define CinternalTlsAlloc(_key_ptr,_destructor)     (     (    (  (*(_key_ptr)) = FlsAlloc(_destructor)  )==FLS_OUT_OF_INDEXES    ) ?      \
+#define CinternalTlsAlloc(_key_ptr,_destructor)     (     (    (  (*(_key_ptr)) = FlsAlloc(CPPUTILS_REINTERPRET_CAST(PFLS_CALLBACK_FUNCTION,_destructor))  )==FLS_OUT_OF_INDEXES    ) ?      \
             CPPUTILS_STATIC_CAST(int,GetLastError()) : 0     )
 #define CinternalTlsGetSpecific     FlsGetValue
 #define CinternalTlsSetSpecific     FlsSetValue

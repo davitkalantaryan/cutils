@@ -9,9 +9,7 @@
 
 message("!!! $${PWD}/flags_common.pri")
 
-isEmpty( cinternalRepoRoot ){
-        cinternalRepoRoot=$${PWD}/../../..
-}
+include ($${PWD}/resolve_common.pri)
 
 INCLUDEPATH += $${cinternalRepoRoot}/include
 
