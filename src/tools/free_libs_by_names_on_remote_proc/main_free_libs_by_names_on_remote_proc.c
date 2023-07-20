@@ -14,9 +14,8 @@
 #include <cinternal/list/dllist.h>
 #include <private/cinternal/parser/tokenizer02_common_p.h>
 #include <stddef.h>
-
-#ifdef _WIN32
 #include <cinternal/disable_compiler_warnings.h>
+#ifdef _WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>
@@ -52,6 +51,7 @@ static char* GetEnvironmentVariableACint(const char* a_cpcName, char* a_pBuffer,
 	return pRet;
 }
 #endif
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 

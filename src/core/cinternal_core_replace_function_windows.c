@@ -12,7 +12,9 @@
 
 #include <cinternal/replace_function_sys.h>
 #include <string.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <Psapi.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C
@@ -83,7 +85,7 @@ CINTERNAL_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct
         return;
     }
 
-    pMods = HeapAlloc(curProcHeap, 0, (SIZE_T)cbNeededIn);
+    pMods = (HMODULE*)HeapAlloc(curProcHeap, 0, (SIZE_T)cbNeededIn);
     if (!pMods) {
         return;
     }

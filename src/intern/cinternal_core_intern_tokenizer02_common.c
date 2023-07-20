@@ -15,7 +15,7 @@
 CPPUTILS_BEGIN_C
 
 
-static int CinternalTokenizerForWindowsDllUnload02a(void* a_clbkData, const char* a_cpcNextString)
+static int CinternalTokenizerForWindowsDllUnload02a(void* a_clbkData, const char* a_cpcNextString) CPPUTILS_NOEXCEPT
 {
 	const int pid = (int)((size_t)a_clbkData);
     if(CInternalFreeLibOnRemoteProcessByName(pid, a_cpcNextString)){

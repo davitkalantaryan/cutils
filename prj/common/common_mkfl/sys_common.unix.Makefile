@@ -85,7 +85,7 @@ endif
 #EMXX=env CCACHE_CPP2=1 ccache em++
 EMXX=em++
 
-COMMON_FLAGS	+= -I$(cinternalRepoRoot)/include
+COMMON_FLAGS	+= -I$(cinternalRepoRoot)/include -DCPPUTILS_COMPILER_WARNINGS_PUSH_POP
 
 CPPFLAGS		+=  $(COMMON_FLAGS)
 CFLAGS			+=  $(COMMON_FLAGS)

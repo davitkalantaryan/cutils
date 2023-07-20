@@ -7,7 +7,6 @@
 
 
 #include <stdio.h>
-#include <cinternal/disable_compiler_warnings.h>
 #ifdef _WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>

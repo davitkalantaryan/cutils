@@ -1,16 +1,22 @@
 #
-# name:			flags_common.pri
-# path:			${repositoryRoot}/prj/common/common_qt/flags_common.pri
+# repo:         cinternal
+# name:		flags_common.pri
+# path:		${repositoryRoot}/prj/common/common_qt/flags_common.pri
 # created on:	2022 Oct 19
 # created by:	Davit Kalantaryan (davit.kalantaryan@gmail.com)
-# usage:		Use this qt include file to calculate some platform specific stuff
+# usage:	Use this qt include file to calculate some platform specific stuff
 #
 
 
 message("!!! $${PWD}/flags_common.pri")
+cinternalFlagsCommonIncluded = 1
 
-include ($${PWD}/resolve_common.pri)
+isEmpty( cinternalResolveCommonIncluded ) {
+        include("$${PWD}/resolve_common.pri")
+        cinternalResolveCommonIncluded = 1
+}
 
+DEFINES += CPPUTILS_COMPILER_WARNINGS_PUSH_POP
 INCLUDEPATH += $${cinternalRepoRoot}/include
 
 
@@ -19,7 +25,7 @@ macx {
 	QMAKE_CXXFLAGS += -Werror
 	#LIBS += -framework SystemConfiguration -framework AppKit
 } else:win32 {
-	QMAKE_CXXFLAGS += /Wall /WX
+        QMAKE_CXXFLAGS += /Wall /WX /sdl-
 	contains(QMAKE_TARGET.arch, x86_64) {
 	    message ("!!!!!!!!!! windows 64")
 	} else {

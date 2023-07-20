@@ -17,6 +17,7 @@
 #else
 #include <pthread.h>
 #endif
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

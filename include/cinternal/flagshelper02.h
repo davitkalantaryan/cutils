@@ -16,6 +16,9 @@
 #define CPPUTILS_MAKE_BITS_TRUE                 1
 #define CPPUTILS_MAKE_BITS_FALSE                2
 #define CPPUTILS_INIT_BITS                      0xaaaaaaaaaaaaaaaa
+
+#define CPPUTILS_BISTATE_MAKE_BITS_TRUE         1
+#define CPPUTILS_BISTATE_MAKE_BITS_FALSE        2
 #define CPPUTILS_BISTATE_MAKE_ALL_BITS_TRUE     0x5555555555555555
 #define CPPUTILS_BISTATE_MAKE_ALL_BITS_FALSE    0xaaaaaaaaaaaaaaaa
 

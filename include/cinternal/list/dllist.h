@@ -46,5 +46,49 @@ CPPUTILS_END_C
 #define CInternalDLListCreate()						CInternalDLListCreateEx(CPPUTILS_NULL,CPPUTILS_NULL)
 #define CInternalDLListDestroy(_list)				CInternalDLListDestroyEx(_list,CPPUTILS_NULL)
 
+#ifdef _MSC_VER
+#define CInternalDLListAddDataBeforeIteratorFn(_list,_iter,_fn)		\
+	__pragma(warning (push))										\
+	__pragma(warning (disable:5039))								\
+	CInternalDLListAddDataBeforeIterator(_list,_iter,(void*)(_fn))	\
+	__pragma(warning (pop))
+
+#else
+#define CInternalDLListAddDataBeforeIteratorFn(_list,_iter,_fn)	CInternalDLListAddDataBeforeIterator(_list,_iter,(void*)(_fn))
+#endif
+
+#ifdef _MSC_VER
+#define CInternalDLListAddDataAfterIteratorFn(_list,_iter,_fn)		\
+	__pragma(warning (push))										\
+	__pragma(warning (disable:5039))								\
+	CInternalDLListAddDataAfterIterator(_list,_iter,(void*)(_fn))	\
+	__pragma(warning (pop))
+
+#else
+#define CInternalDLListAddDataAfterIteratorFn(_list,_iter,_fn)	CInternalDLListAddDataAfterIterator(_list,_iter,(void*)(_fn))
+#endif
+
+#ifdef _MSC_VER
+#define CInternalDLListAddDataToFrontFn(_list,_fn)		\
+	__pragma(warning (push))							\
+	__pragma(warning (disable:5039))					\
+	CInternalDLListAddDataToFront(_list,(void*)(_fn))	\
+	__pragma(warning (pop))
+
+#else
+#define CInternalDLListAddDataToFrontFn(_list,_fn)	CInternalDLListAddDataToFront(_list,(void*)(_fn))
+#endif
+
+#ifdef _MSC_VER
+#define CInternalDLListAddDataToBackFn(_list,_fn)		\
+	__pragma(warning (push))							\
+	__pragma(warning (disable:5039))					\
+	CInternalDLListAddDataToBack(_list,(void*)(_fn))	\
+	__pragma(warning (pop))
+
+#else
+#define CInternalDLListAddDataToBackFn(_list,_fn)	CInternalDLListAddDataToBack(_list,(void*)(_fn))
+#endif
+
 
 #endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_LIST_LLIST_H

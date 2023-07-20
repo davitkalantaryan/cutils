@@ -8,7 +8,7 @@
 
 
 message("!!! $${PWD}/resolve_common.pri")
-
+cinternalResolveCommonIncluded = 1
 
 isEmpty( cinternalRepoRoot ) {
         cinternalRepoRoot = $$(cinternalRepoRoot)
@@ -23,7 +23,6 @@ isEmpty( repositoryRoot ) {
             repositoryRoot = $${cinternalRepoRoot}
         }
 }
-
 
 isEmpty(artifactRoot) {
     artifactRoot = $$(artifactRoot)

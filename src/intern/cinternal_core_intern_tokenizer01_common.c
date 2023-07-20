@@ -16,7 +16,7 @@
 CPPUTILS_BEGIN_C
 
 
-static int CinternalTokenizerForDllInject01b(void* a_clbkData, const char* a_cpcNextString)
+static int CinternalTokenizerForDllInject01b(void* a_clbkData, const char* a_cpcNextString) CPPUTILS_NOEXCEPT
 {
 	const int pid = (int)((size_t)a_clbkData);
     void* pModule = CInternalLoadLibOnRemoteProcessAndGetModule(pid, a_cpcNextString);

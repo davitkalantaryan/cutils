@@ -16,6 +16,7 @@
 #include <assert.h>
 #include <cinternal/disable_compiler_warnings.h>
 #include <Psapi.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C
@@ -211,7 +212,7 @@ CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessSys(HANDLE a_hProcess, cons
 		return false;
 	}
 
-	pMods = HeapAlloc(curProcHeap, 0, (SIZE_T)cbNeededIn);
+	pMods = (HMODULE*)HeapAlloc(curProcHeap, 0, (SIZE_T)cbNeededIn);
 	if (!pMods) {
 		return false;
 	}

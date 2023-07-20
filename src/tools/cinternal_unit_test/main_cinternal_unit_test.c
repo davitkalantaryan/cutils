@@ -43,5 +43,5 @@ CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE void CinternalAddUnitTestFunction(void (*
 		}
 	}
 
-	CInternalDLListAddDataToFront(s_listOfFunctions, a_function);
+	CInternalDLListAddDataToFrontFn(s_listOfFunctions, (void*)a_function);
 }

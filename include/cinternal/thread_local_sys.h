@@ -18,6 +18,7 @@
 #include <WS2tcpip.h>
 #include <Windows.h>
 #include <fibersapi.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 typedef DWORD           CinternalTlsData;
 

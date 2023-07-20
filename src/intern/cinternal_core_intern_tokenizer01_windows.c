@@ -15,7 +15,7 @@
 CPPUTILS_BEGIN_C
 
 
-static int CinternalTokenizerForWindowsDllInject01a(void* a_clbkData, const char* a_cpcNextString)
+static int CinternalTokenizerForWindowsDllInject01a(void* a_clbkData, const char* a_cpcNextString) CPPUTILS_NOEXCEPT
 {
 	const HANDLE hProcess = (HANDLE)a_clbkData;
 	if (CInternalLoadLibOnRemoteProcessSys(hProcess, a_cpcNextString)) {

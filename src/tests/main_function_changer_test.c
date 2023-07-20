@@ -53,7 +53,7 @@ static void MyFree(void* a_ptr)
 int main(void)
 {
 	void* pMem;
-	struct SCInternalReplaceFunctionData aReplaceData[2] = {0};
+	struct SCInternalReplaceFunctionData aReplaceData[2] = { {0} };
 
 	s_originalMalloc = &malloc;
 	s_originalFree = &free;

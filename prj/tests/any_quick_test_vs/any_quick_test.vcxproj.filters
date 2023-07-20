@@ -128,5 +128,23 @@
     <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h">
       <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\loadfreelib_on_remote_process_sys.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\lw_mutex_recursive.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cinternal\thread_local_sys.h">
+      <Filter>Header Files\include\cinternal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_common_p.h">
+      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_common_p.h">
+      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_windows_p.h">
+      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

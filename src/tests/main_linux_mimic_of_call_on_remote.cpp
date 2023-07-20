@@ -14,6 +14,7 @@
 #include <unistd.h>
 
 #include <dlfcn.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 typedef void* (*TypeDlopen)(const char *filename, int flags);
 typedef char* (*TypeDlerror)(void);

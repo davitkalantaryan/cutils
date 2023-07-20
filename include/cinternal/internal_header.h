@@ -242,10 +242,16 @@
 
 #ifdef NDEBUG
 #define CPPUTILS_DO_DEBUG_EXP(_exp)
-#define CPPUTILS_SAFE_CAST(_type,_val)	static_cast<_type>(_val)
+#define CPPUTILS_SAFE_CAST(_type,_val)		static_cast<_type>(_val)
+#ifndef CPPUTILS_RELEASE
+#define CPPUTILS_RELEASE					1
+#endif
 #else
-#define CPPUTILS_DO_DEBUG_EXP(_exp)              _exp ;
-#define CPPUTILS_SAFE_CAST(_type,_val)	dynamic_cast<_type>(_val)
+#define CPPUTILS_DO_DEBUG_EXP(_exp)         _exp ;
+#define CPPUTILS_SAFE_CAST(_type,_val)		dynamic_cast<_type>(_val)
+#ifndef CPPUTILS_DEBUG
+#define CPPUTILS_DEBUG						1
+#endif
 #endif
 
 
@@ -435,6 +441,32 @@
 #else
 	#define cpputils_container_of(_p,_tp,_mem)		((_tp*)(((char*)_p)-cpputils_offsetof(_tp,_mem)))
 	//#define cpputils_container_of(_p,_tp,_mem)			CPPUTILS_REINTERPRET_CAST((CPPUTILS_REINTERPRET_CAST(const char*,_p)-offsetof(_tp,_mem))
+#endif
+
+
+#ifdef _MSC_VER
+#define CPPUTILS_WARNINGS_PUSH		__pragma(warning (push))
+#define CPPUTILS_WARNINGS_POP		__pragma(warning (pop))
+#elif defined(CPPUTILS_GCC_FAMILY)
+#define CPPUTILS_WARNINGS_PUSH      _Pragma("GCC diagnostic push") 
+#define CPPUTILS_WARNINGS_POP       _Pragma("GCC diagnostic pop")  
+#else
+#define CPPUTILS_WARNINGS_PUSH
+#define CPPUTILS_WARNINGS_POP
+#endif
+
+
+#ifdef _WIN32
+#ifdef _MSC_VER
+#define CpputilsGetProcAddress(_hModule,_lpProcName)	\
+	__pragma(warning (push))							\
+	__pragma(warning (disable:4191))					\
+	GetProcAddress(_hModule,_lpProcName)				\
+	__pragma(warning (pop))
+	
+#else
+#define CpputilsGetProcAddress	GetProcAddress
+#endif
 #endif
 
 

@@ -1,22 +1,26 @@
 #
-# name:			sys_common.pri
-# path:			${repositoryRoot}/prj/common/common_qt/sys_common.pri
+# repo:		cinternal
+# name:		sys_common.pri
+# path:		${repositoryRoot}/prj/common/common_qt/sys_common.pri
 # created on:	2017 Feb 12
 # created by:	Davit Kalantaryan (davit.kalantaryan@desy.de)  
-# usage:		Use this qt include file to calculate some platform specific stuff
+# usage:	Use this qt include file to calculate some platform specific stuff
 #
 
 #QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter
 
 
 message("!!! $${PWD}/sys_common.pri")
+cinternalSysCommonIncluded = 1
+
+isEmpty( cinternalResolveCommonIncluded ) {
+        include("$${PWD}/resolve_common.pri")
+        cinternalResolveCommonIncluded = 1
+}
 
 STATIC_LIB_EXTENSION	= a
 LIB_PREFIX		= lib
 TARGET_PATH_EXTRA	=
-
-
-include ($${PWD}/resolve_common.pri)
 
 
 isEmpty( TARGET_PATH ) {
@@ -85,6 +89,8 @@ CONFIG(debug, debug|release) {
 } else:CONFIG(release, debug|release) {
 	CONFIGURATION=Release
 }
+
+DEFINES += CpputilsNameExtension=\\\"$${nameExtension}\\\"
 
 message("!!! sys_common.pri: SYSTEM_PATH/CONFIGURATION=$${artifactRoot}/$${SYSTEM_PATH}/$${CONFIGURATION}")
 

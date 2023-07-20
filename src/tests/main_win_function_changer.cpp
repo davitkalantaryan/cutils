@@ -13,6 +13,7 @@
 #include <Windows.h>
 #include <Psapi.h>
 #include <winternl.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #ifdef _WIN64
 typedef ULONGLONG   CINT_TYPE_FNC;
@@ -52,7 +53,7 @@ int main(void)
         return 1;
     }
     
-    s_originalMalloc = (TypeMallocFnc)GetProcAddress(cranLib, FUNCTION_TO_HOOK);
+    s_originalMalloc = (TypeMallocFnc)CpputilsGetProcAddress(cranLib, FUNCTION_TO_HOOK);
     if (!s_originalMalloc) {
         return 1;
     }

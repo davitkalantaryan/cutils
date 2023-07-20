@@ -46,12 +46,18 @@
     <Filter Include="files\workspaces\cinternal_all_mkfl">
       <UniqueIdentifier>{0b6aa459-2216-421e-988e-9338101e2cc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="files\prj\common\common_qt">
+      <UniqueIdentifier>{015fc3a7-da9d-4848-a05a-5878933cd44b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\utils\entry_cinternal_all.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\tests\main_c_global_initer_test.c">
+      <Filter>files\src\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
       <Filter>files\src\tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -106,6 +112,24 @@
     </None>
     <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
       <Filter>files\scripts</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\flags_common.pri">
+      <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\gui_common.pri">
+      <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\resolve_common.pri">
+      <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\sys_common.pri">
+      <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\sys_common.unix.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\unix.common.tmp.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
     </None>
   </ItemGroup>
 </Project>

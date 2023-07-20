@@ -13,9 +13,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <assert.h>
-
-#ifdef _WIN32
 #include <cinternal/disable_compiler_warnings.h>
+#ifdef _WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>
@@ -24,6 +23,7 @@
 #include <unistd.h>
 #define CintrSleepMsIntr(_x)	usleep(CPPUTILS_STATIC_CAST(useconds_t,1000*(_x)))
 #endif
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define CINTERNALS_GLB_CONS_DSGN_VAL	1
 

@@ -26,7 +26,7 @@
 
 static HANDLE	s_mainThreadHandle;
 
-static void SignalHandler(int a_signal);
+static void SignalHandler(int a_signal) CPPUTILS_NOEXCEPT;
 
 
 
@@ -139,13 +139,13 @@ int main(int a_argc, char* a_argv[])
 }
 
 
-static VOID NTAPI InterruptFunctionStatic(_In_ ULONG_PTR a_parameter)
+static VOID NTAPI InterruptFunctionStatic(_In_ ULONG_PTR a_parameter) CPPUTILS_NOEXCEPT
 {
 	CPPUTILS_STATIC_CAST(void, a_parameter);
 }
 
 
-static void SignalHandler(int a_signal)
+static void SignalHandler(int a_signal) CPPUTILS_NOEXCEPT
 {
 	assert(a_signal == SIGINT);
 	CPPUTILS_STATIC_CAST(void, a_signal);
