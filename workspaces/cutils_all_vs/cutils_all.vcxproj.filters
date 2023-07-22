@@ -51,9 +51,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\tests\main_c_global_initer_test.c">
-      <Filter>files\src\tests</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
       <Filter>files\src\tests</Filter>
     </ClCompile>
