@@ -6,7 +6,7 @@ mkfile_dir		=  $(shell dirname $(mkfile_path))
 
 firstTarget: all
 
-include $(mkfile_dir)/../../common/common_mkfl/sys_common.unix.Makefile
+include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
 GTEST_SRC_DIR=$(cinternalRepoRoot)/src/tests/unit_test
 COMMON_SRC_DIR=$(cinternalRepoRoot)/src/core
