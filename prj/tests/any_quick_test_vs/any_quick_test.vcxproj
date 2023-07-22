@@ -100,27 +100,35 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -310,27 +318,24 @@
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cinternal\common_data01.h" />
-    <ClInclude Include="..\..\..\include\cinternal\c_raii.h" />
-    <ClInclude Include="..\..\..\include\cinternal\disable_compiler_warnings.h" />
-    <ClInclude Include="..\..\..\include\cinternal\endian.h" />
-    <ClInclude Include="..\..\..\include\cinternal\export_symbols.h" />
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper.h" />
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper01.h" />
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h" />
-    <ClInclude Include="..\..\..\include\cinternal\hash\dllhash.h" />
-    <ClInclude Include="..\..\..\include\cinternal\insert_info_to_bin.h" />
-    <ClInclude Include="..\..\..\include\cinternal\internal_header.h" />
-    <ClInclude Include="..\..\..\include\cinternal\list\dllist.h" />
-    <ClInclude Include="..\..\..\include\cinternal\loadfreelib_on_remote_process_sys.h" />
-    <ClInclude Include="..\..\..\include\cinternal\lw_mutex_recursive.h" />
-    <ClInclude Include="..\..\..\include\cinternal\macroses.h" />
-    <ClInclude Include="..\..\..\include\cinternal\macroses02.h" />
-    <ClInclude Include="..\..\..\include\cinternal\parser\argparser01.h" />
-    <ClInclude Include="..\..\..\include\cinternal\parser\tokenizer01.h" />
-    <ClInclude Include="..\..\..\include\cinternal\replace_function.h" />
-    <ClInclude Include="..\..\..\include\cinternal\replace_function_sys.h" />
-    <ClInclude Include="..\..\..\include\cinternal\thread_local_sys.h" />
+    <ClInclude Include="..\..\..\include\cutils\common_data01.h" />
+    <ClInclude Include="..\..\..\include\cutils\common_data02.h" />
+    <ClInclude Include="..\..\..\include\cutils\export_symbols.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h" />
+    <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h" />
+    <ClInclude Include="..\..\..\include\cutils\list\dllist.h" />
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
+    <ClInclude Include="..\..\..\include\cutils\logger.h" />
+    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h" />
+    <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
+    <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
+    <ClInclude Include="..\..\..\include\cutils\replace_function.h" />
+    <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
+    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h" />
+    <ClInclude Include="..\..\..\include\cutils\unit_test.h" />
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_common_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_windows_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_common_p.h" />

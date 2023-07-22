@@ -16,18 +16,6 @@
     <Filter Include="Header Files\include">
       <UniqueIdentifier>{7dcab733-6b4e-4a13-9dae-ef0c79970435}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\include\cinternal">
-      <UniqueIdentifier>{d7f43aaa-cb20-42b1-8ac2-bf7f7c26ab5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\include\cinternal\list">
-      <UniqueIdentifier>{514cfae5-6c3d-4aa3-9d03-f00da12fb4d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\include\cinternal\hash">
-      <UniqueIdentifier>{e2ac7877-2c67-4f66-8038-c797fbb74077}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\include\cinternal\parser">
-      <UniqueIdentifier>{90f6ba8f-f475-4dfc-b758-578593d83e1d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\src">
       <UniqueIdentifier>{6218e036-da3c-4130-ab63-048b957a3a40}</UniqueIdentifier>
     </Filter>
@@ -42,6 +30,21 @@
     </Filter>
     <Filter Include="Header Files\src\include\private\cinternal\parser">
       <UniqueIdentifier>{7e9c1a7c-97ca-450b-97aa-b4b1544e4826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils">
+      <UniqueIdentifier>{d7f43aaa-cb20-42b1-8ac2-bf7f7c26ab5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\list">
+      <UniqueIdentifier>{514cfae5-6c3d-4aa3-9d03-f00da12fb4d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\hash">
+      <UniqueIdentifier>{e2ac7877-2c67-4f66-8038-c797fbb74077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\tool">
+      <UniqueIdentifier>{29ad1ebe-7e90-4c75-8655-63a8f9f3315f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\parser">
+      <UniqueIdentifier>{90f6ba8f-f475-4dfc-b758-578593d83e1d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,71 +74,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cinternal\c_raii.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\common_data01.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\disable_compiler_warnings.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\export_symbols.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\internal_header.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\macroses02.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\macroses.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\insert_info_to_bin.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\parser\tokenizer01.h">
-      <Filter>Header Files\include\cinternal\parser</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_windows_p.h">
       <Filter>Header Files\src\include\private\cinternal\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\parser\argparser01.h">
-      <Filter>Header Files\include\cinternal\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\endian.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\replace_function.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\replace_function_sys.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\list\dllist.h">
-      <Filter>Header Files\include\cinternal\list</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\hash\dllhash.h">
-      <Filter>Header Files\include\cinternal\hash</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper01.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\loadfreelib_on_remote_process_sys.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\lw_mutex_recursive.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\thread_local_sys.h">
-      <Filter>Header Files\include\cinternal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_common_p.h">
       <Filter>Header Files\src\include\private\cinternal\parser</Filter>
@@ -145,6 +85,60 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_windows_p.h">
       <Filter>Header Files\src\include\private\cinternal\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\common_data01.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\common_data02.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\export_symbols.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\logger.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\unit_test.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h">
+      <Filter>Header Files\include\cutils\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\list\dllist.h">
+      <Filter>Header Files\include\cutils\list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h">
+      <Filter>Header Files\include\cutils\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
