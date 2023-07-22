@@ -14,8 +14,8 @@ set scriptDirectory=%~dp0
 cd /D "%scriptDirectory%.."
 set "repositoryRoot=%cd%\"
 
-rem git submodule sync --recursive
-rem git submodule update --init --recursive
+git submodule sync --recursive
+git submodule update --init --recursive
 
 
 endlocal
