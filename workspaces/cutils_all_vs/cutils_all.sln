@@ -59,6 +59,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "free_libs_by_names_on_remot
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ld_postload", "..\..\prj\tools\ld_postload_vs\ld_postload.vcxproj", "{DC0421A2-4C92-4071-AC15-28ACCCB3C190}"
+	ProjectSection(ProjectDependencies) = postProject
+		{887447C4-8988-4451-9D32-60EE9C5C0E4E} = {887447C4-8988-4451-9D32-60EE9C5C0E4E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freelib_on_remote_proc_by_handle", "..\..\prj\tools\freelib_on_remote_proc_by_handle_vs\freelib_on_remote_proc_by_handle.vcxproj", "{2FE2D539-F2A0-4F52-90BF-FE0617870AFD}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -66,6 +69,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freelib_on_remote_proc_by_h
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unit_test_test", "..\..\prj\tests\unit_test_test_mult\unit_test_test.vcxproj", "{42B66511-8A8D-43B6-A53C-DB9D790DBBBB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{887447C4-8988-4451-9D32-60EE9C5C0E4E} = {887447C4-8988-4451-9D32-60EE9C5C0E4E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
