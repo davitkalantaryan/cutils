@@ -286,6 +286,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\free_libs_by_names_on_remote_proc_mkfl\free_libs_by_names_on_remote_proc.unix.Makefile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

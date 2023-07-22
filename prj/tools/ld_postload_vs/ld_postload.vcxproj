@@ -283,6 +283,9 @@
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c" />
     <ClCompile Include="..\..\..\src\tools\ld_postload\main_cutils_tools_ld_postload.c" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ld_postload_mkfl\ld_postload.unix.Makefile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

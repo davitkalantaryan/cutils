@@ -9,7 +9,7 @@ firstTarget: all
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 
-SOURCES += $(cinternalRepoRoot)/src/tests/main_app_to_hack.cpp
+SOURCES += $(cutilsRepoRoot)/src/tests/main_app_to_hack.cpp
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName)
 

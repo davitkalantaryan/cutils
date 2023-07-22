@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{b97ce12d-a0b0-46ae-8b72-97234b07bae1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c">
@@ -33,5 +36,10 @@
     <ClCompile Include="..\..\..\src\tools\ld_postload\main_cutils_tools_ld_postload.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ld_postload_mkfl\ld_postload.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -8,9 +8,9 @@ firstTarget: all
 
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
-GTEST_SRC_DIR=$(cinternalRepoRoot)/src/tests/unit_test
-COMMON_SRC_DIR=$(cinternalRepoRoot)/src/core
-TOOLS_SRC_DIR=$(cinternalRepoRoot)/src/tools/cinternal_unit_test
+GTEST_SRC_DIR=$(cutilsRepoRoot)/src/tests/unit_test
+COMMON_SRC_DIR=$(cutilsRepoRoot)/src/core
+TOOLS_SRC_DIR=$(cutilsRepoRoot)/src/tools/cinternal_unit_test
 
 GTEST_SRCS_CPP	= $(shell find $(GTEST_SRC_DIR) -name "*.cpp")
 GTEST_SRCS_C	= $(shell find $(GTEST_SRC_DIR) -name "*.c")
@@ -20,9 +20,9 @@ TOOLS_SRCS	= $(shell find $(TOOLS_SRC_DIR) -name "*.c")
 # c=+ 11 is needed for google test
 # CPPFLAGS += -std=c++11
 
-EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test.c
-EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_list_dllist.c
-EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_lw_mutex_recursive.c
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_unit_test.c
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_lw_mutex_recursive.c
 
 #LIBS += $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/lib/libgtest_main$(nameExtension).a
 #LIBS += $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/lib/libgtest$(nameExtension).a
