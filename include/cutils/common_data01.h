@@ -1,14 +1,15 @@
 //
+// repo:			cutils
 // file:            common_data01.h
-// path:			include/cinternal/common_data01.h
+// path:			include/cutils/common_data01.h
 // created on:		2023 Feb 25
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#ifndef CINTERNAL_INCLUDE_CINTERNAL_COMMON_DATA01_H
-#define CINTERNAL_INCLUDE_CINTERNAL_COMMON_DATA01_H
+#ifndef CUTILS_INCLUDE_CUTILS_COMMON_DATA01_H
+#define CUTILS_INCLUDE_CUTILS_COMMON_DATA01_H
 
-#include <cinternal/export_symbols.h>
+#include <cinternal/internal_header.h>
 #include <stddef.h>
 #include <stdbool.h>
 
@@ -33,4 +34,4 @@ CPPUTILS_END_C
 
 
 
-#endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_COMMON_DATA01_H
+#endif  // #ifndef CUTILS_INCLUDE_CUTILS_COMMON_DATA01_H

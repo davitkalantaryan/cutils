@@ -1,16 +1,17 @@
 //
-// file:			cinternal_core_lw_mutex_recursive.c
-// path:			src/core/cinternal_core_lw_mutex_recursive.c
+// repo:			cutils
+// file:			cutils_core_lw_mutex_recursive.c
+// path:			src/core/cutils_core_lw_mutex_recursive.c
 // created on:		2023 Jun 20
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#include <cinternal/lw_mutex_recursive.h>
+#include <cutils/lw_mutex_recursive.h>
 
 CPPUTILS_BEGIN_C
 
 
-CINTERNAL_EXPORT int cinternal_lw_recursive_mutex_create(cinternal_lw_recursive_mutex_t* a_pMutex)
+CUTILS_EXPORT int cinternal_lw_recursive_mutex_create(cinternal_lw_recursive_mutex_t* a_pMutex)
 {
 #ifdef _WIN32
 	InitializeCriticalSection(a_pMutex);
@@ -30,7 +31,7 @@ CINTERNAL_EXPORT int cinternal_lw_recursive_mutex_create(cinternal_lw_recursive_
 }
 
 
-CINTERNAL_EXPORT void cinternal_lw_recursive_mutex_destroy(cinternal_lw_recursive_mutex_t* a_pMutex)
+CUTILS_EXPORT void cinternal_lw_recursive_mutex_destroy(cinternal_lw_recursive_mutex_t* a_pMutex)
 {
 #ifdef _WIN32
 	DeleteCriticalSection(a_pMutex);
@@ -40,7 +41,7 @@ CINTERNAL_EXPORT void cinternal_lw_recursive_mutex_destroy(cinternal_lw_recursiv
 }
 
 
-CINTERNAL_EXPORT int cinternal_lw_recursive_mutex_lock(cinternal_lw_recursive_mutex_t* a_pMutex)
+CUTILS_EXPORT int cinternal_lw_recursive_mutex_lock(cinternal_lw_recursive_mutex_t* a_pMutex)
 {
 #ifdef _WIN32
 	EnterCriticalSection(a_pMutex);
@@ -51,7 +52,7 @@ CINTERNAL_EXPORT int cinternal_lw_recursive_mutex_lock(cinternal_lw_recursive_mu
 }
 
 
-CINTERNAL_EXPORT void cinternal_lw_recursive_mutex_unlock(cinternal_lw_recursive_mutex_t* a_pMutex)
+CUTILS_EXPORT void cinternal_lw_recursive_mutex_unlock(cinternal_lw_recursive_mutex_t* a_pMutex)
 {
 #ifdef _WIN32
 	LeaveCriticalSection(a_pMutex);

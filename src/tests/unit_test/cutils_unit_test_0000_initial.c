@@ -1,13 +1,14 @@
 //
-// file:			cinternal_unit_test_0000_initial.c
-// path:			src/tests/unit_test/cinternal_unit_test_0000_initial.c
+// repo:			cutils
+// file:			cutils_unit_test_0000_initial.c
+// path:			src/tests/unit_test/cutils_unit_test_0000_initial.c
 // created on:		2023 May 19
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
 
-#include <cinternal/tool/unit_test_tools.h>
-#include <cinternal/unit_test.h>
+#include <cutils/tool/unit_test_tools.h>
+#include <cutils/unit_test.h>
 #include <stdbool.h>
 
 

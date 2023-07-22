@@ -5,7 +5,7 @@
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#include <cinternal/export_symbols.h>
+#include <cutils/export_symbols.h>
 #include <stdio.h>
 #include <stdlib.h>
 

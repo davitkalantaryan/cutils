@@ -1,12 +1,12 @@
 //
-// file:            cinternal_core_intern_tokenizer02_common.c
-// path:			src/intern/cinternal_core_intern_tokenizer02_common.c
+// repo:            cutils
+// file:            cutils_core_intern_tokenizer02_common.c
+// path:			src/intern/cutils_core_intern_tokenizer02_common.c
 // created on:		2023 Mar 18
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-
-#include <private/cinternal/parser/tokenizer02_common_p.h>
+#include <private/cutils/parser/tokenizer02_common_p.h>
 #include <cinternal/parser/tokenizer01.h>
 #include <cinternal/loadfreelib_on_remote_process.h>
 #include <stdio.h>

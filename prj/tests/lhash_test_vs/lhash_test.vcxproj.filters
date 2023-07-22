@@ -18,15 +18,15 @@
     <ClCompile Include="..\..\..\src\tests\main_lhash_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_hash_dllhash.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_hash_dllhash.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_unit_test.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\core\cinternal_core_list_dllist.impl.h">
+    <ClInclude Include="..\..\..\src\core\cutils_core_list_dllist.impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

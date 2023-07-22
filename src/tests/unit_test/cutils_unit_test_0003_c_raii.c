@@ -1,14 +1,13 @@
 //
-// file:			cinternal_unit_test_0003_c_raii.c
-// path:			src/tests/unit_test/cinternal_unit_test_0003_c_raii.c
+// repo:            cutils
+// file:			cutils_unit_test_0003_c_raii.c
+// path:			src/tests/unit_test/cutils_unit_test_0003_c_raii.c
 // created on:		2023 Jun 20
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
-#include <cinternal/internal_header.h>
-
-#include <cinternal/tool/unit_test_tools.h>
-#include <cinternal/unit_test.h>
+#include <cutils/tool/unit_test_tools.h>
+#include <cutils/unit_test.h>
 #include <cinternal/c_raii.h>
 #include <stddef.h>
 

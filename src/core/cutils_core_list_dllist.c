@@ -1,20 +1,21 @@
 //
-// file:            cinternal_core_list_dllist.c
-// path:			src/core/cinternal_core_list_dllist.c
+// repo:			cutils
+// file:            cutils_core_list_dllist.c
+// path:			src/core/cutils_core_list_dllist.c
 // created on:		2023 Feb 25
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 // explanation:		Double Linked List
 //
 
 
-#include <cinternal/list/dllist.h>
-#define CINTERNAL_SRC_CORE_CINTERNAL_CORE_LIST_DLLIST_IMPL_H_NEEDED		1
+#include <cutils/list/dllist.h>
+#define CUTILS_SRC_CORE_CUTILS_CORE_LIST_DLLIST_IMPL_H_NEEDED			1
 #define CInternalDLListAddCreatedIteratorAfterIteratorInline_needed		1
 #define CInternalDLListAddCreatedIteratorBeforeIteratorInline_needed	1
 #define CInternalDLListAddCreatedIteratorFrontInline2_needed			1
 #define CInternalDLListAddCreatedIteratorBackInline_needed				1
 #define CInternalListRemoveItertaorInline2_needed						1
-#include "cinternal_core_list_dllist.impl.h"
+#include "cutils_core_list_dllist.impl.h"
 
 
 CPPUTILS_BEGIN_C
@@ -28,7 +29,7 @@ struct CPPUTILS_DLL_PRIVATE SCinternalDLList {
 };
 
 
-CINTERNAL_EXPORT CinternalDLList_t CInternalDLListCreateEx(TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator)
+CUTILS_EXPORT CinternalDLList_t CInternalDLListCreateEx(TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator)
 {
 	CinternalDLList_t pRet;
 	a_allocator = a_allocator ? a_allocator : (&malloc);
@@ -52,14 +53,14 @@ static void CinternalDLListItemExtraCleaner(void* a_container, struct SCinternal
 }
 
 
-CINTERNAL_EXPORT void CInternalDLListDestroyEx(CinternalDLList_t CPPUTILS_ARG_NN a_list, TypeCinternalDeallocator a_remainingDataCleaner)
+CUTILS_EXPORT void CInternalDLListDestroyEx(CinternalDLList_t CPPUTILS_ARG_NN a_list, TypeCinternalDeallocator a_remainingDataCleaner)
 {
 	CInternalListCleanInline(a_list->first, a_list->deallocator, a_list,a_remainingDataCleaner,&CinternalDLListItemExtraCleaner);
 	(*(a_list->deallocator))(a_list);
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataBeforeIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListAddDataBeforeIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data)
 {
 	struct SCinternalDLListItem* const pNewItem = CPPUTILS_STATIC_CAST(struct SCinternalDLListItem*, (*(a_list->allocator))(sizeof(struct SCinternalDLListItem)));
 	if (!pNewItem) {
@@ -72,7 +73,7 @@ CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataBeforeIterator(Cint
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataAfterIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListAddDataAfterIterator(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iter, const void* a_data)
 {
 	struct SCinternalDLListItem* const pNewItem = CPPUTILS_STATIC_CAST(struct SCinternalDLListItem*, (*(a_list->allocator))(sizeof(struct SCinternalDLListItem)));
 	if (!pNewItem) {
@@ -85,7 +86,7 @@ CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataAfterIterator(Cinte
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToFront(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListAddDataToFront(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data)
 {
 	struct SCinternalDLListItem* const pNewItem = CPPUTILS_STATIC_CAST(struct SCinternalDLListItem*, (*(a_list->allocator))(sizeof(struct SCinternalDLListItem)));
 	if (!pNewItem) {
@@ -98,7 +99,7 @@ CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToFront(CinternalDL
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToBack(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListAddDataToBack(CinternalDLList_t CPPUTILS_ARG_NN a_list, const void* a_data)
 {
 	struct SCinternalDLListItem* const pNewItem = CPPUTILS_STATIC_CAST(struct SCinternalDLListItem*, (*(a_list->allocator))(sizeof(struct SCinternalDLListItem)));
 	if (!pNewItem) {
@@ -111,19 +112,19 @@ CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListAddDataToBack(CinternalDLL
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListFirstItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListFirstItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
 {
 	return CInternalDLListItemFromDLListIterator(a_list->first);
 }
 
 
-CINTERNAL_EXPORT CinternalDLListItem_t CInternalDLListLastItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
+CUTILS_EXPORT CinternalDLListItem_t CInternalDLListLastItem(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
 {
 	return CInternalDLListItemFromDLListIterator(a_list->last);
 }
 
 
-CINTERNAL_EXPORT void CInternalDLListRemoveData(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iterator)
+CUTILS_EXPORT void CInternalDLListRemoveData(CinternalDLList_t CPPUTILS_ARG_NN a_list, CinternalDLListItem_t CPPUTILS_ARG_NN a_iterator)
 {
 	CInternalListRemoveItertaorInline2(&(a_list->first), &(a_list->last), CInternalDLListIteratorFromDLListItem(a_iterator));
 	(*(a_list->deallocator))(CPPUTILS_REINTERPRET_CAST(struct SCinternalDLListItem*, CPPUTILS_CONST_CAST(struct SCinternalDLListItem*, a_iterator)));
@@ -131,7 +132,7 @@ CINTERNAL_EXPORT void CInternalDLListRemoveData(CinternalDLList_t CPPUTILS_ARG_N
 }
 
 
-CINTERNAL_EXPORT size_t CInternalDLListSize(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
+CUTILS_EXPORT size_t CInternalDLListSize(ConstCinternalDLList_t CPPUTILS_ARG_NN a_list)
 {
 	return a_list->m_size;
 }

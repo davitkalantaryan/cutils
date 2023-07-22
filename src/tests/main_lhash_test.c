@@ -1,4 +1,5 @@
 //
+// repo:			cutils
 // file:            main_lhash_test.c
 // path:			src/tests/main_lhash_test.c
 // created on:		2023 Feb 25
@@ -6,8 +7,8 @@
 //
 
 
-#include <cinternal/hash/dllhash.h>
-#include <cinternal/unit_test.h>
+#include <cutils/hash/dllhash.h>
+#include <cutils/unit_test.h>
 #include <stdio.h>
 
 #define CINTR_TEST_HASH_DATA1		2

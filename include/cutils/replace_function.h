@@ -1,14 +1,15 @@
 //
+// repo:			cutils
 // file:            replace_function.h
-// path:			include/cinternal/replace_function.h
+// path:			include/cutils/replace_function.h
 // created on:		2023 Feb 25
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#ifndef CINTERNAL_INCLUDE_CINTERNAL_REPLACE_FUNCTION_H
-#define CINTERNAL_INCLUDE_CINTERNAL_REPLACE_FUNCTION_H
+#ifndef CUTILS_INCLUDE_CUTILS_REPLACE_FUNCTION_H
+#define CUTILS_INCLUDE_CUTILS_REPLACE_FUNCTION_H
 
-#include <cinternal/export_symbols.h>
+#include <cutils/export_symbols.h>
 #include <stddef.h>
 #include <stdbool.h>
 
@@ -33,8 +34,8 @@ struct SCInternalReplaceFunctionData {
 };
 
 
-CINTERNAL_EXPORT void CInternalReplaceFunctions(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData);
-CINTERNAL_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData);
+CUTILS_EXPORT void CInternalReplaceFunctions(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData);
+CUTILS_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData);
 
 
 CPPUTILS_END_C
@@ -43,4 +44,4 @@ CPPUTILS_END_C
 #endif  //  #ifdef _WIN32
 
 
-#endif  // #ifndef CINTERNAL_INCLUDE_CINTERNAL_REPLACE_FUNCTION_H
+#endif  // #ifndef CUTILS_INCLUDE_CUTILS_REPLACE_FUNCTION_H

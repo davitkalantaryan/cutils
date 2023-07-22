@@ -1,12 +1,12 @@
 //
-// file:			main_cinternal_unit_test.c
-// path:			src/tools/cinternal_unit_test/main_cinternal_unit_test.c
+// repo:			cutils
+// file:			main_cutils_unit_test.c
+// path:			src/tools/cutils_unit_test/main_cutils_unit_test.c
 // created on:		2023 May 18
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
-
-#include <cinternal/list/dllist.h>
+#include <cutils/list/dllist.h>
 #include <stdlib.h>
 #include <stdio.h>
 

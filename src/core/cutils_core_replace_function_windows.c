@@ -1,6 +1,7 @@
 //
-// file:            cinternal_core_replace_function_windows.c
-// path:			src/core/windows/cinternal_core_replace_function_windows.c
+// repo:            cutils
+// file:            cutils_core_replace_function_windows.c
+// path:			src/core/windows/cutils_core_replace_function_windows.c
 // created on:		2023 Mar 08
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
@@ -10,7 +11,7 @@
 
 #ifdef _WIN32
 
-#include <cinternal/replace_function_sys.h>
+#include <cutils/replace_function_sys.h>
 #include <string.h>
 #include <cinternal/disable_compiler_warnings.h>
 #include <Psapi.h>
@@ -66,13 +67,13 @@ static inline void CInternalReplaceFunctionsForModuleInline(HMODULE a_hModule,si
 }
 
 
-CINTERNAL_EXPORT void CInternalReplaceFunctionsForModule(HMODULE a_hModule, size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
+CUTILS_EXPORT void CInternalReplaceFunctionsForModule(HMODULE a_hModule, size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
 {
     CInternalReplaceFunctionsForModuleInline(a_hModule, a_count, a_replaceData);
 }
 
 
-CINTERNAL_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
+CUTILS_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData)
 {
     DWORD cbNeededIn, cbNeededOut;
     HMODULE hMod;
@@ -104,7 +105,7 @@ CINTERNAL_EXPORT void CInternalReplaceFunctionsAllModules(size_t a_count, struct
 }
 
 
-CINTERNAL_EXPORT void CInternalReplaceFunctions(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData) 
+CUTILS_EXPORT void CInternalReplaceFunctions(size_t a_count, struct SCInternalReplaceFunctionData* a_replaceData) 
 {
     HMODULE hModule = GetModuleHandleA(0);
     CInternalReplaceFunctionsForModuleInline(hModule, a_count, a_replaceData);

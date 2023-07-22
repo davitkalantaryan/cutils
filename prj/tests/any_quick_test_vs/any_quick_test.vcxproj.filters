@@ -25,12 +25,6 @@
     <Filter Include="Header Files\src\include\private">
       <UniqueIdentifier>{12e747f9-b671-4aa6-9e28-8a1311813c54}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\src\include\private\cinternal">
-      <UniqueIdentifier>{23372132-3a95-4b23-90b3-de1ca7b80989}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\src\include\private\cinternal\parser">
-      <UniqueIdentifier>{7e9c1a7c-97ca-450b-97aa-b4b1544e4826}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\include\cutils">
       <UniqueIdentifier>{d7f43aaa-cb20-42b1-8ac2-bf7f7c26ab5a}</UniqueIdentifier>
     </Filter>
@@ -46,46 +40,19 @@
     <Filter Include="Header Files\include\cutils\parser">
       <UniqueIdentifier>{90f6ba8f-f475-4dfc-b758-578593d83e1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\src\include\private\cutils">
+      <UniqueIdentifier>{ec84eaab-bf98-406c-8ddc-c291e8b9b33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\include\private\cutils\parser">
+      <UniqueIdentifier>{2e8d0ff8-64d1-4588-930b-6fac6f21a35b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer01_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_replace_function_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_list_dllist.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_hash_dllhash.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_windows_p.h">
-      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer01_common_p.h">
-      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_common_p.h">
-      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\include\private\cinternal\parser\tokenizer02_windows_p.h">
-      <Filter>Header Files\src\include\private\cinternal\parser</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\common_data01.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
@@ -93,15 +60,6 @@
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\export_symbols.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h">
@@ -139,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h">
       <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_common_p.h">
+      <Filter>Header Files\src\include\private\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_windows_p.h">
+      <Filter>Header Files\src\include\private\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer02_common_p.h">
+      <Filter>Header Files\src\include\private\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer02_windows_p.h">
+      <Filter>Header Files\src\include\private\cutils\parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

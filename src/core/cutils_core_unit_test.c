@@ -1,31 +1,24 @@
 //
-// file:			cinternal_core_unit_test.c
-// path:			src/core/cinternal_core_unit_test.c
+// repo:			cutils
+// file:			cutils_core_unit_test.c
+// path:			src/core/cutils_core_unit_test.c
 // created on:		2023 Apr 15
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#include <cinternal/unit_test.h>
+#include <cutils/unit_test.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 
-#ifdef _WIN32
-#define CINTERNAL_FILE_DELIM01	'\\'
-#define CINTERNAL_FILE_DELIM02	'/'
-#else
-#define CINTERNAL_FILE_DELIM01	'/'
-#define CINTERNAL_FILE_DELIM02	'/'
-#endif
-
 CPPUTILS_BEGIN_C
 
 
 static inline const char* FileNameFromPossiblePathInline(const char* a_cpcSrcPath) {
-	const char* cpcTerm = strrchr(a_cpcSrcPath,CINTERNAL_FILE_DELIM01);
+	const char* cpcTerm = strrchr(a_cpcSrcPath,CPPUTILS_FILE_DELIM_001);
 	if (cpcTerm) { return cpcTerm + 1; }
-	cpcTerm = strrchr(a_cpcSrcPath, CINTERNAL_FILE_DELIM02);
+	cpcTerm = strrchr(a_cpcSrcPath, CPPUTILS_FILE_DELIM_002);
 	if (cpcTerm) { return cpcTerm + 1; }
 	return a_cpcSrcPath;
 }
@@ -42,11 +35,11 @@ static inline void PrintSourceInformationInline(FILE* a_file, const char* a_cpcS
 }
 
 
-CINTERNAL_EXPORT int CinternalUnitTestCheckRawFn(bool a_condition, const char* a_testName, int a_subtestNumber, const char* a_cpcSrcPath, int a_line)
+CUTILS_EXPORT int CinternalUnitTestCheckRawFn(bool a_condition, const char* a_testName, int a_subtestNumber, const char* a_cpcSrcPath, int a_line)
 {
 	if (a_condition) {
 		switch (a_subtestNumber) {
-		case CINTERNAL_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
+		case CUTILS_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
 			a_testName = FileNameFromPossiblePathInline(a_cpcSrcPath);
 			a_subtestNumber = a_line;
 			break;
@@ -60,7 +53,7 @@ CINTERNAL_EXPORT int CinternalUnitTestCheckRawFn(bool a_condition, const char* a
 	}
 	
 	switch (a_subtestNumber) {
-	case CINTERNAL_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
+	case CUTILS_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
 		a_testName = FileNameFromPossiblePathInline(a_cpcSrcPath);
 		a_subtestNumber = a_line;
 		break;
@@ -74,11 +67,11 @@ CINTERNAL_EXPORT int CinternalUnitTestCheckRawFn(bool a_condition, const char* a
 }
 
 
-CINTERNAL_EXPORT void CinternalUnitTestAssertCheckRawFn(bool a_condition, const char* a_testName, int a_subtestNumber, const char* a_cpcSrcPath, int a_line)
+CUTILS_EXPORT void CinternalUnitTestAssertCheckRawFn(bool a_condition, const char* a_testName, int a_subtestNumber, const char* a_cpcSrcPath, int a_line)
 {
 	if (a_condition) {
 		switch (a_subtestNumber) {
-		case CINTERNAL_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
+		case CUTILS_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
 			a_testName = FileNameFromPossiblePathInline(a_cpcSrcPath);
 			a_subtestNumber = a_line;
 			break;
@@ -92,7 +85,7 @@ CINTERNAL_EXPORT void CinternalUnitTestAssertCheckRawFn(bool a_condition, const 
 	}
 
 	switch (a_subtestNumber) {
-	case CINTERNAL_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
+	case CUTILS_UNIT_TEST_SPECIAL_SUBTEST_NUMBER:
 		a_testName = FileNameFromPossiblePathInline(a_cpcSrcPath);
 		a_subtestNumber = a_line;
 		break;

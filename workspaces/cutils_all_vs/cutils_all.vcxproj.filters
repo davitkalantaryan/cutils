@@ -113,23 +113,14 @@
     <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
       <Filter>files\scripts</Filter>
     </None>
-    <None Include="..\..\prj\common\common_qt\flags_common.pri">
-      <Filter>files\prj\common\common_qt</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_qt\gui_common.pri">
-      <Filter>files\prj\common\common_qt</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_qt\resolve_common.pri">
-      <Filter>files\prj\common\common_qt</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_qt\sys_common.pri">
-      <Filter>files\prj\common\common_qt</Filter>
-    </None>
     <None Include="..\..\prj\common\common_mkfl\sys_common.unix.Makefile">
       <Filter>files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\unix.common.tmp.Makefile">
       <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\flagsandsys_common.pri">
+      <Filter>files\prj\common\common_qt</Filter>
     </None>
   </ItemGroup>
 </Project>

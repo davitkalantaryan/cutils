@@ -1,16 +1,17 @@
 //
+// repo:			cutils
 // file:            unit_test.h
-// path:			include/cinternal/tool/unit_test.h
+// path:			include/cutils/tool/unit_test.h
 // created on:		2023 May 19
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 // explanation:		tools for unit test
 //
 
-#ifndef CINTERNAL_INCLUDE_CINTERNAL_TOOL_UNIT_TEST_TOOLS_H
-#define CINTERNAL_INCLUDE_CINTERNAL_TOOL_UNIT_TEST_TOOLS_H
+#ifndef CUTILS_INCLUDE_CUTILS_TOOL_UNIT_TEST_TOOLS_H
+#define CUTILS_INCLUDE_CUTILS_TOOL_UNIT_TEST_TOOLS_H
 
 
-#include <cinternal/export_symbols.h>
+#include <cinternal/internal_header.h>
 
 CPPUTILS_BEGIN_C
 
@@ -43,4 +44,4 @@ CPPUTILS_DLL_PRIVATE void CinternalAddUnitTestFunction(void (*a_function)(void))
 CPPUTILS_END_C
 
 
-#endif  //  #ifndef CINTERNAL_INCLUDE_CINTERNAL_TOOL_UNIT_TEST_TOOLS_H
+#endif  //  #ifndef CUTILS_INCLUDE_CUTILS_TOOL_UNIT_TEST_TOOLS_H

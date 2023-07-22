@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\src\tests\main_function_changer_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_replace_function_windows.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_replace_function_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -39,35 +39,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\tools\cinternal_unit_test\main_cinternal_unit_test.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_list_dllist.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0000_initial.c">
-      <Filter>Source Files\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_unit_test.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\init_libdl\entry_cinternal_core_init_libdl.c">
       <Filter>files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0001_bistate_flags.c">
-      <Filter>Source Files\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0002_fourstate_flags.c">
-      <Filter>Source Files\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0003_c_raii.c">
-      <Filter>Source Files\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\cinternal_unit_test_0004_lw_mutex_recursive.c">
-      <Filter>Source Files\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_lw_mutex_recursive.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tools\cutils_unit_test\main_cutils_unit_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0000_initial.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0001_bistate_flags.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0002_fourstate_flags.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0003_c_raii.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0004_lw_mutex_recursive.c">
+      <Filter>Source Files\unit_test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,15 +86,6 @@
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\export_symbols.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h">
