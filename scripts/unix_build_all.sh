@@ -25,11 +25,11 @@ cd ..
 repositoryRoot=`pwd`
 echo repositoryRoot=$repositoryRoot
 
-cd workspaces/cinternal_all_mkfl
+cd workspaces/cutils_all_mkfl
 unset CPPUTILS_DEBUG
-make -f cinternal_all.unix.Makefile CPPUTILS_RELEASE=1
+make -f cutils_all.unix.Makefile CPPUTILS_RELEASE=1
 unset CPPUTILS_RELEASE
-make -f cinternal_all.unix.Makefile CPPUTILS_DEBUG=1
+make -f cutils_all.unix.Makefile CPPUTILS_DEBUG=1
 
 
 cd ${repositoryRoot}/prj/tests/unit_test_test_mult

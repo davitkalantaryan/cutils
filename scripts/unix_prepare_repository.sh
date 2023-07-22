@@ -24,3 +24,5 @@ done
 cd ..
 repositoryRoot=`pwd`
 echo repositoryRoot=$repositoryRoot
+git submodule sync --recursive
+git submodule update --init --recursive
