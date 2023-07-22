@@ -5,10 +5,10 @@
 # created by:	Davit Kalantaryan
 #
 
-include ( "$${PWD}/../../common/common_qt/sys_common.pri" )
-include ( "$${PWD}/../../common/common_qt/flags_common.pri" )
+message("!!! $${_PRO_FILE_}")
+include ( "$${PWD}/../../common/common_qt/flagsandsys_common_private.pri" )
 
-DESTDIR     = "$${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/test"
+DESTDIR     = "$${artifactRoot}/sys/$${CODENAME}/$$CONFIGURATION/test"
 
 QT -= gui
 QT -= core
@@ -18,18 +18,13 @@ CONFIG -= qt
 LIBS += -pthread
 LIBS += -ldl
 
-DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
-
 
 SOURCES += $$files($${PWD}/../../../src/core/*.c,true)
 SOURCES += $$files($${PWD}/../../../src/core/*.cpp,true)
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_any_quick_test.c"
 
-COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
-HEADERS += $$COMMON_HDRS
-HEADERS += $$COMMON_HDRSPP
+HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 
 OTHER_FILES += $$files($${PWD}/../any_quick_test_mkfl/*.Makefile,false)

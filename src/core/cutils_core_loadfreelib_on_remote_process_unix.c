@@ -1,4 +1,5 @@
 //
+// repo:            cutils
 // file:            cinternal_core_replace_function_unix.c
 // path:			src/core/windows/cinternal_core_replace_function_unix.c
 // created on:		2023 Mar 18
@@ -11,8 +12,8 @@
 #ifndef _WIN32
 
 
-#include <cinternal/loadfreelib_on_remote_process_sys.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
+#include <cutils/loadfreelib_on_remote_process_sys.h>
+#include <cutils/loadfreelib_on_remote_process.h>
 
 
 CPPUTILS_BEGIN_C
@@ -238,7 +239,7 @@ static inline void* CInternalLoadLibOnRemoteProcessAndGetModuleInline(int a_pid,
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const char* a_libraryName)
 {
     void*const pLib = CInternalLoadLibOnRemoteProcessAndGetModuleInline(a_pid,a_libraryName,RTLD_NOLOAD|RTLD_NOW);
     if(!pLib){return false;}
@@ -247,13 +248,13 @@ CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const cha
 }
 
 
-CINTERNAL_EXPORT bool CInternalLoadLibOnRemoteProcess(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalLoadLibOnRemoteProcess(int a_pid, const char* a_libraryName)
 {
     return CInternalLoadLibOnRemoteProcessAndGetModuleInline(a_pid,a_libraryName,RTLD_NOW) ? true : false;
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a_libraryHandle)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a_libraryHandle)
 {
     unsigned long long int addr,fn_addr,dlclose_address_here, dlclose_address_on_remote, lib_dl_address_on_remote;
     unsigned long long int save[1024];
@@ -366,7 +367,7 @@ CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a
 }
 
 
-CINTERNAL_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, const char* a_libraryName)
 {
     return CInternalLoadLibOnRemoteProcessAndGetModuleInline(a_pid, a_libraryName,RTLD_NOW);
 }

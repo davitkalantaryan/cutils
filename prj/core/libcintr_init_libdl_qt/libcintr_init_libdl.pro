@@ -10,10 +10,10 @@ CONFIG += dll
 CONFIG -= static
 TARGET = cintr_init_libdl
 
-include ( "$${PWD}/../../common/common_qt/sys_common.pri" )
-include ( "$${PWD}/../../common/common_qt/flags_common.pri" )
+message("!!! $${_PRO_FILE_}")
+include ( "$${PWD}/../../common/common_qt/flagsandsys_common.pri" )
 
-DESTDIR     = "$${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/tlib"
+DESTDIR     = "$${artifactRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib"
 
 
 QT -= gui
@@ -23,17 +23,10 @@ CONFIG -= qt
 
 LIBS += -ldl
 
-DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
-
-#SOURCES += $$files($${PWD}/../../../src/core/*.c*,true)
 SOURCES	+=		\
-        "$${PWD}/../../../src/core/init_libdl/entry_cinternal_core_init_libdl.c"
+        "$${PWD}/../../../src/core/init_libdl/entry_cutils_core_init_libdl.c"
 
-COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
-
-HEADERS += $$COMMON_HDRS
-HEADERS += $$COMMON_HDRSPP
+HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 
 OTHER_FILES += $$files($${PWD}/../libcintr_init_libdl_mkfl/*.Makefile,false)

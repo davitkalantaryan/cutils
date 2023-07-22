@@ -7,10 +7,10 @@
 
 TEMPLATE = lib
 
-include ( "$${PWD}/../../common/common_qt/sys_common.pri" )
-include ( "$${PWD}/../../common/common_qt/flags_common.pri" )
+message("!!! $${_PRO_FILE_}")
+include ( "$${PWD}/../../common/common_qt/flagsandsys_common.pri" )
 
-DESTDIR     = "$${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/tlib"
+DESTDIR     = "$${artifactRoot}/sys/$${CODENAME}/$$CONFIGURATION/test"
 
 QT -= gui
 QT -= core
@@ -19,17 +19,10 @@ CONFIG -= qt
 
 LIBS += -pthread
 
-DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
 
-
-#SOURCES += $$files($${PWD}/../../../src/core/*.c*,true)
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/entry_test_lib01.cpp"
 
-COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
-
-HEADERS += $$COMMON_HDRS
-HEADERS += $$COMMON_HDRSPP
+HEADERS += $$files($${cinternalRepoRoot}/include/*.h,true)
 
 OTHER_FILES += $$files($${PWD}/../test_lib01_mkfl/*.Makefile,false)
