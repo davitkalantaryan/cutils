@@ -1,4 +1,5 @@
 //
+// repo:			cutils
 // file:            main_freelib_on_remote_proc_by_handle.c
 // path:			src/tools/freelib_on_remote_proc_by_handle/main_freelib_on_remote_proc_by_handle.c
 // created on:		2023 Mar 18
@@ -8,9 +9,8 @@
 
 //#define CINTERNAL_FREE_LIB_ON_REMOTE_BY_HANDLE_WAIT_FOR_DEBUGGER
 
-#include <cinternal/export_symbols.h>
-#include <cinternal/parser/argparser01.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
+#include <cutils/parser/argparser01.h>
+#include <cutils/loadfreelib_on_remote_process.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

@@ -1,4 +1,5 @@
 //
+// repo:			cutils
 // file:            main_free_libs_by_names_on_remote_proc.c
 // path:			src/tools/free_libs_by_names_on_remote_proc/main_free_libs_by_names_on_remote_proc.c
 // created on:		2023 Mar 17
@@ -8,11 +9,10 @@
 
 //#define CINTERNAL_LD_POSTLOAD_WAIT_FOR_DEBUGGER		1
 
-#include <cinternal/export_symbols.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
-#include <cinternal/parser/argparser01.h>
-#include <cinternal/list/dllist.h>
-#include <private/cinternal/parser/tokenizer02_common_p.h>
+#include <cutils/loadfreelib_on_remote_process.h>
+#include <cutils/parser/argparser01.h>
+#include <cutils/list/dllist.h>
+#include <private/cutils/parser/tokenizer02_common_p.h>
 #include <stddef.h>
 #include <cinternal/disable_compiler_warnings.h>
 #ifdef _WIN32

@@ -7,8 +7,8 @@
 //
 
 #include <private/cutils/parser/tokenizer02_common_p.h>
-#include <cinternal/parser/tokenizer01.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
+#include <cutils/parser/tokenizer01.h>
+#include <cutils/loadfreelib_on_remote_process.h>
 #include <stdio.h>
 
 

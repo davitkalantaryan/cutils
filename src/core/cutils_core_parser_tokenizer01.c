@@ -1,21 +1,19 @@
 //
-// file:            cinternal_core_parser_tokenizer01.c
-// path:			src/core/cinternal_core_parser_tokenizer01.c
+// repo:			cutils
+// file:            cutils_core_parser_tokenizer01.c
+// path:			src/core/cutils_core_parser_tokenizer01.c
 // created on:		2023 Mar 16
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-
-#include <cinternal/parser/tokenizer01.h>
+#include <cutils/parser/tokenizer01.h>
 #include <string.h>
 #include <stddef.h>
-
 
 CPPUTILS_BEGIN_C
 
 
-
-CINTERNAL_EXPORT int CInternalTokenizer01a(char* CPPUTILS_ARG_NONULL a_pcBuffer, char a_delimeter, TypeCinternalTokenizer01a CPPUTILS_ARG_NONULL a_clbk, void* a_clbkData)
+CUTILS_EXPORT int CInternalTokenizer01a(char* CPPUTILS_ARG_NONULL a_pcBuffer, char a_delimeter, TypeCinternalTokenizer01a CPPUTILS_ARG_NONULL a_clbk, void* a_clbkData)
 {
 	int nRet = -1;
 	ptrdiff_t strLen;

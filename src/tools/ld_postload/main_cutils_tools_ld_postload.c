@@ -1,6 +1,7 @@
 //
-// file:            main_cinternal_core_windows_ld_postload.c
-// path:			src/tools/windows_ld_postload/main_cinternal_core_windows_ld_postload.c
+// repo:			cutils
+// file:            main_cutils_core_windows_ld_postload.c
+// path:			src/tools/windows_ld_postload/main_cutils_core_windows_ld_postload.c
 // created on:		2023 Mar 16
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
@@ -8,11 +9,10 @@
 
 //#define CINTERNAL_LD_POSTLOAD_WAIT_FOR_DEBUGGER		1
 
-#include <cinternal/export_symbols.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
-#include <cinternal/parser/argparser01.h>
-#include <cinternal/list/dllist.h>
-#include <private/cinternal/parser/tokenizer01_common_p.h>
+#include <cutils/loadfreelib_on_remote_process.h>
+#include <cutils/parser/argparser01.h>
+#include <cutils/list/dllist.h>
+#include <private/cutils/parser/tokenizer01_common_p.h>
 #include <stddef.h>
 #include <cinternal/disable_compiler_warnings.h>
 #ifdef _WIN32

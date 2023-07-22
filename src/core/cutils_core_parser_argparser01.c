@@ -1,19 +1,19 @@
 //
-// file:            cinternal_core_parser_argparser01.c
-// path:			src/core/cinternal_core_parser_argparser01.c
+// repo:			cutils
+// file:            cutils_core_parser_argparser01.c
+// path:			src/core/cutils_core_parser_argparser01.c
 // created on:		2023 Mar 16
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-
-#include <cinternal/parser/argparser01.h>
+#include <cutils/parser/argparser01.h>
 #include <string.h>
 
 
 CPPUTILS_BEGIN_C
 
 
-CINTERNAL_EXPORT const char* CInternalFindEndTakeArg(
+CUTILS_EXPORT const char* CInternalFindEndTakeArg(
 	int* CPPUTILS_ARG_NONULL a_argc_p, char** CPPUTILS_ARG_NONULL a_argv, 
 	const char* CPPUTILS_ARG_NONULL a_key, int* a_pLastArg, bool a_hasArg)
 {

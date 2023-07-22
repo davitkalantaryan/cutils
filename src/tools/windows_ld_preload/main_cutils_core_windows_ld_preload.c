@@ -1,6 +1,7 @@
 //
-// file:            main_cinternal_core_windows_ld_preload.c
-// path:			src/tests/main_cinternal_core_windows_ld_preload.c
+// repo:			cutils
+// file:            main_cutils_core_windows_ld_preload.c
+// path:			src/tests/main_cutils_core_windows_ld_preload.c
 // created on:		2023 Mar 09
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
@@ -8,9 +9,8 @@
 
 //#define CINTERNAL_WINDOWS_LD_PRELOAD_WAIT_FOR_DEBUGGER		1
 
-#include <cinternal/export_symbols.h>
-#include <cinternal/loadfreelib_on_remote_process_sys.h>
-#include <private/cinternal/parser/tokenizer01_windows_p.h>
+#include <cutils/loadfreelib_on_remote_process_sys.h>
+#include <private/cutils/parser/tokenizer01_windows_p.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>

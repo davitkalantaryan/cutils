@@ -1,16 +1,16 @@
 //
-// file:            cinternal_core_replace_function_windows.c
-// path:			src/core/windows/cinternal_core_replace_function_windows.c
+// repo:			cutils
+// file:            cutils_core_replace_function_windows.c
+// path:			src/core/windows/cutils_core_replace_function_windows.c
 // created on:		2023 Mar 08
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
-
 
 #include <cinternal/internal_header.h>
 
 #ifdef _WIN32
 
-#include <cinternal/loadfreelib_on_remote_process_sys.h>
+#include <cutils/loadfreelib_on_remote_process_sys.h>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -86,13 +86,13 @@ static inline const char* FileNameFromFilePathInline(const char* a_path) {
 }
 
 
-CINTERNAL_EXPORT bool CInternalLoadLibOnRemoteProcessSys(HANDLE a_hProcess, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalLoadLibOnRemoteProcessSys(HANDLE a_hProcess, const char* a_libraryName)
 {
 	return CInternalLoadLibOnRemoteProcessSysInline(a_hProcess, a_libraryName) ? true : false;
 }
 
 
-CINTERNAL_EXPORT HMODULE CInternalLoadLibOnRemoteProcessAndGetModuleSys(HANDLE a_hProcess, const char* a_libraryName)
+CUTILS_EXPORT HMODULE CInternalLoadLibOnRemoteProcessAndGetModuleSys(HANDLE a_hProcess, const char* a_libraryName)
 {
 	char vcModuleNameBuff[1024];
 	BOOL secondEnumRes;
@@ -139,7 +139,7 @@ CINTERNAL_EXPORT HMODULE CInternalLoadLibOnRemoteProcessAndGetModuleSys(HANDLE a
 }
 
 
-CINTERNAL_EXPORT bool CInternalLoadLibOnRemoteProcess(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalLoadLibOnRemoteProcess(int a_pid, const char* a_libraryName)
 {
 	bool bRet;
 	const HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, (DWORD)a_pid);
@@ -152,7 +152,7 @@ CINTERNAL_EXPORT bool CInternalLoadLibOnRemoteProcess(int a_pid, const char* a_l
 }
 
 
-CINTERNAL_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, const char* a_libraryName)
 {
 	void* pRet;
 	const HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, (DWORD)a_pid);
@@ -165,7 +165,7 @@ CINTERNAL_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, co
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const char* a_libraryName)
 {
 	bool bRet;
 	const HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, (DWORD)a_pid);
@@ -178,7 +178,7 @@ CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByName(int a_pid, const cha
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a_libraryHandle)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a_libraryHandle)
 {
 	bool bRet;
 	const HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, (DWORD)a_pid);
@@ -191,13 +191,13 @@ CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByHandle(int a_pid, void* a
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessByModuleSys(HANDLE a_hProcess, HMODULE a_libraryModule)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessByModuleSys(HANDLE a_hProcess, HMODULE a_libraryModule)
 {
 	return CInternalFreeLibOnRemoteProcessSysInline(a_hProcess, a_libraryModule);
 }
 
 
-CINTERNAL_EXPORT bool CInternalFreeLibOnRemoteProcessSys(HANDLE a_hProcess, const char* a_libraryName)
+CUTILS_EXPORT bool CInternalFreeLibOnRemoteProcessSys(HANDLE a_hProcess, const char* a_libraryName)
 {
 	bool bRet = false;
 	char vcModulePath[1024];
