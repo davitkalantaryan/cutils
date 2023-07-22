@@ -279,7 +279,7 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c" />
-    <ClCompile Include="..\..\..\src\core\init_libdl\entry_cinternal_core_init_libdl.c">
+    <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>

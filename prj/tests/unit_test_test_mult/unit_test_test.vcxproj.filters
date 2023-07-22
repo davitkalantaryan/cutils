@@ -39,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\init_libdl\entry_cinternal_core_init_libdl.c">
-      <Filter>files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -68,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0004_lw_mutex_recursive.c">
       <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
+      <Filter>files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

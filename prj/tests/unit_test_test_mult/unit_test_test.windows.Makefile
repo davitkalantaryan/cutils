@@ -46,7 +46,6 @@ MakeFileDir			= $(MAKEDIR)
 MakeFileName        = unit_test_test.windows.Makefile
 
 RepoRootDir			= $(MakeFileDir)\..\..\..
-cpputilsRepoRoot		= $(RepoRootDir)
 SrcBaseDir			= $(MakeFileDir)\..\..\..\src
 
 TargetName			= unittest
@@ -79,7 +78,8 @@ DirectoriesToCompile	=
 DirectoriesToCompile	= tests\unit_test
 #DirectoriesToCompile	= $(DirectoriesToCompile) nr-core
 DirectoriesToCompile	= $(DirectoriesToCompile) core
-DirectoriesToCompile	= $(DirectoriesToCompile) tools\cinternal_unit_test
+DirectoriesToCompile	= $(DirectoriesToCompile) intern
+DirectoriesToCompile	= $(DirectoriesToCompile) tools\cutils_unit_test
 
 default: unittest
 
@@ -91,4 +91,4 @@ __buildGoogleTestLib:
 	@cd $(MakeFileDir)
 	@echo "!!!!!! 'msbuild -t:restore -p:RestorePackagesConfig=true' is not necessary anymore"
 
-!include <$(RepoRootDir)\prj\common\common_mkfl\windows.common.Makefile>
+!include <$(RepoRootDir)\prj\common\common_mkfl\flagsandsys_common_private.windows.Makefile>

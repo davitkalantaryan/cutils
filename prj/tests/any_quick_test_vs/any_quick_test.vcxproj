@@ -100,35 +100,35 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\common\common_vs\flagsandsys_common.props" />
+    <Import Project="..\..\common\common_vs\flagsandsys_common_private.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -276,6 +276,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\cutils_core_hash_dllhash.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_unix.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_logger.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_replace_function_windows.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c" />
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c" />
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_windows.c" />
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer02_common.c" />
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer02_windows.c" />
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c" />
   </ItemGroup>
   <ItemGroup>
@@ -294,6 +308,7 @@
     <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
     <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h" />
     <ClInclude Include="..\..\..\include\cutils\unit_test.h" />
+    <ClInclude Include="..\..\..\src\core\cutils_core_list_dllist.impl.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_common_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_windows_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer02_common_p.h" />

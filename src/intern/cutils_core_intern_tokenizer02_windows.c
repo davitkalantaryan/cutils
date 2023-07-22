@@ -1,14 +1,15 @@
 //
-// file:            cinternal_core_intern_tokenizer02_windows.c
-// path:			src/intern/cinternal_core_intern_tokenizer02_windows.c
+// repo:			cutils
+// file:            cutils_core_intern_tokenizer02_windows.c
+// path:			src/intern/cutils_core_intern_tokenizer02_windows.c
 // created on:		2023 Mar 17
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
 
-#include <private/cinternal/parser/tokenizer02_windows_p.h>
-#include <cinternal/parser/tokenizer01.h>
-#include <cinternal/freelib_on_remote_process_sys.h>
+#include <private/cutils/parser/tokenizer02_windows_p.h>
+#include <cutils/parser/tokenizer01.h>
+#include <cutils/loadfreelib_on_remote_process_sys.h>
 
 
 CPPUTILS_BEGIN_C

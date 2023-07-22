@@ -95,12 +95,6 @@
     <None Include="..\..\scripts\unix_prepare_repository.sh">
       <Filter>files\scripts</Filter>
     </None>
-    <None Include="..\..\prj\common\common_mkfl\unix.common.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_mkfl\windows.common.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
-    </None>
     <None Include="..\cinternal_all_mkfl\cinternal_all.unix.Makefile">
       <Filter>files\workspaces\cinternal_all_mkfl</Filter>
     </None>
@@ -113,14 +107,35 @@
     <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
       <Filter>files\scripts</Filter>
     </None>
-    <None Include="..\..\prj\common\common_mkfl\sys_common.unix.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_mkfl\unix.common.tmp.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
-    </None>
     <None Include="..\..\prj\common\common_qt\flagsandsys_common.pri">
       <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_qt\flagsandsys_common_private.pri">
+      <Filter>files\prj\common\common_qt</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common.unix.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common.windows.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private.unix.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private.windows.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.unix.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.windows.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.unix.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile">
+      <Filter>files\prj\common\common_mkfl</Filter>
     </None>
   </ItemGroup>
 </Project>

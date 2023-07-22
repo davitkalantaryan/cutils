@@ -1,11 +1,12 @@
 //
-// file:			cinternal_core_logger.c
-// path:			src/core/cinternal_core_logger.c
+// repo:            cutils
+// file:			cutils_core_logger.c
+// path:			src/core/cutils_core_logger.c
 // created on:		2023 Mar 30
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-#include <cinternal/logger.h>
+#include <cutils/logger.h>
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
@@ -48,7 +49,7 @@ static void CinternalDefaultLoggerFunction(void* a_userData, enum CinternalLogTy
         if(a_bSync){fflush(stdout);}
         break;
     case CinternalLogTypeDebug:
-#if defined(NDEBUG) || (defined(CINTERNAL_NO_DEBUG_LOGS) && defined(CINTERNAL_NO_DEBUG_LOGS_FOR_LIB))
+#if defined(NDEBUG) || (defined(CUTILS_NO_DEBUG_LOGS) && defined(CUTILS_NO_DEBUG_LOGS_FOR_LIB))
         CPPUTILS_STATIC_CAST(void, a_userData);
 #else
         vprintf(a_fmtStr, a_argptr);
@@ -89,27 +90,27 @@ static inline void CinternalLogPrintDateAndTimeInline(enum CinternalLogTypes a_t
 }
 
 
-CINTERNAL_EXPORT void CinternalLogPrintDateAndTime(enum CinternalLogTypes a_type, bool a_bSync)
+CUTILS_EXPORT void CinternalLogPrintDateAndTime(enum CinternalLogTypes a_type, bool a_bSync)
 {
     CinternalLogPrintDateAndTimeInline(a_type,a_bSync);
 }
 
 
-CINTERNAL_EXPORT void CinternalInstallLogger(void* a_userData, TypeCinternalLogger a_clbk)
+CUTILS_EXPORT void CinternalInstallLogger(void* a_userData, TypeCinternalLogger a_clbk)
 {
     s_userData = a_userData;
     s_loggerClbk = a_clbk ? a_clbk : (&CinternalDefaultLoggerFunction);
 }
 
 
-CINTERNAL_EXPORT void CinternalGetLogger(void** a_pUserData, TypeCinternalLogger* a_pClbk)
+CUTILS_EXPORT void CinternalGetLogger(void** a_pUserData, TypeCinternalLogger* a_pClbk)
 {
     if (a_pUserData) { *a_pUserData = s_userData; }
     if (a_pClbk) { *a_pClbk = s_loggerClbk; }
 }
 
 
-CINTERNAL_EXPORT void CinternalMakeLogNoExtraData(enum CinternalLogTypes a_type, bool a_bSync, const char* a_fmtStr, ...)
+CUTILS_EXPORT void CinternalMakeLogNoExtraData(enum CinternalLogTypes a_type, bool a_bSync, const char* a_fmtStr, ...)
 {
     va_list argptr;
     va_start(argptr, a_fmtStr);
@@ -118,7 +119,7 @@ CINTERNAL_EXPORT void CinternalMakeLogNoExtraData(enum CinternalLogTypes a_type,
 }
 
 
-CINTERNAL_EXPORT const char* CInternalFileNameFromPath(const char* a_fullPath)
+CUTILS_EXPORT const char* CInternalFileNameFromPath(const char* a_fullPath)
 {
 	const char* cpcDelim = strrchr(a_fullPath, URL_CAPT_API_FILE_DELIMER0);
 	if (cpcDelim) { return cpcDelim+1; }
@@ -128,7 +129,7 @@ CINTERNAL_EXPORT const char* CInternalFileNameFromPath(const char* a_fullPath)
 }
 
 
-CINTERNAL_EXPORT void CinternalMakeLog(const char* a_src, int a_line, enum CinternalLogTypes a_type, const char* a_fmtStr, ...)
+CUTILS_EXPORT void CinternalMakeLog(const char* a_src, int a_line, enum CinternalLogTypes a_type, const char* a_fmtStr, ...)
 {
 	va_list argptr;
 
