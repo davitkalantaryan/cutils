@@ -33,10 +33,6 @@
 #
 # to clean google test run below commands
 
-# one can redefine this by this nmake /e Platform=x86
-Platform			= x64
-Configuration		= Debug
-
 
 # this is set automatically when needed
 !IFNDEF MakeFileDir

@@ -314,6 +314,9 @@
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer02_common_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer02_windows_p.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\any_quick_test_mkfl\any_quick_test.unix.Makefile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

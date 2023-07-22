@@ -43,11 +43,11 @@
     <Filter Include="files\workspaces">
       <UniqueIdentifier>{552d1b0a-9473-48d5-9175-61ee1c4e0df6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\workspaces\cinternal_all_mkfl">
-      <UniqueIdentifier>{0b6aa459-2216-421e-988e-9338101e2cc1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="files\prj\common\common_qt">
       <UniqueIdentifier>{015fc3a7-da9d-4848-a05a-5878933cd44b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files\workspaces\cutils_all_mkfl">
+      <UniqueIdentifier>{0b6aa459-2216-421e-988e-9338101e2cc1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,9 +92,6 @@
     <None Include="..\..\scripts\unix_prepare_repository.sh">
       <Filter>files\scripts</Filter>
     </None>
-    <None Include="..\cinternal_all_mkfl\cinternal_all.unix.Makefile">
-      <Filter>files\workspaces\cinternal_all_mkfl</Filter>
-    </None>
     <None Include="..\..\scripts\unix_run_tests.sh">
       <Filter>files\scripts</Filter>
     </None>
@@ -133,6 +130,9 @@
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile">
       <Filter>files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\cutils_all_mkfl\cutils_all.unix.Makefile">
+      <Filter>files\workspaces\cutils_all_mkfl</Filter>
     </None>
   </ItemGroup>
 </Project>

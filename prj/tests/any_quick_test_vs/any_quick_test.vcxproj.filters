@@ -46,6 +46,9 @@
     <Filter Include="Header Files\src\include\private\cutils\parser">
       <UniqueIdentifier>{2e8d0ff8-64d1-4588-930b-6fac6f21a35b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{f3b131ee-6a34-42ae-ac8e-77d3be3b3b10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c">
@@ -155,5 +158,10 @@
     <ClInclude Include="..\..\..\src\core\cutils_core_list_dllist.impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\any_quick_test_mkfl\any_quick_test.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

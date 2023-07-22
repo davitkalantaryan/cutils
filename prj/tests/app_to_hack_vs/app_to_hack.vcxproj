@@ -286,6 +286,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tests\main_app_to_hack.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\app_to_hack_mkfl\app_to_hack.unix.Makefile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

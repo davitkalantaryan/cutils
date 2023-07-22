@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{955ed71d-142d-4b6a-85e6-f7ef73921f90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tests\main_lhash_test.c">
@@ -31,6 +34,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\lhash_test_mkfl\lhash_test.unix.Makefile" />
+    <None Include="..\lhash_test_mkfl\lhash_test.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>
