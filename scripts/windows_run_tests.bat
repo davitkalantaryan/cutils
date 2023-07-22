@@ -19,7 +19,10 @@ echo "repositoryRoot is %repositoryRoot%"
 cd "%repositoryRoot%sys\win_x64\Debug\test"
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
-.\c_raii_test.exe
+.\any_quick_test.exe
+if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
+
+.\function_changer_test.exe
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
 .\lhash_test.exe
