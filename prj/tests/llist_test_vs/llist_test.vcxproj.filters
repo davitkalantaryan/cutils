@@ -37,5 +37,8 @@
     <None Include="..\llist_test_mkfl\llist_test.unix.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="..\llist_test_qt\llist_test.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -288,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\test_lib01_mkfl\test_lib01.unix.Makefile" />
+    <None Include="..\test_lib01_qt\test_lib01.pro" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,5 +37,8 @@
     <None Include="..\lhash_test_mkfl\lhash_test.unix.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="..\lhash_test_qt\lhash_test.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

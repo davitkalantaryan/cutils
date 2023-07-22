@@ -46,5 +46,8 @@
     <None Include="..\free_libs_by_names_on_remote_proc_mkfl\free_libs_by_names_on_remote_proc.unix.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="..\free_libs_by_names_on_remote_proc_qt\free_libs_by_names_on_remote_proc.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

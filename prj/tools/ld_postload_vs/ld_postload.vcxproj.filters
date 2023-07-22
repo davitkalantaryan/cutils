@@ -41,5 +41,8 @@
     <None Include="..\ld_postload_mkfl\ld_postload.unix.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="..\ld_postload_qt\ld_postload.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

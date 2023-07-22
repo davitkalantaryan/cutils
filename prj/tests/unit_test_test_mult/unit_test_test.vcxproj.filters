@@ -77,6 +77,9 @@
     <None Include="unit_test_test.windows.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="unit_test_test.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\cutils\common_data01.h">

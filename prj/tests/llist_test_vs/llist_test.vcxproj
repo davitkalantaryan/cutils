@@ -285,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\llist_test_mkfl\llist_test.unix.Makefile" />
+    <None Include="..\llist_test_qt\llist_test.pro" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

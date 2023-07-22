@@ -297,6 +297,7 @@
     <ClCompile Include="..\..\..\src\tools\cutils_unit_test\main_cutils_unit_test.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="unit_test_test.pro" />
     <None Include="unit_test_test.unix.Makefile" />
     <None Include="unit_test_test.windows.Makefile" />
   </ItemGroup>

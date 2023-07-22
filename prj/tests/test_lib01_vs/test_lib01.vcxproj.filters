@@ -26,5 +26,8 @@
     <None Include="..\test_lib01_mkfl\test_lib01.unix.Makefile">
       <Filter>files</Filter>
     </None>
+    <None Include="..\test_lib01_qt\test_lib01.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

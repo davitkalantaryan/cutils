@@ -13,46 +13,43 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="files">
+    <Filter Include="repo_files">
       <UniqueIdentifier>{463ccee4-1119-46ff-ba85-6c9332e20162}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\.github">
+    <Filter Include="repo_files\.github">
       <UniqueIdentifier>{284969b1-57e2-4e48-903d-5dd3f92ee249}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\.github\workflows">
+    <Filter Include="repo_files\.github\workflows">
       <UniqueIdentifier>{36503c4a-d2e4-401b-a382-93a1797f5fe6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\scripts">
+    <Filter Include="repo_files\scripts">
       <UniqueIdentifier>{dda0acc1-843a-48bf-8206-d783f9f8af9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\src">
+    <Filter Include="repo_files\src">
       <UniqueIdentifier>{98325e77-e799-4323-95ab-2d3975ebd80c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\src\tests">
+    <Filter Include="repo_files\src\tests">
       <UniqueIdentifier>{49322167-70df-4652-bfb6-a1726f763067}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\prj">
+    <Filter Include="repo_files\prj">
       <UniqueIdentifier>{41e6ac34-9b00-42c8-9c74-610f737b8d4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\prj\common">
+    <Filter Include="repo_files\prj\common">
       <UniqueIdentifier>{fc963fe3-578a-452b-9f3a-fa5e82405758}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\prj\common\common_mkfl">
+    <Filter Include="repo_files\prj\common\common_mkfl">
       <UniqueIdentifier>{3523a8f0-311c-4b04-9896-f0ffa21a061c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\workspaces">
-      <UniqueIdentifier>{552d1b0a-9473-48d5-9175-61ee1c4e0df6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="files\prj\common\common_qt">
+    <Filter Include="repo_files\prj\common\common_qt">
       <UniqueIdentifier>{015fc3a7-da9d-4848-a05a-5878933cd44b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="files\workspaces\cutils_all_mkfl">
-      <UniqueIdentifier>{0b6aa459-2216-421e-988e-9338101e2cc1}</UniqueIdentifier>
+    <Filter Include="files">
+      <UniqueIdentifier>{abc98d33-b979-4dd6-bdb8-4fc8aaecb299}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
-      <Filter>files\src\tests</Filter>
+      <Filter>repo_files\src\tests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\utils\entry_cutils_all.c">
       <Filter>Source Files</Filter>
@@ -60,79 +57,82 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\.gitattributes">
-      <Filter>files</Filter>
+      <Filter>repo_files</Filter>
     </None>
     <None Include="..\..\.gitignore">
-      <Filter>files</Filter>
+      <Filter>repo_files</Filter>
     </None>
     <None Include="..\..\LICENSE">
-      <Filter>files</Filter>
+      <Filter>repo_files</Filter>
     </None>
     <None Include="..\..\README.md">
-      <Filter>files</Filter>
+      <Filter>repo_files</Filter>
     </None>
     <None Include="..\..\.github\workflows\check_merge_to_master_and_develop.yml">
-      <Filter>files\.github\workflows</Filter>
+      <Filter>repo_files\.github\workflows</Filter>
     </None>
     <None Include="..\..\scripts\windows_build_all.bat">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\windows_prepare_host.bat">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\windows_prepare_repository.bat">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\unix_build_all.sh">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\unix_prepare_host.sh">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\unix_prepare_repository.sh">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\unix_run_tests.sh">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\windows_run_tests.bat">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
-      <Filter>files\scripts</Filter>
+      <Filter>repo_files\scripts</Filter>
     </None>
     <None Include="..\..\prj\common\common_qt\flagsandsys_common.pri">
-      <Filter>files\prj\common\common_qt</Filter>
+      <Filter>repo_files\prj\common\common_qt</Filter>
     </None>
     <None Include="..\..\prj\common\common_qt\flagsandsys_common_private.pri">
-      <Filter>files\prj\common\common_qt</Filter>
+      <Filter>repo_files\prj\common\common_qt</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common.unix.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common.windows.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private.unix.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private.windows.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.unix.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.windows.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.unix.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile">
-      <Filter>files\prj\common\common_mkfl</Filter>
+      <Filter>repo_files\prj\common\common_mkfl</Filter>
+    </None>
+    <None Include="..\cutils_all_qt\cutils_all.pro">
+      <Filter>files</Filter>
     </None>
     <None Include="..\cutils_all_mkfl\cutils_all.unix.Makefile">
-      <Filter>files\workspaces\cutils_all_mkfl</Filter>
+      <Filter>files</Filter>
     </None>
   </ItemGroup>
 </Project>

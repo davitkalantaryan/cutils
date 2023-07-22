@@ -285,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ld_postload_mkfl\ld_postload.unix.Makefile" />
+    <None Include="..\ld_postload_qt\ld_postload.pro" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

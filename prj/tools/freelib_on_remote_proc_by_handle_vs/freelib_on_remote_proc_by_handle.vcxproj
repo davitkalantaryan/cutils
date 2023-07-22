@@ -282,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\freelib_on_remote_proc_by_handle_mkfl\freelib_on_remote_proc_by_handle.unix.Makefile" />
+    <None Include="..\freelib_on_remote_proc_by_handle_qt\freelib_on_remote_proc_by_handle.pro" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
