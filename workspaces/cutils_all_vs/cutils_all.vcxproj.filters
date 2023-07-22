@@ -51,14 +51,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\utils\entry_cinternal_all.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\tests\main_c_global_initer_test.c">
       <Filter>files\src\tests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
       <Filter>files\src\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\entry_cutils_all.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

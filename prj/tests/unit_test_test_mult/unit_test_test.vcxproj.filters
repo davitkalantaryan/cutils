@@ -16,20 +16,26 @@
     <Filter Include="Header Files\include">
       <UniqueIdentifier>{9f355637-6842-4700-9cfa-06a8fe0491c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\include\cinternal">
-      <UniqueIdentifier>{ffc411eb-8871-4257-916d-42f38efb1a0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\include\cinternal\list">
-      <UniqueIdentifier>{055266ef-b24d-4140-8c85-510ddc4bbddb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\include\cinternal\tool">
-      <UniqueIdentifier>{8f39bc03-5f17-470f-b590-9c073fa2da02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\unit_test">
       <UniqueIdentifier>{9ac588d8-49cb-4396-af84-4656647055a4}</UniqueIdentifier>
     </Filter>
     <Filter Include="files">
       <UniqueIdentifier>{d2772a6a-76d8-48f3-a4b9-cb2c748a485c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils">
+      <UniqueIdentifier>{ffc411eb-8871-4257-916d-42f38efb1a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\hash">
+      <UniqueIdentifier>{4dcba96c-e2c4-436b-96cc-4bdd654a1e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\list">
+      <UniqueIdentifier>{ad0f0261-9857-435b-bc13-37136848ebf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\tool">
+      <UniqueIdentifier>{ca6d898e-3f6a-49d2-a266-392071383456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\parser">
+      <UniqueIdentifier>{77ef7acb-e4aa-4a4f-b087-33194ff5652b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -65,31 +71,67 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cinternal\list\dllist.h">
-      <Filter>Header Files\include\cinternal\list</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\tool\unit_test_tools.h">
-      <Filter>Header Files\include\cinternal\tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\fourstateflags.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper01.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h">
-      <Filter>Header Files\include\cinternal</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="unit_test_test.unix.Makefile">
       <Filter>files</Filter>
     </None>
     <None Include="unit_test_test.windows.Makefile">
       <Filter>files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\cutils\common_data01.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\common_data02.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\export_symbols.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\logger.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\unit_test.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h">
+      <Filter>Header Files\include\cutils\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\list\dllist.h">
+      <Filter>Header Files\include\cutils\list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h">
+      <Filter>Header Files\include\cutils\tool</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

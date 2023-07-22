@@ -22,7 +22,7 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <cinternalRepoRoot>$(MSBuildThisFileDirectory)..\..\..</cinternalRepoRoot>
+    <cutilsRepoRoot>$(MSBuildThisFileDirectory)..\..\..</cutilsRepoRoot>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <PreBuildEvent>
@@ -33,9 +33,6 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>
       </ForcedIncludeFiles>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
-      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\..\sys\win_$(PlatformTarget)\$(Configuration)\lib;$(MSBuildThisFileDirectory)..\..\..\sys\win_$(PlatformTarget)\$(Configuration)\tlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -44,8 +41,8 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <BuildMacro Include="cinternalRepoRoot">
-      <Value>$(cinternalRepoRoot)</Value>
+    <BuildMacro Include="cutilsRepoRoot">
+      <Value>$(cutilsRepoRoot)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

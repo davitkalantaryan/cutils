@@ -321,16 +321,28 @@
     <ClCompile Include="..\..\..\src\tools\cinternal_unit_test\main_cinternal_unit_test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper.h" />
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper01.h" />
-    <ClInclude Include="..\..\..\include\cinternal\flagshelper02.h" />
-    <ClInclude Include="..\..\..\include\cinternal\fourstateflags.h" />
-    <ClInclude Include="..\..\..\include\cinternal\list\dllist.h" />
-    <ClInclude Include="..\..\..\include\cinternal\tool\unit_test_tools.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="unit_test_test.unix.Makefile" />
     <None Include="unit_test_test.windows.Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\cutils\common_data01.h" />
+    <ClInclude Include="..\..\..\include\cutils\common_data02.h" />
+    <ClInclude Include="..\..\..\include\cutils\export_symbols.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper01.h" />
+    <ClInclude Include="..\..\..\include\cutils\flagshelper02.h" />
+    <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h" />
+    <ClInclude Include="..\..\..\include\cutils\list\dllist.h" />
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
+    <ClInclude Include="..\..\..\include\cutils\logger.h" />
+    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h" />
+    <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
+    <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
+    <ClInclude Include="..\..\..\include\cutils\replace_function.h" />
+    <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
+    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h" />
+    <ClInclude Include="..\..\..\include\cutils\unit_test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
