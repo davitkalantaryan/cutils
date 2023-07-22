@@ -12,7 +12,7 @@ COMMON_FLAGS	+= -I$(cinternalRepoRoot)/src/include
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
 
-SOURCES += $(cutilsRepoRoot)/src/tools/ld_postload/main_cinternal_tools_ld_postload.c
+SOURCES += $(cutilsRepoRoot)/src/tools/ld_postload/main_cutils_tools_ld_postload.c
 SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_parser_argparser01.c
 SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_loadfreelib_on_remote_process_unix.c
 SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
