@@ -10,7 +10,7 @@ include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.M
 
 GTEST_SRC_DIR=$(cutilsRepoRoot)/src/tests/unit_test
 COMMON_SRC_DIR=$(cutilsRepoRoot)/src/core
-TOOLS_SRC_DIR=$(cutilsRepoRoot)/src/tools/cinternal_unit_test
+TOOLS_SRC_DIR=$(cutilsRepoRoot)/src/tools/cutils_unit_test
 
 GTEST_SRCS_CPP	= $(shell find $(GTEST_SRC_DIR) -name "*.cpp")
 GTEST_SRCS_C	= $(shell find $(GTEST_SRC_DIR) -name "*.c")
