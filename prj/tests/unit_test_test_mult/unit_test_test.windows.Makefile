@@ -66,7 +66,8 @@ LFLAGS				= $(LFLAGS) /DEBUG /MACHINE:$(Platform) /INCREMENTAL
 LFLAGS				= $(LFLAGS) /SUBSYSTEM:CONSOLE /MANIFESTUAC:"level='asInvoker' uiAccess='false'" 
 LFLAGS				= $(LFLAGS) /ERRORREPORT:PROMPT /NOLOGO $(LIBPATHS) /TLBID:1
 
-#Objects			= tool\main_cinternal_unit_test.x64_d_obj
+Objects			=	$(MakeFileDir)\..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.x64_d_obj
+Objects			=	$(Objects) $(MakeFileDir)\..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.x64_d_obj
 
 #SourcesToCompile	=
 #DirectoriesToCompile	= $(DirectoriesToCompile) nr-build\gen\cpp\sss\ssslang\antlr
