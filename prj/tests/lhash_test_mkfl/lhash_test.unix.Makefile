@@ -11,7 +11,7 @@ include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 SOURCES += $(cutilsRepoRoot)/src/tests/main_lhash_test.c
 SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_hash_dllhash.c
-SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_unit_test.c
+SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test.c
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName)
 
