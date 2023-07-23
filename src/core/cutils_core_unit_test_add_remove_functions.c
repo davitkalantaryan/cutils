@@ -14,7 +14,7 @@
 
 static CinternalDLList_t	s_listOfFunctions = CPPUTILS_NULL;
 
-CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE void CinternalIterateAndCallUnitTestFunctions(void)
+CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 {    
 	if (s_listOfFunctions) {
 		TypeFunction aFunction;
@@ -31,7 +31,7 @@ CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE void CinternalIterateAndCallUnitTestFunct
 }
 
 
-CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE void CinternalAddUnitTestFunction(void (*a_function)(void))
+CPPUTILS_EXTERN_C void CinternalAddUnitTestFunction(void (*a_function)(void))
 {
 	if (!s_listOfFunctions) {
 		s_listOfFunctions = CInternalDLListCreate();
