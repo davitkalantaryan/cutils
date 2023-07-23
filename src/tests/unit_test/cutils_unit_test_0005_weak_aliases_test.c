@@ -7,7 +7,7 @@
 //
 
 
-#if 0
+#if 1
 #include <cinternal/unit_test_tools.h>
 #include <cinternal/unit_test.h>
 #include <stdlib.h>

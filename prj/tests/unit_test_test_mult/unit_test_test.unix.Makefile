@@ -13,8 +13,10 @@ CORE_SRCS_DIR=$(cutilsRepoRoot)/src/core
 
 UTEST_SRCS_CPP	= $(shell find $(UTEST_SRCS_DIR) -name "*.cpp")
 UTEST_SRCS_C	= $(shell find $(UTEST_SRCS_DIR) -name "*.c")
-CORE_SRCS	= $(shell find $(CORE_SRCS_DIR) -name "*.c")
+#CORE_SRCS	= $(shell find $(CORE_SRCS_DIR) -name "*.c")
 
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_hash_dllhash.c
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
 EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test.c
 EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test_main.c
 
@@ -26,8 +28,7 @@ all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName)
 $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName): \
 		$(EXTRA_SOURCSES:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)	\
 		$(UTEST_SRCS_CPP:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)	\
-		$(UTEST_SRCS_C:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)	\
-		$(CORE_SRCS:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)
+		$(UTEST_SRCS_C:%=$(artifactRoot)/sys/$(lsbCode)/$(Configuration)/.objects/$(targetName)/%.o)
 	@mkdir -p $(@D)
 	@$(LINK) $^ $(LIBS) $(LFLAGS) -o $@
 
