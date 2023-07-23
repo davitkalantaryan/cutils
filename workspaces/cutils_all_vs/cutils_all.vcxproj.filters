@@ -46,6 +46,9 @@
     <Filter Include="files">
       <UniqueIdentifier>{abc98d33-b979-4dd6-bdb8-4fc8aaecb299}</UniqueIdentifier>
     </Filter>
+    <Filter Include="files\other">
+      <UniqueIdentifier>{9e8f2942-1282-46b9-b76b-cfce68d73a2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
