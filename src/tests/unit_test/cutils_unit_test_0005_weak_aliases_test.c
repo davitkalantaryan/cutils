@@ -32,7 +32,7 @@ static void cutils_unit_test_0005_weak_aliases_test_clean(void) {
 
 CPPUTILS_C_CODE_INITIALIZER(cutils_unit_test_0005_weak_aliases_test_init) {
 
-    //s_nNumberOfFunctionCall = 0;
+    //s_nNumberOfFunctionCall = 0;  // setting this 0, can be done after function call
     atexit(&cutils_unit_test_0005_weak_aliases_test_clean);
 }
 

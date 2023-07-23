@@ -75,7 +75,7 @@ DirectoriesToCompile	= tests\unit_test
 #DirectoriesToCompile	= $(DirectoriesToCompile) nr-core
 DirectoriesToCompile	= $(DirectoriesToCompile) core
 DirectoriesToCompile	= $(DirectoriesToCompile) intern
-DirectoriesToCompile	= $(DirectoriesToCompile) tools\cutils_unit_test
+
 
 default: unittest
 
