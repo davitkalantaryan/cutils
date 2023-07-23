@@ -8,7 +8,7 @@
 
 
 #include <cutils/hash/dllhash.h>
-#include <cutils/unit_test.h>
+#include <cinternal/unit_test.h>
 #include <stdio.h>
 
 #define CINTR_TEST_HASH_DATA1		2

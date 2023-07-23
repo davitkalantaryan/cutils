@@ -281,11 +281,9 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_unix.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_logger.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_replace_function_windows.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c" />
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c" />
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_windows.c" />
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer02_common.c" />
@@ -301,13 +299,10 @@
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
     <ClInclude Include="..\..\..\include\cutils\logger.h" />
-    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
-    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h" />
-    <ClInclude Include="..\..\..\include\cutils\unit_test.h" />
     <ClInclude Include="..\..\..\src\core\cutils_core_list_dllist.impl.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_common_p.h" />
     <ClInclude Include="..\..\..\src\include\private\cutils\parser\tokenizer01_windows_p.h" />

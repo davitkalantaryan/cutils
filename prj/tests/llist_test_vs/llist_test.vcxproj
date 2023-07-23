@@ -276,8 +276,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c" />
     <ClCompile Include="..\..\..\src\tests\main_llist_test.c" />
   </ItemGroup>
   <ItemGroup>

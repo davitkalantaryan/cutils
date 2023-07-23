@@ -7,14 +7,14 @@
 //
 
 #include <cutils/list/dllist.h>
+#include <cinternal/unit_test_tools.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef void (*TypeFunction)(void);
 
 static CinternalDLList_t	s_listOfFunctions = CPPUTILS_NULL;
 
-int main(void)
+CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE void CinternalIterateAndCallUnitTestFunctions(void)
 {    
 	if (s_listOfFunctions) {
 		TypeFunction aFunction;
@@ -28,7 +28,6 @@ int main(void)
 		CInternalDLListDestroy(s_listOfFunctions);
 		s_listOfFunctions = CPPUTILS_NULL;
 	}
-	return 0;
 }
 
 

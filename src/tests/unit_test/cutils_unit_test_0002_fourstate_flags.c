@@ -6,8 +6,8 @@
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
-#include <cutils/tool/unit_test_tools.h>
-#include <cutils/unit_test.h>
+#include <cinternal/unit_test_tools.h>
+#include <cinternal/unit_test.h>
 #include <cinternal/fourstateflags.h>
 #include <stdbool.h>
 

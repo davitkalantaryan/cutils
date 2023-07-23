@@ -276,9 +276,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.c" />
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions.c" />
     <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -294,7 +295,7 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0002_fourstate_flags.c" />
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0003_c_raii.c" />
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0004_lw_mutex_recursive.c" />
-    <ClCompile Include="..\..\..\src\tools\cutils_unit_test\main_cutils_unit_test.c" />
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0005_weak_aliases_test.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="unit_test_test.pro" />
@@ -315,8 +316,6 @@
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
-    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h" />
-    <ClInclude Include="..\..\..\include\cutils\unit_test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,9 +34,6 @@
     <Filter Include="Header Files\include\cutils\hash">
       <UniqueIdentifier>{e2ac7877-2c67-4f66-8038-c797fbb74077}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\include\cutils\tool">
-      <UniqueIdentifier>{29ad1ebe-7e90-4c75-8655-63a8f9f3315f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\include\cutils\parser">
       <UniqueIdentifier>{90f6ba8f-f475-4dfc-b758-578593d83e1d}</UniqueIdentifier>
     </Filter>
@@ -69,9 +66,6 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_logger.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cutils_core_lw_mutex_recursive.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -79,9 +73,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\cutils_core_replace_function_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c">
@@ -116,16 +107,10 @@
     <ClInclude Include="..\..\..\include\cutils\logger.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\replace_function.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\unit_test.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h">
@@ -133,9 +118,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\list\dllist.h">
       <Filter>Header Files\include\cutils\list</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\tool\unit_test_tools.h">
-      <Filter>Header Files\include\cutils\tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h">
       <Filter>Header Files\include\cutils\parser</Filter>

@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test.c">
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

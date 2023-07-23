@@ -6,9 +6,10 @@
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
-#include <cutils/tool/unit_test_tools.h>
-#include <cutils/unit_test.h>
-#include <cutils/lw_mutex_recursive.h>
+#include <cinternal/unit_test_tools.h>
+#include <cinternal/unit_test.h>
+#define cinternal_lw_recursive_mutex_create_needed
+#include <cinternal/lw_mutex_recursive.h>
 #include <stddef.h>
 
 

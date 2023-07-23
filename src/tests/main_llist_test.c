@@ -7,7 +7,7 @@
 //
 
 #include <cutils/list/dllist.h>
-#include <cutils/unit_test.h>
+#include <cinternal/unit_test.h>
 #include <stdio.h>
 
 int main(void)
