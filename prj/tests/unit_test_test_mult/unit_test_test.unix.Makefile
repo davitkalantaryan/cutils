@@ -6,6 +6,9 @@ mkfile_dir		=  $(shell dirname $(mkfile_path))
 
 firstTarget: all
 
+COMMON_FLAGS += -DCinternalAddUnitTestFunction_defined
+COMMON_FLAGS += -DCinternalIterateAndCallUnitTestFunctions_defined
+
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
 UTEST_SRCS_DIR=$(cutilsRepoRoot)/src/tests/unit_test
