@@ -6,8 +6,8 @@ mkfile_dir		=  $(shell dirname $(mkfile_path))
 
 firstTarget: all
 
-COMMON_FLAGS += -DCinternalAddUnitTestFunction_defined
-COMMON_FLAGS += -DCinternalIterateAndCallUnitTestFunctions_defined
+#COMMON_FLAGS += -DCinternalAddUnitTestFunction_defined
+#COMMON_FLAGS += -DCinternalIterateAndCallUnitTestFunctions_defined
 
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
@@ -20,6 +20,7 @@ UTEST_SRCS_C	= $(shell find $(UTEST_SRCS_DIR) -name "*.c")
 
 EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_hash_dllhash.c
 EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
+EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_unit_test_add_remove_functions.c
 EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test.c
 EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test_main.c
 
