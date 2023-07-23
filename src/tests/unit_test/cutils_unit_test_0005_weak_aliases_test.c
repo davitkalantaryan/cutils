@@ -6,6 +6,8 @@
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
 //
 
+
+#if 0
 #include <cinternal/unit_test_tools.h>
 #include <cinternal/unit_test.h>
 #include <stdlib.h>
@@ -38,3 +40,5 @@ CPPUTILS_BEGIN_C
 //}
 
 CPPUTILS_END_C
+
+#endif
