@@ -9,6 +9,7 @@
 #include <cinternal/unit_test_tools.h>
 #include <cinternal/unit_test.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 static int s_nNumberOfFunctionCall = 0;
@@ -24,6 +25,7 @@ CPPUTILS_BEGIN_C
 
 
 static void cutils_unit_test_0005_weak_aliases_test_clean(void) {
+    printf("s_nNumberOfFunctionCall=%d\n", s_nNumberOfFunctionCall);
     CinternalUnitTestAssertCheck(s_nNumberOfFunctionCall==2);
 }
 
