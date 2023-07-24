@@ -279,7 +279,7 @@
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.c" />
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions.c" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.c" />
     <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
