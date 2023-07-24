@@ -4,6 +4,7 @@
 // path:			src/tools/cutils_unit_test/main_cutils_unit_test.c
 // created on:		2023 May 18
 // created by:		Davit Kalantaryan (davit.kalantaryan@gmail.com)
+// comment:         This is an example file and shows how one can owerwrite some functions from cinternal unit test
 //
 
 #include <cutils/list/dllist.h>
