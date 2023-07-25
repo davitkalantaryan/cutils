@@ -276,10 +276,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test.c" />
-    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c" />
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_logger.c" />
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_tools_and_main.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.cpp" />
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.c" />
     <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -310,7 +310,6 @@
     <ClInclude Include="..\..\..\include\cutils\list\dllist.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
-    <ClInclude Include="..\..\..\include\cutils\logger.h" />
     <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />

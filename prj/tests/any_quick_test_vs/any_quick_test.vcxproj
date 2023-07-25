@@ -280,7 +280,6 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_unix.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c" />
-    <ClCompile Include="..\..\..\src\core\cutils_core_logger.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_replace_function_windows.c" />
@@ -298,7 +297,6 @@
     <ClInclude Include="..\..\..\include\cutils\list\dllist.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
-    <ClInclude Include="..\..\..\include\cutils\logger.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function.h" />

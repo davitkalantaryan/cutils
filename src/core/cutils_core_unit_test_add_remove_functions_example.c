@@ -8,7 +8,7 @@
 //
 
 #include <cutils/list/dllist.h>
-#include <cinternal/unit_test_tools.h>
+#include <cinternal/unit_test.h>
 #include <stdlib.h>
 #include <stdio.h>
 

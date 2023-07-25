@@ -18,7 +18,7 @@ SOURCES += \
     "$${cutilsRepoRoot}/src/core/cutils_core_hash_dllhash.c"				\
     "$${cutilsRepoRoot}/src/core/cutils_core_list_dllist.c"				\
     "$${cutilsRepoRoot}/src/core/cutils_core_unit_test_add_remove_functions_example.c"	\
-    "$${cinternalRepoRoot}/src/core/cinternal_core_unit_test.c"				\
-    "$${cinternalRepoRoot}/src/core/cinternal_core_unit_test_main.c"
+    "$${cinternalRepoRoot}/src/core/cinternal_core_logger.c"				\
+    "$${cinternalRepoRoot}/src/core/cinternal_core_unit_test_tools_and_main.c"
 
 OTHER_FILES += $$files($${PWD}/*.Makefile,false)

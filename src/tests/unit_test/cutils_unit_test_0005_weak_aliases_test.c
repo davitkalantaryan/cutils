@@ -7,8 +7,6 @@
 //
 
 
-#if 1
-#include <cinternal/unit_test_tools.h>
 #include <cinternal/unit_test.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -38,5 +36,3 @@ CPPUTILS_C_CODE_INITIALIZER(cutils_unit_test_0005_weak_aliases_test_init) {
 }
 
 CPPUTILS_END_C
-
-#endif

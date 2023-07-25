@@ -63,9 +63,6 @@
     <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cutils_core_logger.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,9 +99,6 @@
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\logger.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\replace_function.h">
