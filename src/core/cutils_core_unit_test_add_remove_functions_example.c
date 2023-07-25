@@ -14,6 +14,7 @@
 
 
 static CinternalDLList_t	s_listOfFunctions = CPPUTILS_NULL;
+CPPUTILS_EXTERN_C_DECL CPPUTILS_DLL_PRIVATE int s_nMagicNumber;
 
 CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 {    
@@ -32,9 +33,10 @@ CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 }
 
 
-CPPUTILS_EXTERN_C void CinternalAddUnitTestFunction(void (*a_function)(void))
+CPPUTILS_EXTERN_C void CinternalAddUnitTestFunction(TypeFunction a_function)
 {
 	if (!s_listOfFunctions) {
+		s_nMagicNumber = 1;
 		s_listOfFunctions = CInternalDLListCreate();
 		if (!s_listOfFunctions) {
 			fprintf(stderr,"Unable add function to the list!\n");

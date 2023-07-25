@@ -12,12 +12,16 @@
 #include <stdbool.h>
 
 
+CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE int s_nMagicNumber = 0;
+
+
 CPPUTILS_UTEST_BEFORE_MAIN(f_0000_initial, t_0001) {
 	CinternalUnitTestAssertCheck(true);
 }
 
 
-CPPUTILS_UTEST(f_0000_initial, t_0002) {
+CPPUTILS_UTEST_AFTER_MAIN(f_0000_initial, t_0002_testing_weak_functions) {
+	CinternalUnitTestAssertCheck(s_nMagicNumber == 1);
 	CinternalUnitTestAssertCheck(true);
 }
 

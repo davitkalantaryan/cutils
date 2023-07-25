@@ -66,7 +66,7 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0005_weak_aliases_test.c">
       <Filter>Source Files\unit_test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
