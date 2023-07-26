@@ -39,7 +39,7 @@
 #!IF "$(MakeFileDir)" == ""
 MakeFileDir			= $(MAKEDIR)
 !ENDIF
-MakeFileName        = unit_test_test.windows.Makefile
+MakeFileName        = cutils_unit_test.windows.Makefile
 
 RepoRootDir			= $(MakeFileDir)\..\..\..
 SrcBaseDir			= $(MakeFileDir)\..\..\..\src
