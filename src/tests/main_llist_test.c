@@ -24,7 +24,7 @@ int main(void)
 	CInternalDLListAddDataToFront(aList, (void*)1);
 	CInternalDLListAddDataToFront(aList, (void*)2);
 	CInternalDLListAddDataToFront(aList, (void*)3);
-	CinternalUnitTestAssertCheck(CInternalDLListSize(aList) == 3);
+	CinternalUnitTestAssertCheckSrc(CInternalDLListSize(aList) == 3);
 
 	nNumber = 0;
 	pItem = CInternalDLListFirstItem(aList);
@@ -33,15 +33,15 @@ int main(void)
 		pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
 	}
 
-	CinternalUnitTestAssertCheck(nNumber==3);
+	CinternalUnitTestAssertCheckSrc(nNumber==3);
 	
 	pItem = CInternalDLListFirstItem(aList);
-	CinternalUnitTestAssertCheck(pItem);
-	CinternalUnitTestAssertCheck(((size_t)pItem->data)==3);
+	CinternalUnitTestAssertCheckSrc(pItem);
+	CinternalUnitTestAssertCheckSrc(((size_t)pItem->data)==3);
 
 	pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
-	CinternalUnitTestAssertCheck(pItem);
-	CinternalUnitTestAssertCheck(((size_t)pItem->data) == 2);
+	CinternalUnitTestAssertCheckSrc(pItem);
+	CinternalUnitTestAssertCheckSrc(((size_t)pItem->data) == 2);
 
 	CInternalDLListDestroy(aList);
 

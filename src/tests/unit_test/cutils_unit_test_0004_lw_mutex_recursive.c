@@ -22,5 +22,5 @@ CPPUTILS_UTEST_ALL(f_0004_lw_mutex_recursive, t_0001) {
     cinternal_lw_recursive_mutex_unlock(&aMutex);
     cinternal_lw_recursive_mutex_unlock(&aMutex);
     cinternal_lw_recursive_mutex_destroy(&aMutex);
-    CinternalUnitTestAssertCheck(true);
+    CinternalUnitTestAssertCheckOpt(true);
 }

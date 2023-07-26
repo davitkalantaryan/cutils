@@ -22,7 +22,7 @@ CPPUTILS_UTEST_ALL(f_0003_c_raii, t_0001) {
     s_nRaiiResult = 0;
     dummy_c_raii_test(1);
     dummy_c_raii_test(2);
-    CinternalUnitTestAssertCheck(s_nRaiiResult == 3);
+    CinternalUnitTestAssertCheckOpt(s_nRaiiResult == 3);
 }
 
 
@@ -33,7 +33,7 @@ CPPUTILS_UTEST_ALL(f_0003_c_raii, t_0002) {
     dummy_c_raii_test(1);
     dummy_c_raii_test(2);
     dummy_c_raii_test(5);
-    CinternalUnitTestAssertCheck(s_nRaiiResult == 8);
+    CinternalUnitTestAssertCheckOpt(s_nRaiiResult == 8);
 }
 
 

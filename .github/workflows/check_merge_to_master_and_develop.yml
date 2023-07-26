@@ -86,9 +86,7 @@ jobs:
 
             - name: Compiling cinternal all tests
               run: >
-                cmd /C .\scripts\windows_build_all.bat && 
-                cd prj\tests\unit_test_test_mult && 
-                nmake -f unit_test_test.windows.Makefile Platform=x64 Configuration=Debug
+                cmd /C .\scripts\windows_build_all.bat
 
             - name: testing test apps
               run: cmd /C .\scripts\windows_run_tests.bat

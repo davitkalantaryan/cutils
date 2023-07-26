@@ -21,7 +21,7 @@ LIBS += -pthread
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_lhash_test.c"              \
 	"$${PWD}/../../../src/core/cutils_core_hash_dllhash.c"   \
-	"$${cinternalRepoRoot}/src/core/cinternal_core_unit_test_tools_and_main.c"	\
+	"$${cinternalRepoRoot}/src/core/cinternal_core_unit_test_checks.c"	\
 	"$${cinternalRepoRoot}/src/core/cinternal_core_logger.c"
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)

@@ -66,7 +66,8 @@ LFLAGS				= $(LFLAGS) /DEBUG /MACHINE:$(Platform) /INCREMENTAL
 LFLAGS				= $(LFLAGS) /SUBSYSTEM:CONSOLE /MANIFESTUAC:"level='asInvoker' uiAccess='false'" 
 LFLAGS				= $(LFLAGS) /ERRORREPORT:PROMPT /NOLOGO $(LIBPATHS) /TLBID:1
 
-Objects			=	..\contrib\cinternal\src\core\cinternal_core_unit_test_tools_and_main.x64_d_obj
+Objects			=	..\contrib\cinternal\src\core\cinternal_core_unit_test_checks.x64_d_obj
+Objects			=	$(Objects) ..\contrib\cinternal\src\core\cinternal_core_unit_test_main.x64_d_obj
 Objects			=	$(Objects) ..\contrib\cinternal\src\core\cinternal_core_logger.x64_d_obj
 
 #SourcesToCompile	=

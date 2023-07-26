@@ -281,7 +281,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_logger.c" />
-    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_tools_and_main.c" />
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_checks.c" />
     <ClCompile Include="..\..\..\src\core\cutils_core_hash_dllhash.c" />
     <ClCompile Include="..\..\..\src\tests\main_lhash_test.c" />
   </ItemGroup>

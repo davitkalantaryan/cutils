@@ -35,34 +35,34 @@ CPPUTILS_UTEST_ALL(f_0001_bistate_flags, t_0001) {
 	union DataTypeName aFlags;
 
 	aFlags.wr_all = CPPUTILS_BISTATE_MAKE_ALL_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 }
 
 
@@ -70,34 +70,34 @@ CPPUTILS_UTEST_ALL(f_0001_bistate_flags, t_0002) {
 	CPPUTILS_BISTATE_FLAGS_UN(field1, field2) aFlags;
 
 	aFlags.wr_all = CPPUTILS_BISTATE_MAKE_ALL_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 }
 
 
@@ -105,10 +105,10 @@ CPPUTILS_UTEST_ALL(f_0001_bistate_flags, t_0003) {
 	CPPUTILS_BISTATE_FLAGS_UN(field1, field2) aFlags;
 
 	aFlags.wr_all = CPPUTILS_BISTATE_MAKE_ALL_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 }
 
 
@@ -116,10 +116,10 @@ CPPUTILS_UTEST_ALL(f_0001_bistate_flags, t_0004) {
 	CPPUTILS_BISTATE_FLAGS_UN(field1, field2) aFlags;
 
 	aFlags.wr_all = CPPUTILS_BISTATE_MAKE_ALL_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 }
 
 
@@ -127,32 +127,32 @@ CPPUTILS_UTEST_ALL(f_0001_bistate_flags, t_0005) {
 	union BistateFlags aFlags;
 
 	aFlags.wr_all = CPPUTILS_BISTATE_MAKE_ALL_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_TRUE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field1 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 0);
 
 	aFlags.wr.field2 = CPPUTILS_BISTATE_MAKE_BITS_FALSE;
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field1_false == 1);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_true == 0);
-	CinternalUnitTestAssertCheck(aFlags.rd.field2_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field1_false == 1);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_true == 0);
+	CinternalUnitTestAssertCheckOpt(aFlags.rd.field2_false == 1);
 }

@@ -15,16 +15,15 @@ CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE int s_nMagicNumber = 0;
 
 
 CPPUTILS_UTEST_BEFORE_MAIN(f_0000_initial, t_0001) {
-	CinternalUnitTestAssertCheck(true);
+	CinternalUnitTestAssertCheckOpt(true);
 }
 
 
 CPPUTILS_UTEST_AFTER_MAIN(f_0000_initial, t_0002_testing_weak_functions) {
-	CinternalUnitTestAssertCheck(s_nMagicNumber == 1);
-	CinternalUnitTestAssertCheck(true);
+	CinternalUnitTestAssertCheckOpt(s_nMagicNumber == 1);
 }
 
 
 CPPUTILS_UTEST_ALL(f_0000_initial, t_0003) {
-	CinternalUnitTestAssertCheck(true);
+	CinternalUnitTestAssertCheckOpt(true);
 }
