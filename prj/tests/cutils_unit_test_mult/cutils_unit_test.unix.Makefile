@@ -23,7 +23,7 @@ EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_hash_dllhash.c
 EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
 EXTRA_SOURCSES += $(cutilsRepoRoot)/src/core/cutils_core_unit_test_add_remove_functions_example.c
 EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test_tools_and_main.c
-#EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_logger.c
+EXTRA_SOURCSES += $(cinternalRepoRoot)/src/core/cinternal_core_logger.c
 
 LIBS += -pthread
 LIBS += -ldl
