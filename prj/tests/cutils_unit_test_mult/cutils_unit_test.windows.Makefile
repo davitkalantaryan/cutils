@@ -44,7 +44,7 @@ MakeFileName        = unit_test_test.windows.Makefile
 RepoRootDir			= $(MakeFileDir)\..\..\..
 SrcBaseDir			= $(MakeFileDir)\..\..\..\src
 
-TargetName			= unittest
+TargetName			= cutils_unit_test
 TargetExtension			= exe
 TargetCategory          = test
 

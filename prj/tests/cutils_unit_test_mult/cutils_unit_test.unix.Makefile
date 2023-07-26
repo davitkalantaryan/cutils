@@ -1,4 +1,5 @@
-targetName=unittest
+
+targetName=cutils_unit_test
 
 mkfile_path		=  $(abspath $(lastword $(MAKEFILE_LIST)))
 mkfile_dir		=  $(shell dirname $(mkfile_path))

@@ -71,17 +71,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="unit_test_test.unix.Makefile">
-      <Filter>files</Filter>
-    </None>
-    <None Include="unit_test_test.windows.Makefile">
-      <Filter>files</Filter>
-    </None>
-    <None Include="unit_test_test.pro">
-      <Filter>files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\include\cutils\common_data01.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
@@ -118,5 +107,16 @@
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h">
       <Filter>Header Files\include\cutils\parser</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cutils_unit_test.pro">
+      <Filter>files</Filter>
+    </None>
+    <None Include="cutils_unit_test.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="cutils_unit_test.windows.Makefile">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

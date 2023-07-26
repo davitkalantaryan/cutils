@@ -31,7 +31,7 @@ if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 .\llist_test.exe
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
-.\unittest.exe
+.\cutils_unit_test.exe
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
 endlocal

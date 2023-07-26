@@ -298,11 +298,6 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0005_weak_aliases_test.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="unit_test_test.pro" />
-    <None Include="unit_test_test.unix.Makefile" />
-    <None Include="unit_test_test.windows.Makefile" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\include\cutils\common_data01.h" />
     <ClInclude Include="..\..\..\include\cutils\common_data02.h" />
     <ClInclude Include="..\..\..\include\cutils\export_symbols.h" />
@@ -315,6 +310,11 @@
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cutils_unit_test.pro" />
+    <None Include="cutils_unit_test.unix.Makefile" />
+    <None Include="cutils_unit_test.windows.Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
