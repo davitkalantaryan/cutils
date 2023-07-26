@@ -63,11 +63,7 @@ for %%p in (%PlatformTarget%) do (
 	)
 )
 
-cd "%repositoryRoot%prj\tests\unit_test_test_mult"
-if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
-
-
-cd prj\tests\cutils_unit_test_mult
+cd "%repositoryRoot%prj\tests\cutils_unit_test_mult"
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 call nmake -f cutils_unit_test.windows.Makefile Platform=x64 Configuration=Debug
 if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
