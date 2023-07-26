@@ -19,11 +19,8 @@ LIBS += -pthread
 LIBS += -ldl
 
 
-SOURCES += $$files($${PWD}/../../../src/core/*.c,true)
-SOURCES += $$files($${PWD}/../../../src/core/*.cpp,true)
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_any_quick_test.c"
-
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 
