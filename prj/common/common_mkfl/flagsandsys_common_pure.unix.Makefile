@@ -15,5 +15,4 @@ ifndef artifactRoot
         artifactRoot	= $(cutilsRepoRoot)
 endif
 
-include $(cutilsRepoRoot)/contrib/cinternal/prj/common/common_mkfl/flagsandsys_common_pure.unix.Makefile
 COMMON_FLAGS	+= -I$(cutilsRepoRoot)/include
