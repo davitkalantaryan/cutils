@@ -14,10 +14,13 @@ QT -= gui
 QT -= core
 QT -= widgets
 CONFIG -= qt
+CONFIG += console
 
-LIBS += -pthread
-LIBS += -ldl
-
+win32{
+} else {
+	LIBS += -pthread
+	LIBS += -ldl
+}
 
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_any_quick_test.c"

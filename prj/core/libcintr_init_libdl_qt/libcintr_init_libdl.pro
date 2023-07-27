@@ -20,8 +20,12 @@ QT -= gui
 QT -= core
 QT -= widgets
 CONFIG -= qt
+CONFIG += console
 
-LIBS += -ldl
+win32{
+} else {
+	LIBS += -ldl
+}
 
 
 SOURCES	+=		\

@@ -14,6 +14,7 @@ QT -= gui
 QT -= core
 QT -= widgets
 CONFIG -= qt
+CONFIG += console
 
 
 SOURCES	+=		\

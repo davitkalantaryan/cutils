@@ -15,9 +15,13 @@ QT -= gui
 QT -= core
 QT -= widgets
 CONFIG -= qt
+CONFIG += console
 
-LIBS += -ldl
-LIBS += -pthread
+win32{
+} else {
+	LIBS += -pthread
+	LIBS += -ldl
+}
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 HEADERS += $$files($${cutilsRepoRoot}/src/*.h,true)

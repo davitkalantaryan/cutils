@@ -17,7 +17,10 @@ QT -= core
 QT -= widgets
 CONFIG -= qt
 
-LIBS += -pthread
+win32{
+} else {
+	LIBS += -pthread
+}
 
 
 SOURCES	+=		\
