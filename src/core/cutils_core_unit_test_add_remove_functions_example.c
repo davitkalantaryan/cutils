@@ -29,6 +29,8 @@ CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 		while (pItem) {
 			pItemNext = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
 			pFunctToCall = CPPUTILS_STATIC_CAST(struct SFunctionsToCall*, pItem->data);
+			CINTERNAL_UNIT_TEST_FN_ARG1_NAME = pFunctToCall->maj;
+			CINTERNAL_UNIT_TEST_FN_ARG2_NAME = pFunctToCall->min;
 			(*(pFunctToCall->func))(pFunctToCall->maj, pFunctToCall->min);
 			free(pFunctToCall);
 			pItem = pItemNext;
