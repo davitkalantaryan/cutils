@@ -9,7 +9,8 @@
 
 #include <cinternal/internal_header.h>
 
-#ifndef _WIN32
+
+#ifdef CPPUTILS_OS_LINUX
 
 
 #include <cutils/loadfreelib_on_remote_process_sys.h>
@@ -421,4 +422,4 @@ CPPUTILS_CODE_INITIALIZER(cinternal_core_loadfreelib_on_remote_process_unix_init
 CPPUTILS_END_C
 
 
-#endif  //  #ifndef _WIN32
+#endif  //  #ifdef CPPUTILS_OS_LINUX
