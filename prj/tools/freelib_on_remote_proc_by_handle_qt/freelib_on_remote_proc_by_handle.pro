@@ -21,11 +21,15 @@ win32{
 	LIBS += -ldl
 }
 
-SOURCES	+=		\
+mac {
+    TEMPLATE = aux
+} else {
+    SOURCES	+=		\
         "$${PWD}/../../../src/tools/freelib_on_remote_proc_by_handle/main_freelib_on_remote_proc_by_handle.c"   \
 	"$${PWD}/../../../src/core/cutils_core_parser_argparser01.c"                                         \
 	"$${PWD}/../../../src/core/cutils_core_loadfreelib_on_remote_process_unix.c"						\
 	"$${PWD}/../../../src/core/cutils_core_loadfreelib_on_remote_process_windows.c"
+}
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 

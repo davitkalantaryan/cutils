@@ -21,8 +21,10 @@ win32{
 	LIBS += -ldl
 }
 
-
-SOURCES	+=		\
+mac {
+    TEMPLATE = aux
+} else {
+    SOURCES	+=		\
         "$${PWD}/../../../src/tools/free_libs_by_names_on_remote_proc/main_free_libs_by_names_on_remote_proc.c"     \
 	"$${PWD}/../../../src/core/cutils_core_parser_argparser01.c"                                             \
 	"$${PWD}/../../../src/core/cutils_core_loadfreelib_on_remote_process_unix.c"                             \
@@ -30,6 +32,7 @@ SOURCES	+=		\
 	"$${PWD}/../../../src/core/cutils_core_list_dllist.c"                                                     \
 	"$${PWD}/../../../src/intern/cutils_core_intern_tokenizer02_common.c"                                    \
 	"$${PWD}/../../../src/core/cutils_core_parser_tokenizer01.c"
+}
 
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)

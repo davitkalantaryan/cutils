@@ -375,6 +375,7 @@ CUTILS_EXPORT void* CInternalLoadLibOnRemoteProcessAndGetModule(int a_pid, const
 
 
 CPPUTILS_CODE_INITIALIZER(cinternal_core_loadfreelib_on_remote_process_unix_initialize){
+
     char mapFilename[1024];
     char buffer[9076];
     FILE* fdMaps;

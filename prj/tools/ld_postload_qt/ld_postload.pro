@@ -23,7 +23,10 @@ win32{
 	LIBS += -ldl
 }
 
-SOURCES	+=		\
+mac {
+    TEMPLATE = aux
+} else {
+    SOURCES	+=		\
         "$${PWD}/../../../src/tools/ld_postload/main_cutils_tools_ld_postload.c"     \
 	"$${PWD}/../../../src/core/cutils_core_parser_tokenizer01.c"                 \
 	"$${PWD}/../../../src/core/cutils_core_list_dllist.c"                         \
@@ -31,6 +34,7 @@ SOURCES	+=		\
 	"$${PWD}/../../../src/intern/cutils_core_intern_tokenizer01_common.c"        \
 	"$${PWD}/../../../src/core/cutils_core_loadfreelib_on_remote_process_unix.c"	\
 	"$${PWD}/../../../src/core/cutils_core_loadfreelib_on_remote_process_windows.c"
+}
 
 HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 
