@@ -11,8 +11,8 @@ If you are doing C development then you will find here some stuff (headers some 
     
   
 ### Some tools  
- 1. Hash table in C. See: [dllhash.h](include/cinternal/hash/dllhash.h)  
- 2. List in the C. See: [dllist.h](include/cinternal/list/dllist.h)  
+ 1. Hash table in C. See: [dllhash.h](include/cutils/hash/dllhash.h)  
+ 2. List in the C. See: [dllist.h](include/cutils/list/dllist.h)  
    
      
   
