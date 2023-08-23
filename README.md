@@ -85,7 +85,8 @@ int main(void){
 ### Load or free library on other process  
 See: 
 [loadfreelib_on_remote_process.h](include/cutils/loadfreelib_on_remote_process.h) and 
-[loadfreelib_on_remote_process_sys.h](include/cutils/loadfreelib_on_remote_process_sys.h)  
+[loadfreelib_on_remote_process_sys.h](include/cutils/loadfreelib_on_remote_process_sys.h) 
+works only for Windows and Linux X64
   
   
   
