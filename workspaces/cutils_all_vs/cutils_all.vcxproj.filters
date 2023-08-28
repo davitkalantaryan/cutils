@@ -49,6 +49,9 @@
     <Filter Include="files\other">
       <UniqueIdentifier>{9e8f2942-1282-46b9-b76b-cfce68d73a2a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="repo_files\prj\common\common_mkfl\raw">
+      <UniqueIdentifier>{00293403-25af-465c-8250-ed813611d504}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\tests\main_linux_mimic_of_call_on_remote.cpp">
@@ -119,23 +122,26 @@
     <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private.windows.Makefile">
       <Filter>repo_files\prj\common\common_mkfl</Filter>
     </None>
-    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.unix.Makefile">
-      <Filter>repo_files\prj\common\common_mkfl</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_private_pure.windows.Makefile">
-      <Filter>repo_files\prj\common\common_mkfl</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.unix.Makefile">
-      <Filter>repo_files\prj\common\common_mkfl</Filter>
-    </None>
-    <None Include="..\..\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile">
-      <Filter>repo_files\prj\common\common_mkfl</Filter>
-    </None>
     <None Include="..\cutils_all_qt\cutils_all.pro">
       <Filter>files</Filter>
     </None>
     <None Include="..\cutils_all_mkfl\cutils_all.unix.Makefile">
       <Filter>files</Filter>
+    </None>
+    <None Include="..\..\.gitmodules">
+      <Filter>repo_files</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\raw\flagsandsys_common_private_raw.unix.Makefile">
+      <Filter>repo_files\prj\common\common_mkfl\raw</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\raw\flagsandsys_common_private_raw.windows.Makefile">
+      <Filter>repo_files\prj\common\common_mkfl\raw</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\raw\flagsandsys_common_raw.unix.Makefile">
+      <Filter>repo_files\prj\common\common_mkfl\raw</Filter>
+    </None>
+    <None Include="..\..\prj\common\common_mkfl\raw\flagsandsys_common_raw.windows.Makefile">
+      <Filter>repo_files\prj\common\common_mkfl\raw</Filter>
     </None>
   </ItemGroup>
 </Project>
