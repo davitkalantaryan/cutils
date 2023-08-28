@@ -6,9 +6,8 @@
 # purpose:	This file can be only as include
 #
 
-
 !IFNDEF MakeFileDir
-MakeFileDir			= $(MAKEDIR)
+MakeFileDir			= $(MAKEDIR)\..
 !ENDIF
 
 !IFNDEF cutilsRepoRoot
@@ -16,7 +15,12 @@ cutilsRepoRoot	= $(MakeFileDir)\..\..\..
 !ENDIF
 
 !IFNDEF artifactRoot
-artifactRoot			= $(cutilsRepoRoot)
+artifactRoot	= $(cutilsRepoRoot)
 !ENDIF
 
+!IFNDEF cinternalRepoRoot
+cinternalRepoRoot	= $(cutilsRepoRoot)\contrib\cinternal
+!ENDIF
+
+!include <$(cinternalRepoRoot)\prj\common\common_mkfl\flagsandsys_common.windows.Makefile>
 CFLAGS				= $(CFLAGS) /I"$(cutilsRepoRoot)\include"

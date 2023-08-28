@@ -6,14 +6,10 @@
 # purpose:	This file can be only as include
 #
 
-
+!IFNDEF cutilsFlagsAndSysCommonIncluded
+cutilsFlagsAndSysCommonIncluded		= 1
 !IFNDEF cutilsRepoRoot
 cutilsRepoRoot	= $(MAKEDIR)\..\..\..
 !ENDIF
-!include <$(cutilsRepoRoot)\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile>
-
-
-!IFNDEF cinternalRepoRoot
-cinternalRepoRoot	= $(cutilsRepoRoot)\contrib\cinternal
+!include <$(cutilsRepoRoot)\prj\common\common_mkfl\raw\flagsandsys_common_raw.windows.Makefile>
 !ENDIF
-!include <$(cinternalRepoRoot)\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile>

@@ -7,8 +7,8 @@
 #
 
 !IFNDEF cutilsRepoRoot
-cutilsRepoRoot	= $(MAKEDIR)\..\..\..
+cutilsRepoRoot	= $(MAKEDIR)\..\..\..\..
 !ENDIF
-!include <$(cutilsRepoRoot)\prj\common\common_mkfl\flagsandsys_common_pure.windows.Makefile>
+!include <$(cutilsRepoRoot)\prj\common\common_mkfl\flagsandsys_common.windows.Makefile>
 
 CFLAGS				= $(CFLAGS) /I"$(cutilsRepoRoot)\src\include"
