@@ -59,15 +59,15 @@ jobs:
               uses: ilammy/msvc-dev-cmd@v1
 
             - name: Developer host preparation
-              run: cmd /C .\scripts\windows_prepare_host.bat
+              run: cmd /C "call .\scripts\windows_prepare_host.bat"
               #working-directory: core
 
             - name: Repository preparation
-              run: cmd /C .\scripts\windows_prepare_repository.bat
+              run: cmd /C "call .\scripts\windows_prepare_repository.bat"
 
             - name: Compiling cinternal all tests
               run: >
-                cmd /C .\scripts\windows_build_all.bat
+                cmd /C "call .\scripts\windows_build_all.bat"
 
             - name: testing test apps
-              run: cmd /C .\scripts\windows_run_tests.bat
+              run: cmd /C "call .\scripts\windows_run_tests.bat"
