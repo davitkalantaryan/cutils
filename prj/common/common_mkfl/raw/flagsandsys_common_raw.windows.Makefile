@@ -23,4 +23,8 @@ cinternalRepoRoot	= $(cutilsRepoRoot)\contrib\cinternal
 !ENDIF
 
 !include <$(cinternalRepoRoot)\prj\common\common_mkfl\flagsandsys_common.windows.Makefile>
+
 CFLAGS				= $(CFLAGS) /I"$(cutilsRepoRoot)\include"
+
+LFLAGS				= $(LFLAGS) /LIBPATH:"$(cutilsRepoRoot)\sys\win_$(Platform)\$(Configuration)\lib"
+LFLAGS				= $(LFLAGS) /LIBPATH:"$(cutilsRepoRoot)\sys\win_$(Platform)\$(Configuration)\tlib"

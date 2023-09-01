@@ -24,4 +24,9 @@ isEmpty(cutilsFlagsAndSysCommonIncluded){
     }
 
     INCLUDEPATH += $${cutilsRepoRoot}/include
+
+    LIBS	+= -L$${cutilsRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/lib
+    LIBS	+= -L$${cutilsRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib
+
+    OTHER_FILES += $$files($${PWD}/../common_mkfl/*.Makefile,true)
 }
