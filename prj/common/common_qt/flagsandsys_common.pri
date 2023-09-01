@@ -14,14 +14,15 @@ isEmpty(cutilsFlagsAndSysCommonIncluded){
     cutilsFlagsAndSysCommonIncluded = 1
 
     cutilsRepoRoot = $${PWD}/../../..
-	include("$${cutilsRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
 
     isEmpty(artifactRoot) {
         artifactRoot = $$(artifactRoot)
-		isEmpty(artifactRoot) {
-			artifactRoot = $${cutilsRepoRoot}
+	        isEmpty(artifactRoot) {
+		        artifactRoot = $${cutilsRepoRoot}
 		}
     }
+
+    include("$${cutilsRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
 
     INCLUDEPATH += $${cutilsRepoRoot}/include
 
