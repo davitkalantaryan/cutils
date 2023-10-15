@@ -10,8 +10,8 @@
 #define CUTILS_INCLUDE_CUTILS_HASH_DLLHASH_H
 
 #include <cutils/export_symbols.h>
-#include <cutils/common_data01.h>
 #include <cutils/common_data02.h>
+#include <cinternal/common_data01.h>
 #include <stdbool.h>
 
 
@@ -74,8 +74,6 @@ CPPUTILS_END_C
 #define CInternalDLLHashCreateRawMem(_size)										CInternalDLLHashCreateExRawMem(_size,CPPUTILS_NULL,CPPUTILS_NULL)
 #define CInternalDLLHashCreateSmlInt(_size)										CInternalDLLHashCreateExSmlInt(_size,CPPUTILS_NULL,CPPUTILS_NULL)
 #define CInternalDLLHashDestroy(_hashTbl)										CInternalDLLHashDestroyEx(_hashTbl,CPPUTILS_NULL)
-#define CInternalStrKeyPairFn(_str)												(_str),strlen(_str)  // to use this string.h should be included
-#define CInternalSmallIntHPairFn(_key)											((void*)((size_t)(_key))), 0
 #define CInternalDLLHashAddDataIfNotExistsSmlInt(_hashTbl,_data,_key)			CInternalDLLHashAddDataIfNotExists(_hashTbl,_data,((void*)((size_t)(_key))),0)
 #define CInternalDLLHashAddDataEvenIfExistSmlInt(_hashTbl,_data,_key)			CInternalDLLHashAddDataEvenIfExist(_hashTbl,_data,((void*)((size_t)(_key))),0)
 #define CInternalDLLHashAddDataWithKnownHashSmlInt(_hashTbl,_data,_key,_hash)	CInternalDLLHashAddDataWithKnownHash(_hashTbl,_data,((void*)((size_t)(_key))),0,_hash)

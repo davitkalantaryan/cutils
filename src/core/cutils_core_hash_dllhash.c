@@ -1,6 +1,6 @@
 //
 // repo:			cutils
-// file:            cinternal_core_hash_dllhash.c
+// file:            cutil_core_hash_dllhash.c
 // path:			src/core/cutils_core_hash_dllhash.c
 // created on:		2023 Feb 25
 // created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
@@ -223,7 +223,7 @@ static inline struct SCinternalDLLHashItem* CInternalHashFindItemInline(ConstCin
 
 CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashAddDataIfNotExists(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize)
 {
-	size_t unHash;;
+	size_t unHash;
 	if (CInternalHashFindItemInline(a_hashTbl, a_key, a_keySize,&unHash)) {
 		return CPPUTILS_NULL;
 	}

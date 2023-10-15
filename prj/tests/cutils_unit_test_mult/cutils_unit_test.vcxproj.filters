@@ -74,9 +74,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cutils\common_data01.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\common_data02.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>

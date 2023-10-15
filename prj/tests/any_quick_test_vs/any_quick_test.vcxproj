@@ -290,7 +290,6 @@
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cutils\common_data01.h" />
     <ClInclude Include="..\..\..\include\cutils\common_data02.h" />
     <ClInclude Include="..\..\..\include\cutils\export_symbols.h" />
     <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h" />
