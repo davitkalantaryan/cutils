@@ -14,8 +14,8 @@
 
 #ifdef CUTILS_SRC_CORE_CUTILS_CORE_LIST_DLLIST_IMPL_H_NEEDED
 
-#include <cutils/common_data01.h>
 #include <cutils/common_data02.h>
+#include <cinternal/common_data01.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>

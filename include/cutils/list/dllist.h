@@ -11,8 +11,8 @@
 #define CUTILS_INCLUDE_CUTILS_LIST_LLIST_H
 
 #include <cutils/export_symbols.h>
-#include <cutils/common_data01.h>
 #include <cutils/common_data02.h>
+#include <cinternal/common_data01.h>
 
 
 CPPUTILS_BEGIN_C
