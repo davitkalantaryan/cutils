@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 
-static CinternalDLList_t	s_listOfFunctions = CPPUTILS_NULL;
+static CutilDLList_t	s_listOfFunctions = CPPUTILS_NULL;
 CPPUTILS_EXTERN_C_DECL CPPUTILS_DLL_PRIVATE int s_nMagicNumber;
 
 struct SFunctionsToCall {
@@ -25,9 +25,9 @@ CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 {    
 	if (s_listOfFunctions) {
 		struct SFunctionsToCall* pFunctToCall;
-		CinternalDLListItem_t pItemNext, pItem = CInternalDLListFirstItem(s_listOfFunctions);
+		CutilDLListItem_t pItemNext, pItem = CUtilDLListFirstItem(s_listOfFunctions);
 		while (pItem) {
-			pItemNext = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
+			pItemNext = CUtilDLListItemFromDLListIterator(CUtilDLListIteratorFromDLListItem(pItem)->next);
 			pFunctToCall = CPPUTILS_STATIC_CAST(struct SFunctionsToCall*, pItem->data);
 			CINTERNAL_UNIT_TEST_FN_ARG1_NAME = pFunctToCall->maj;
 			CINTERNAL_UNIT_TEST_FN_ARG2_NAME = pFunctToCall->min;
@@ -36,7 +36,7 @@ CPPUTILS_EXTERN_C void CinternalIterateAndCallUnitTestFunctions(void)
 			pItem = pItemNext;
 		}
 
-		CInternalDLListDestroy(s_listOfFunctions);
+		CUtilDLListDestroy(s_listOfFunctions);
 		s_listOfFunctions = CPPUTILS_NULL;
 	}
 }
@@ -47,7 +47,7 @@ CPPUTILS_EXTERN_C void CinternalAddUnitTestFunction(TypeFunction a_function, con
 	struct SFunctionsToCall* pNext;
 	if (!s_listOfFunctions) {
 		s_nMagicNumber = 1;
-		s_listOfFunctions = CInternalDLListCreate();
+		s_listOfFunctions = CUtilDLListCreate();
 		if (!s_listOfFunctions) {
 			fprintf(stderr,"Unable add function to the list!\n");
 			fflush(stderr);
@@ -63,5 +63,5 @@ CPPUTILS_EXTERN_C void CinternalAddUnitTestFunction(TypeFunction a_function, con
 	pNext->maj = a_maj;
 	pNext->min = a_min;
 
-	CInternalDLListAddDataToFrontFn(s_listOfFunctions, (void*)pNext);
+	CUtilDLListAddDataToFrontFn(s_listOfFunctions, (void*)pNext);
 }

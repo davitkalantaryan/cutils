@@ -12,15 +12,15 @@
 #define CUtilDLListAddCreatedIteratorFrontInline1_needed	1
 #define	CUtilDLListAddCreatedIteratorFrontInline2_needed	1
 #include "cutils_core_list_dllist.impl.h"
-#define cinternal_hash1_small_int_needed
-#define CinternalIsMemoriesIdenticalSmallInt_needed
-#define CinternalStoreKeySmallInt_needed
-#define CinternalUnstoreKeySmallInt_needed
-#define CinternalStoreKeyRawMemory_needed
-#define CinternalUnstoreKeyRawMemory_needed
-#define CinternalIsMemoriesIdenticalRawMemory_needed
-//#define DefaultRemainingCleaner_needed
-#define cinternal_hash1_raw_mem_needed
+#define cinternal_hash1_small_int_needed				1
+#define CinternalIsMemoriesIdenticalSmallInt_needed		1
+#define CinternalStoreKeySmallInt_needed				1
+#define CinternalUnstoreKeySmallInt_needed				1
+#define CinternalStoreKeyRawMemory_needed				1
+#define CinternalUnstoreKeyRawMemory_needed				1
+#define CinternalIsMemoriesIdenticalRawMemory_needed	1
+//#define DefaultRemainingCleaner_needed					1
+#define cinternal_hash1_raw_mem_needed					1
 #include <cinternal/hash/functions.h>
 #include <string.h>
 
@@ -133,7 +133,7 @@ CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExSmlInt(size_t a_numberOfBaskets
 }
 
 
-static void CinternalDLListItemExtraCleaner(void* a_container, struct SCutilDLListIterator* CPPUTILS_ARG_NN a_iter, TypeCinternalDeallocator CPPUTILS_ARG_NN a_remainingDataCleaner)
+static void CutilDLListItemExtraCleaner(void* a_container, struct SCutilDLListIterator* CPPUTILS_ARG_NN a_iter, TypeCinternalDeallocator CPPUTILS_ARG_NN a_remainingDataCleaner)
 {
 	struct SCutilDLLHash* pHashTbl = CPPUTILS_STATIC_CAST(struct SCutilDLLHash*, a_container);
 	(*a_remainingDataCleaner)(CUtilDLLHashItemFromDLListIterator(a_iter)->data);
@@ -144,7 +144,7 @@ static void CinternalDLListItemExtraCleaner(void* a_container, struct SCutilDLLi
 
 CUTILS_EXPORT void CUtilDLLHashDestroyEx(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, TypeCinternalDeallocator a_remainingDataCleaner)
 {
-	CInternalListCleanInline(a_hashTbl->first, a_hashTbl->deallocator, a_hashTbl, a_remainingDataCleaner, &CinternalDLListItemExtraCleaner);
+	CInternalListCleanInline(a_hashTbl->first, a_hashTbl->deallocator, a_hashTbl, a_remainingDataCleaner, &CutilDLListItemExtraCleaner);
 	(*(a_hashTbl->deallocator))(a_hashTbl->ppTable);
 	(*(a_hashTbl->deallocator))(a_hashTbl);
 }
