@@ -22,7 +22,7 @@ typedef struct SCinternalDLList* CinternalDLList_t;
 typedef const struct SCinternalDLList* ConstCinternalDLList_t;
 
 struct SCinternalDLListItem {
-	struct SCinternalDLListIterator	itr;
+	struct SCutilDLListIterator	itr;
 	void*							data;
 };
 typedef const struct SCinternalDLListItem* CinternalDLListItem_t;

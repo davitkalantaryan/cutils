@@ -41,7 +41,7 @@
 
 CPPUTILS_BEGIN_C
 
-typedef void (*TypeCinternalListItemExtraCleaner)(void* a_container, struct SCinternalDLListIterator* a_iter, TypeCinternalDeallocator a_remainingDataCleaner);
+typedef void (*TypeCutilListItemExtraCleaner)(void* a_container, struct SCutilDLListIterator* a_iter, TypeCinternalDeallocator a_remainingDataCleaner);
 
 
 static void CinternalDefaultDataCleaner(void* a_pData) CPPUTILS_NOEXCEPT  {
@@ -57,7 +57,7 @@ static void CinternalDefaultDataCleaner(void* a_pData) CPPUTILS_NOEXCEPT  {
 //};
 
 
-//static CUTILS_INLINE2 void CInternalDLListInitializeInline(CinternalDLList_t a_list, TypeCinternalAllocator CPPUTILS_ARG_NN a_allocator, TypeCinternalDeallocator a_deallocator) CPPUTILS_NOEXCEPT  {
+//static CUTILS_INLINE2 void CUtilDLListInitializeInline(CinternalDLList_t a_list, TypeCinternalAllocator CPPUTILS_ARG_NN a_allocator, TypeCinternalDeallocator a_deallocator) CPPUTILS_NOEXCEPT  {
 //	a_list->allocator = a_allocator;
 //	a_list->deallocator = a_deallocator ? a_deallocator : (&free);
 //	a_list->last = a_list->first = CPPUTILS_NULL;
@@ -65,9 +65,9 @@ static void CinternalDefaultDataCleaner(void* a_pData) CPPUTILS_NOEXCEPT  {
 //}
 
 
-static CUTILS_INLINE2 void CInternalListCleanInline(	struct SCinternalDLListIterator* a_first, TypeCinternalDeallocator a_deallocator, void* a_container,
-														TypeCinternalDeallocator a_remainingDataCleaner, TypeCinternalListItemExtraCleaner a_extraCleaner) CPPUTILS_NOEXCEPT {
-	struct SCinternalDLListIterator*pItemTmp, *pItem = a_first;
+static CUTILS_INLINE2 void CInternalListCleanInline(	struct SCutilDLListIterator* a_first, TypeCinternalDeallocator a_deallocator, void* a_container,
+														TypeCinternalDeallocator a_remainingDataCleaner, TypeCutilListItemExtraCleaner a_extraCleaner) CPPUTILS_NOEXCEPT {
+	struct SCutilDLListIterator*pItemTmp, *pItem = a_first;
 	a_remainingDataCleaner = a_remainingDataCleaner ? a_remainingDataCleaner : (&CinternalDefaultDataCleaner); // if null, then data should not be cleaned
 	while (pItem) {
 		pItemTmp = pItem->next;
@@ -78,11 +78,11 @@ static CUTILS_INLINE2 void CInternalListCleanInline(	struct SCinternalDLListIter
 }
 
 
-#ifdef CInternalDLListAddCreatedIteratorBeforeIteratorInline_needed
-static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorBeforeIteratorInline(struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p,
-																					CinternalDLListIterator_t CPPUTILS_ARG_NN a_iter, 
-																					struct SCinternalDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT  {
-	struct SCinternalDLListIterator* const pIterInp = CPPUTILS_CONST_CAST(struct SCinternalDLListIterator*, a_iter);
+#ifdef CUtilDLListAddCreatedIteratorBeforeIteratorInline_needed
+static CUTILS_INLINE2 void CUtilDLListAddCreatedIteratorBeforeIteratorInline(struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p,
+																					CutilDLListIterator_t CPPUTILS_ARG_NN a_iter, 
+																					struct SCutilDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT  {
+	struct SCutilDLListIterator* const pIterInp = CPPUTILS_CONST_CAST(struct SCutilDLListIterator*, a_iter);
 	a_pNewIter->next = pIterInp;
 	a_pNewIter->prev = pIterInp->prev;
 	if (pIterInp->prev) {
@@ -93,14 +93,14 @@ static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorBeforeIteratorInline
 		*a_first_p = a_pNewIter;
 	}	
 }
-#endif  //  #ifdef CInternalDLListAddCreatedIteratorBeforeIteratorInline_needed
+#endif  //  #ifdef CUtilDLListAddCreatedIteratorBeforeIteratorInline_needed
 
 
-#ifdef CInternalDLListAddCreatedIteratorAfterIteratorInline_needed
-static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorAfterIteratorInline(	struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_last_p,
-																					CinternalDLListIterator_t CPPUTILS_ARG_NN a_iter, 
-																					struct SCinternalDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT  {
-	struct SCinternalDLListIterator* const pIterInp = CPPUTILS_CONST_CAST(struct SCinternalDLListIterator*, a_iter);
+#ifdef CUtilDLListAddCreatedIteratorAfterIteratorInline_needed
+static CUTILS_INLINE2 void CUtilDLListAddCreatedIteratorAfterIteratorInline(	struct SCutilDLListIterator** CPPUTILS_ARG_NN a_last_p,
+																					CutilDLListIterator_t CPPUTILS_ARG_NN a_iter, 
+																					struct SCutilDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT  {
+	struct SCutilDLListIterator* const pIterInp = CPPUTILS_CONST_CAST(struct SCutilDLListIterator*, a_iter);
 	a_pNewIter->prev = pIterInp;
 	a_pNewIter->next = pIterInp->prev;
 	if (pIterInp->next) {
@@ -111,12 +111,12 @@ static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorAfterIteratorInline(
 		*a_last_p = a_pNewIter;
 	}
 }
-#endif  //  #ifdef CInternalDLListAddCreatedIteratorAfterIteratorInline_needed
+#endif  //  #ifdef CUtilDLListAddCreatedIteratorAfterIteratorInline_needed
 
 
-#ifdef CInternalDLListAddCreatedIteratorFrontInline1_needed
-static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorFrontInline1(struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p,
-																			struct SCinternalDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
+#ifdef CUtilDLListAddCreatedIteratorFrontInline1_needed
+static CUTILS_INLINE2 void CUtilDLListAddCreatedIteratorFrontInline1(struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p,
+																			struct SCutilDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
 	if ((*a_first_p)) {
 		(*a_first_p)->prev = a_pNewIter;
 	}
@@ -124,12 +124,12 @@ static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorFrontInline1(struct 
 	a_pNewIter->next = (*a_first_p);
 	(*a_first_p) = a_pNewIter;
 }
-#endif  //  #ifdef CInternalDLListAddCreatedIteratorFrontInline1_needed
+#endif  //  #ifdef CUtilDLListAddCreatedIteratorFrontInline1_needed
 
 
-#ifdef CInternalDLListAddCreatedIteratorFrontInline2_needed
-static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorFrontInline2(struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p,struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_last_p,
-																			struct SCinternalDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
+#ifdef CUtilDLListAddCreatedIteratorFrontInline2_needed
+static CUTILS_INLINE2 void CUtilDLListAddCreatedIteratorFrontInline2(struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p,struct SCutilDLListIterator** CPPUTILS_ARG_NN a_last_p,
+																			struct SCutilDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
 	if ((*a_first_p)) {
 		(*a_first_p)->prev = a_pNewIter;
 	}
@@ -140,12 +140,12 @@ static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorFrontInline2(struct 
 	a_pNewIter->next = (*a_first_p);
 	(*a_first_p) = a_pNewIter;
 }
-#endif  //  #ifdef CInternalDLListAddCreatedIteratorFrontInline2_needed
+#endif  //  #ifdef CUtilDLListAddCreatedIteratorFrontInline2_needed
 
 
-#ifdef CInternalDLListAddCreatedIteratorBackInline_needed
-static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorBackInline(	struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p, struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_last_p,
-																			struct SCinternalDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
+#ifdef CUtilDLListAddCreatedIteratorBackInline_needed
+static CUTILS_INLINE2 void CUtilDLListAddCreatedIteratorBackInline(	struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p, struct SCutilDLListIterator** CPPUTILS_ARG_NN a_last_p,
+																			struct SCutilDLListIterator* CPPUTILS_ARG_NN a_pNewIter) CPPUTILS_NOEXCEPT {
 	if ((*a_last_p)) {
 		(*a_last_p)->next = a_pNewIter;
 	}
@@ -156,12 +156,12 @@ static CUTILS_INLINE2 void CInternalDLListAddCreatedIteratorBackInline(	struct S
 	a_pNewIter->prev = (*a_last_p);
 	(*a_last_p) = a_pNewIter;
 }
-#endif  //  #ifdef CInternalDLListAddCreatedIteratorBackInline_needed
+#endif  //  #ifdef CUtilDLListAddCreatedIteratorBackInline_needed
 
 
 
-static CUTILS_INLINE2 void CInternalListRemoveItertaorInline1(	struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p,
-																	CinternalDLListIterator_t CPPUTILS_ARG_NN a_iter) CPPUTILS_NOEXCEPT {
+static CUTILS_INLINE2 void CInternalListRemoveItertaorInline1(	struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p,
+																	CutilDLListIterator_t CPPUTILS_ARG_NN a_iter) CPPUTILS_NOEXCEPT {
 	if (a_iter->prev) {
 		a_iter->prev->next = a_iter->next;
 	}
@@ -177,8 +177,8 @@ static CUTILS_INLINE2 void CInternalListRemoveItertaorInline1(	struct SCinternal
 
 
 #ifdef CInternalListRemoveItertaorInline2_needed
-static CUTILS_INLINE2 void CInternalListRemoveItertaorInline2(	struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_first_p, struct SCinternalDLListIterator** CPPUTILS_ARG_NN a_last_p,
-																	CinternalDLListIterator_t CPPUTILS_ARG_NN a_iter) CPPUTILS_NOEXCEPT {
+static CUTILS_INLINE2 void CInternalListRemoveItertaorInline2(	struct SCutilDLListIterator** CPPUTILS_ARG_NN a_first_p, struct SCutilDLListIterator** CPPUTILS_ARG_NN a_last_p,
+																	CutilDLListIterator_t CPPUTILS_ARG_NN a_iter) CPPUTILS_NOEXCEPT {
 	CInternalListRemoveItertaorInline1(a_first_p, a_iter);
 	if (a_iter == (*a_last_p)) {
 		*a_last_p = a_iter->prev;
@@ -188,7 +188,7 @@ static CUTILS_INLINE2 void CInternalListRemoveItertaorInline2(	struct SCinternal
 
 
 
-//static CUTILS_INLINE2 void CInternalDLListRemoveDataNoFreeInline(CinternalDLList_t a_list, CinternalListIterator_t a_iter) CPPUTILS_NOEXCEPT {
+//static CUTILS_INLINE2 void CUtilDLListRemoveDataNoFreeInline(CinternalDLList_t a_list, CinternalListIterator_t a_iter) CPPUTILS_NOEXCEPT {
 //	CInternalListRemoveItertaorInline(&(a_list->first), a_iter);
 //	if (a_iter == a_list->last) {
 //		a_list->last = a_iter->prev;

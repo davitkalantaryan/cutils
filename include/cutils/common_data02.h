@@ -14,10 +14,10 @@
 
 CPPUTILS_BEGIN_C
 
-struct SCinternalDLListIterator {
-	struct SCinternalDLListIterator*prev, *next;
+struct SCutilDLListIterator {
+	struct SCutilDLListIterator*prev, *next;
 };
-typedef const struct SCinternalDLListIterator* CinternalDLListIterator_t;
+typedef const struct SCutilDLListIterator* CutilDLListIterator_t;
 
 CPPUTILS_END_C
 

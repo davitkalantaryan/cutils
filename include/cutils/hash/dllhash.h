@@ -20,50 +20,50 @@ CPPUTILS_BEGIN_C
 #define CUTILS_HASH_DEFAULT_FUNC_MMEM_HASH		1
 #define CUTILS_HASH_DEFAULT_FUNC_SML_INT_HASH	2
 
-struct SCinternalDLLHash;
-struct SCinternalDLLHashItem {
-	struct SCinternalDLListIterator			lst;
-	struct SCinternalDLListIterator			tbl;
+struct SCutilDLLHash;
+struct SCutilDLLHashItem {
+	struct SCutilDLListIterator			lst;
+	struct SCutilDLListIterator			tbl;
 	void*									data;
 	void*									key;
 	size_t									keySize;
 	size_t									hash;
 };
 
-typedef const struct SCinternalDLLHashItem*	CinternalDLLHashItem_t;
-typedef struct SCinternalDLLHash* CinternalDLLHash_t;
-typedef const struct SCinternalDLLHash* ConstCinternalDLLHash_t;
+typedef const struct SCutilDLLHashItem*	CutilDLLHashItem_t;
+typedef struct SCutilDLLHash* CutilDLLHash_t;
+typedef const struct SCutilDLLHash* ConstCutilDLLHash_t;
 
-#define CInternalDLListIteratorFromDLLHashItem(_item_ptr)	(&((_item_ptr)->lst))
-#define CInternalDLLHashItemFromDLListIterator(_iter_ptr)	cpputils_container_of(_iter_ptr,const struct SCinternalDLLHashItem,lst)
+#define CUtilDLListIteratorFromDLLHashItem(_item_ptr)	(&((_item_ptr)->lst))
+#define CUtilDLLHashItemFromDLListIterator(_iter_ptr)	cpputils_container_of(_iter_ptr,const struct SCutilDLLHashItem,lst)
 
 
 
-CUTILS_EXPORT CinternalDLLHash_t CInternalDLLHashCreateExAny(size_t a_numberOfBaskets,
+CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAny(size_t a_numberOfBaskets,
 	TypeCinternalHasher CPPUTILS_ARG_NN a_hasher, TypeCinternalIsMemoriesIdentical CPPUTILS_ARG_NN a_isEq,
 	TypeCinternalStoreKey CPPUTILS_ARG_NN a_keyStore, TypeCinternalUnstoreKey CPPUTILS_ARG_NN a_keyUnstore,
 	TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
-CUTILS_EXPORT CinternalDLLHash_t CInternalDLLHashCreateExAnyDefRawMem(size_t a_numberOfBaskets,
+CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAnyDefRawMem(size_t a_numberOfBaskets,
 	TypeCinternalHasher a_hasher, TypeCinternalIsMemoriesIdentical a_isEq,
 	TypeCinternalStoreKey a_keyStore, TypeCinternalUnstoreKey a_keyUnstore,
 	TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
-CUTILS_EXPORT CinternalDLLHash_t CInternalDLLHashCreateExAnyDefSmlInt(size_t a_numberOfBaskets,
+CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAnyDefSmlInt(size_t a_numberOfBaskets,
 	TypeCinternalHasher a_hasher, TypeCinternalIsMemoriesIdentical a_isEq,
 	TypeCinternalStoreKey a_keyStore, TypeCinternalUnstoreKey a_keyUnstore,
 	TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
-CUTILS_EXPORT CinternalDLLHash_t CInternalDLLHashCreateExRawMem(size_t a_numberOfBaskets, TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
-CUTILS_EXPORT CinternalDLLHash_t CInternalDLLHashCreateExSmlInt(size_t a_numberOfBaskets,TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
-CUTILS_EXPORT void	CInternalDLLHashDestroyEx(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, TypeCinternalDeallocator a_remainingDataCleaner);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashAddDataIfNotExists(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashAddDataEvenIfExist(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashAddDataWithKnownHash(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize, size_t a_hash);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashFindEx(ConstCinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize,size_t* CPPUTILS_ARG_NN a_pHash);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashFind(ConstCinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashFirstItem(ConstCinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
-CUTILS_EXPORT CinternalDLLHashItem_t CInternalDLLHashLastItem(ConstCinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
-CUTILS_EXPORT void	CInternalDLLHashRemoveDataEx(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, CinternalDLLHashItem_t CPPUTILS_ARG_NN a_iterator);
-CUTILS_EXPORT bool	CInternalDLLHashRemoveData(CinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize);
-CUTILS_EXPORT size_t CInternalDLLHashSize(ConstCinternalDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
+CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExRawMem(size_t a_numberOfBaskets, TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
+CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExSmlInt(size_t a_numberOfBaskets,TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator);
+CUTILS_EXPORT void	CUtilDLLHashDestroyEx(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, TypeCinternalDeallocator a_remainingDataCleaner);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashAddDataIfNotExists(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashAddDataEvenIfExist(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashAddDataWithKnownHash(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_data, const void* a_key, size_t a_keySize, size_t a_hash);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashFindEx(ConstCutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize,size_t* CPPUTILS_ARG_NN a_pHash);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashFind(ConstCutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashFirstItem(ConstCutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
+CUTILS_EXPORT CutilDLLHashItem_t CUtilDLLHashLastItem(ConstCutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
+CUTILS_EXPORT void	CUtilDLLHashRemoveDataEx(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, CutilDLLHashItem_t CPPUTILS_ARG_NN a_iterator);
+CUTILS_EXPORT bool	CUtilDLLHashRemoveData(CutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl, const void* a_key, size_t a_keySize);
+CUTILS_EXPORT size_t CUtilDLLHashSize(ConstCutilDLLHash_t CPPUTILS_ARG_NN a_hashTbl);
 
 
 CUTILS_EXPORT void* CInternalLHashGetDefaultFunctions(int a_function);
@@ -71,12 +71,12 @@ CUTILS_EXPORT void* CInternalLHashGetDefaultFunctions(int a_function);
 
 CPPUTILS_END_C
 
-#define CInternalDLLHashCreateRawMem(_size)										CInternalDLLHashCreateExRawMem(_size,CPPUTILS_NULL,CPPUTILS_NULL)
-#define CInternalDLLHashCreateSmlInt(_size)										CInternalDLLHashCreateExSmlInt(_size,CPPUTILS_NULL,CPPUTILS_NULL)
-#define CInternalDLLHashDestroy(_hashTbl)										CInternalDLLHashDestroyEx(_hashTbl,CPPUTILS_NULL)
-#define CInternalDLLHashAddDataIfNotExistsSmlInt(_hashTbl,_data,_key)			CInternalDLLHashAddDataIfNotExists(_hashTbl,_data,((void*)((size_t)(_key))),0)
-#define CInternalDLLHashAddDataEvenIfExistSmlInt(_hashTbl,_data,_key)			CInternalDLLHashAddDataEvenIfExist(_hashTbl,_data,((void*)((size_t)(_key))),0)
-#define CInternalDLLHashAddDataWithKnownHashSmlInt(_hashTbl,_data,_key,_hash)	CInternalDLLHashAddDataWithKnownHash(_hashTbl,_data,((void*)((size_t)(_key))),0,_hash)
+#define CUtilDLLHashCreateRawMem(_size)										CUtilDLLHashCreateExRawMem(_size,CPPUTILS_NULL,CPPUTILS_NULL)
+#define CUtilDLLHashCreateSmlInt(_size)										CUtilDLLHashCreateExSmlInt(_size,CPPUTILS_NULL,CPPUTILS_NULL)
+#define CUtilDLLHashDestroy(_hashTbl)										CUtilDLLHashDestroyEx(_hashTbl,CPPUTILS_NULL)
+#define CUtilDLLHashAddDataIfNotExistsSmlInt(_hashTbl,_data,_key)			CUtilDLLHashAddDataIfNotExists(_hashTbl,_data,((void*)((size_t)(_key))),0)
+#define CUtilDLLHashAddDataEvenIfExistSmlInt(_hashTbl,_data,_key)			CUtilDLLHashAddDataEvenIfExist(_hashTbl,_data,((void*)((size_t)(_key))),0)
+#define CUtilDLLHashAddDataWithKnownHashSmlInt(_hashTbl,_data,_key,_hash)	CUtilDLLHashAddDataWithKnownHash(_hashTbl,_data,((void*)((size_t)(_key))),0,_hash)
 
 
 #endif  // #ifndef CUTILS_INCLUDE_CUTILS_HASH_DLLHASH_H

@@ -72,6 +72,9 @@
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_hash_dllhash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\cutils\common_data02.h">
