@@ -27,7 +27,7 @@ scriptDirectory=`pwd`
 
 source ${scriptDirectory}/unix_source_per_session.sh ${scriptDirectory}/unix_source_per_session.sh ${scriptDirectory}/unix_source_per_session.sh
 
-cd ${scriptDirectory}/workspaces/cutils_all_mkfl
+cd ${cutilsRepoRoot}/workspaces/cutils_all_mkfl
 unset CPPUTILS_DEBUG
 make -f cutils_all.unix.Makefile CPPUTILS_RELEASE=1
 unset CPPUTILS_RELEASE
