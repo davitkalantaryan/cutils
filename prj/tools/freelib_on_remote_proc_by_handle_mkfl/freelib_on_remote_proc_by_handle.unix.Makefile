@@ -6,12 +6,12 @@ mkfile_dir		=  $(shell dirname $(mkfile_path))
 
 firstTarget: all
 
-include $(mkfile_dir)/../../common/common_mkfl/unix.common.Makefile
+include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 
-SOURCES += $(cinternalRepoRoot)/src/tools/freelib_on_remote_proc_by_handle/main_freelib_on_remote_proc_by_handle.c
-SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_parser_argparser01.c
-SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_loadfreelib_on_remote_process_unix.c
+SOURCES += $(cutilsRepoRoot)/src/tools/freelib_on_remote_proc_by_handle/main_freelib_on_remote_proc_by_handle.c
+SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_parser_argparser01.c
+SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_loadfreelib_on_remote_process_unix.c
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/bin/$(targetName)
 

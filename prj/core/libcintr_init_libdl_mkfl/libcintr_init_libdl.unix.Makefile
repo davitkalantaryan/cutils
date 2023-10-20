@@ -8,10 +8,10 @@ firstTarget: all
 
 COMMON_FLAGS += -fPIC
 
-include $(mkfile_dir)/../../common/common_mkfl/unix.common.Makefile
+include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 
-SOURCES += $(cinternalRepoRoot)/src/core/init_libdl/entry_cinternal_core_init_libdl.c
+SOURCES += $(cutilsRepoRoot)/src/core/init_libdl/entry_cutils_core_init_libdl.c
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/tdll/lib$(targetName).so.1
 

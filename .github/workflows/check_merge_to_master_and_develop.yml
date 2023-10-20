@@ -27,20 +27,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
           matrix:
-            #os: [ubuntu-20.04 ubuntu-22.04]
-            include:
-              # for all linuxes we should specify lC (lsbCode)
-              # lC=$lsbCode=`lsb_release -c | cut -f 2` # for ubuntu18
-              #- os: ubuntu-18.04
-              #  lC: bionic
-              - os: ubuntu-20.04
-                lC: focal
-              - os: ubuntu-22.04
-                lC: jammy
-              - os: macos-latest
-                lC: mac
-              #- os: LinuxMint-19.3
-              #  lC: trica
+            os: [ubuntu-20.04, ubuntu-22.04, macos-latest]
         steps:
             - name: Checking out repository
               uses: actions/checkout@v3
@@ -51,16 +38,10 @@ jobs:
             - name: Preparing repository for ${{ matrix.os }}
               run: ./scripts/unix_prepare_repository.sh
 
-            #- name: Install SSH key
-            #  uses: shimataro/ssh-key-action@v2
-            #  with:
-            #   key: ${{ secrets.SSH_KEY }}
-            #   #known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
-            - name: Building
+            - name: Building for ${{ matrix.os }}
               run: ./scripts/unix_build_all.sh
 
-            - name: testing test apps
+            - name: testing test apps for for ${{ matrix.os }}
               run: ./scripts/unix_run_tests.sh
 
 
@@ -78,25 +59,15 @@ jobs:
               uses: ilammy/msvc-dev-cmd@v1
 
             - name: Developer host preparation
-              run: cmd /C .\scripts\windows_prepare_host.bat
+              run: cmd /C "call .\scripts\windows_prepare_host.bat"
               #working-directory: core
 
             - name: Repository preparation
-              run: cmd /C .\scripts\windows_prepare_repository.bat
+              run: cmd /C "call .\scripts\windows_prepare_repository.bat"
 
             - name: Compiling cinternal all tests
               run: >
-                cmd /C .\scripts\windows_build_all.bat && 
-                cd prj\tests\unit_test_test_mult && 
-                nmake -f unit_test_test.windows.Makefile Platform=x64 Configuration=Debug
+                cmd /C "call .\scripts\windows_build_all.bat"
 
             - name: testing test apps
-              run: cmd /C .\scripts\windows_run_tests.bat
-
-    mac:
-        #needs: prepare-ubuntu18-host
-        runs-on: macos-latest
-        steps:
-            #- uses: actions/checkout@v2
-            - run: >
-                echo "Macos tests to be done"
+              run: cmd /C "call .\scripts\windows_run_tests.bat"

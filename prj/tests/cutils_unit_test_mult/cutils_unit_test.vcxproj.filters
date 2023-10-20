@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{9f355637-6842-4700-9cfa-06a8fe0491c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\unit_test">
+      <UniqueIdentifier>{9ac588d8-49cb-4396-af84-4656647055a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{d2772a6a-76d8-48f3-a4b9-cb2c748a485c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils">
+      <UniqueIdentifier>{ffc411eb-8871-4257-916d-42f38efb1a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\hash">
+      <UniqueIdentifier>{4dcba96c-e2c4-436b-96cc-4bdd654a1e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\list">
+      <UniqueIdentifier>{ad0f0261-9857-435b-bc13-37136848ebf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\cutils\parser">
+      <UniqueIdentifier>{77ef7acb-e4aa-4a4f-b087-33194ff5652b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0000_initial.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0001_bistate_flags.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0002_fourstate_flags.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0003_c_raii.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0004_lw_mutex_recursive.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\init_libdl\entry_cutils_core_init_libdl.c">
+      <Filter>files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\cutils_unit_test_0005_weak_aliases_test.c">
+      <Filter>Source Files\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_unit_test_add_remove_functions_example.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_logger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_checks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_hash_dllhash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\cutils\common_data02.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\export_symbols.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\replace_function_sys.h">
+      <Filter>Header Files\include\cutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\hash\dllhash.h">
+      <Filter>Header Files\include\cutils\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\list\dllist.h">
+      <Filter>Header Files\include\cutils\list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h">
+      <Filter>Header Files\include\cutils\parser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cutils_unit_test.pro">
+      <Filter>files</Filter>
+    </None>
+    <None Include="cutils_unit_test.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="cutils_unit_test.windows.Makefile">
+      <Filter>files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

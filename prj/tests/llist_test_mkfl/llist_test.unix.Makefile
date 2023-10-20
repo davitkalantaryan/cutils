@@ -6,12 +6,13 @@ mkfile_dir		=  $(shell dirname $(mkfile_path))
 
 firstTarget: all
 
-include $(mkfile_dir)/../../common/common_mkfl/unix.common.Makefile
+include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 
-SOURCES += $(cinternalRepoRoot)/src/tests/main_llist_test.c
-SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_list_dllist.c
-SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test.c
+SOURCES += $(cutilsRepoRoot)/src/tests/main_llist_test.c
+SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
+SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test_checks.c
+SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_logger.c
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName)
 

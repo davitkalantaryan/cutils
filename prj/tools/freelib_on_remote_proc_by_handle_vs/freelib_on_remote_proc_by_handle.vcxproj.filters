@@ -13,16 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{1124b065-d147-47ab-a28a-60659a3c6cc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\tools\freelib_on_remote_proc_by_handle\main_freelib_on_remote_proc_by_handle.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\freelib_on_remote_proc_by_handle_mkfl\freelib_on_remote_proc_by_handle.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\freelib_on_remote_proc_by_handle_qt\freelib_on_remote_proc_by_handle.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

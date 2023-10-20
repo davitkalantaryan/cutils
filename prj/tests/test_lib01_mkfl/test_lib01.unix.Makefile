@@ -8,10 +8,10 @@ firstTarget: all
 
 COMMON_FLAGS += -fPIC
 
-include $(mkfile_dir)/../../common/common_mkfl/unix.common.Makefile
+include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common.unix.Makefile
 
 
-SOURCES += $(cinternalRepoRoot)/src/tests/entry_test_lib01.cpp
+SOURCES += $(cutilsRepoRoot)/src/tests/entry_test_lib01.cpp
 
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/tdll/lib$(targetName).so.1
 

@@ -13,30 +13,41 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{90c86141-65ec-47db-8a35-0f5b71d2386b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\tools\free_libs_by_names_on_remote_proc\main_free_libs_by_names_on_remote_proc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer02_common.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer02_common.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_list_dllist.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\cinternal\freelib_on_remote_process_sys.h">
+    <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\free_libs_by_names_on_remote_proc_mkfl\free_libs_by_names_on_remote_proc.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\free_libs_by_names_on_remote_proc_qt\free_libs_by_names_on_remote_proc.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 //
+// repo:			cutils
 // file:            main_function_changer_test.c
 // path:			src/tests/main_function_changer_test.c
 // created on:		2023 Mar 09
@@ -6,7 +7,7 @@
 //
 
 
-#include <cinternal/replace_function.h>
+#include <cutils/replace_function.h>
 #include <stdlib.h>
 #include <stdio.h>
 

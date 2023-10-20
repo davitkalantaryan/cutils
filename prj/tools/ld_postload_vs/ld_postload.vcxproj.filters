@@ -13,25 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{b97ce12d-a0b0-46ae-8b72-97234b07bae1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_common.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_argparser01.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_list_dllist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\tools\ld_postload\main_cinternal_tools_ld_postload.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer01_common.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_argparser01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_list_dllist.c">
+    <ClCompile Include="..\..\..\src\tools\ld_postload\main_cutils_tools_ld_postload.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ld_postload_mkfl\ld_postload.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\ld_postload_qt\ld_postload.pro">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>

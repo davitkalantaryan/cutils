@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\tools\windows_ld_preload\main_cinternal_core_windows_ld_preload.c">
+    <ClCompile Include="..\..\..\src\intern\cutils_core_intern_tokenizer01_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\intern\cinternal_core_intern_tokenizer01_windows.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_loadfreelib_on_remote_process_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_parser_tokenizer01.c">
+    <ClCompile Include="..\..\..\src\core\cutils_core_parser_tokenizer01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\cinternal_core_loadfreelib_on_remote_process_windows.c">
+    <ClCompile Include="..\..\..\src\tools\windows_ld_preload\main_cutils_core_windows_ld_preload.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

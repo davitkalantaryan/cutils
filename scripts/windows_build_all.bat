@@ -52,26 +52,21 @@ for %%x in (%*) do (
 )
 
 echo action=%ActionConfirm%,PlatformTarget=!PlatformTarget!,configuration=%Configuration%
-
+cd "%repositoryRoot%prj\tests\cutils_unit_test_mult"
+if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 
 for %%p in (%PlatformTarget%) do (
 	echo "!!!!!!!!!!!! platform %%p"
 	for %%c in (%Configuration%) do (
 		echo "!!!!!!!!!!!! !!!!!!!!!!!! compiling for configuration %%c"
-		call msbuild "%repositoryRoot%workspaces\cinternal_all_vs\cinternal_all.sln" /t:!ActionConfirm! /p:Configuration=%%c /p:Platform=%%p
+		call msbuild "%repositoryRoot%workspaces\cutils_all_vs\cutils_all.sln" /t:!ActionConfirm! /p:Configuration=%%c /p:Platform=%%p
+		if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
+		call nmake -f cutils_unit_test.windows.Makefile /e Platform=%%p /e Configuration=%%c
 		if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
 	)
 )
 
-cd "%repositoryRoot%prj\tests\unit_test_test_mult"
-if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
-
-
-rem call nmake -f unit_test_test.windows.Makefile Platform=x64 Configuration=Debug
-rem if not "!ERRORLEVEL!"=="0" (exit /b !ERRORLEVEL!)
-
 exit /b 0
-
 
 :parse_argument
 	set isNextArgPlatform=true

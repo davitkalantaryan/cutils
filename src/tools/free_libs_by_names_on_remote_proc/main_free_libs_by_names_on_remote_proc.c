@@ -1,4 +1,5 @@
 //
+// repo:			cutils
 // file:            main_free_libs_by_names_on_remote_proc.c
 // path:			src/tools/free_libs_by_names_on_remote_proc/main_free_libs_by_names_on_remote_proc.c
 // created on:		2023 Mar 17
@@ -8,11 +9,10 @@
 
 //#define CINTERNAL_LD_POSTLOAD_WAIT_FOR_DEBUGGER		1
 
-#include <cinternal/export_symbols.h>
-#include <cinternal/loadfreelib_on_remote_process.h>
-#include <cinternal/parser/argparser01.h>
-#include <cinternal/list/dllist.h>
-#include <private/cinternal/parser/tokenizer02_common_p.h>
+#include <cutils/loadfreelib_on_remote_process.h>
+#include <cutils/parser/argparser01.h>
+#include <cutils/list/dllist.h>
+#include <private/cutils/parser/tokenizer02_common_p.h>
 #include <stddef.h>
 #include <cinternal/disable_compiler_warnings.h>
 #ifdef _WIN32
@@ -65,8 +65,8 @@ int main(int a_argc, char* a_argv[])
 	size_t szEnvLen;
 	char vcLdPpostloadEnvBuffer[1024];
 	const char* cpcNextArg;
-	CinternalDLList_t aList;
-	CinternalDLListItem_t pItem;
+	CutilDLList_t aList;
+	CutilDLListItem_t pItem;
 	int nPid = 0;
 	int nRet;
 
@@ -79,7 +79,7 @@ int main(int a_argc, char* a_argv[])
 	//}
 #endif
 
-	aList = CInternalDLListCreate();
+	aList = CUtilDLListCreate();
 	if (!aList) {
 		fprintf(stderr, "Unable create a list\n");
 		return 1;
@@ -97,7 +97,7 @@ int main(int a_argc, char* a_argv[])
 		nArgcTmpTmp = nArgcTmp;
 		cpcNextArg = CInternalFindEndTakeArg(&nArgcTmp, ppcArgvTmp, "--libs", &nRet, true);
 		if (cpcNextArg) {
-			CInternalDLListAddDataToFront(aList, cpcNextArg);
+			CUtilDLListAddDataToFront(aList, cpcNextArg);
 			nArgc -= (nArgcTmpTmp - nArgcTmp);
 			ppcArgvTmp += nRet;
 			nArgcTmp -= nRet;
@@ -110,24 +110,24 @@ int main(int a_argc, char* a_argv[])
 
 	if (nPid < 1) {
 		if (nArgc < 1) {
-			CInternalDLListDestroy(aList);
+			CUtilDLListDestroy(aList);
 			fprintf(stderr, "PID of running application to inject DLL is not specified!\n");
 			return 1;
 		}
 		nPid = atoi(ppcArgv[0]);
 		if (nPid < 1) {
-			CInternalDLListDestroy(aList);
+			CUtilDLListDestroy(aList);
 			fprintf(stderr, "PID of running application to inject DLL is not specified!\n");
 			return 1;
 		}
 	}  //  if (dwPid < 1) {
 
-	pItem = CInternalDLListFirstItem(aList);
+	pItem = CUtilDLListFirstItem(aList);
 	while (pItem) {
 		CInternalTokenizer02b((char*)(pItem->data), nPid);
-		pItem = CInternalDLListItemFromDLListIterator(CInternalDLListIteratorFromDLListItem(pItem)->next);
+		pItem = CUtilDLListItemFromDLListIterator(CUtilDLListIteratorFromDLListItem(pItem)->next);
 	}
-	CInternalDLListDestroy(aList);
+	CUtilDLListDestroy(aList);
 
 	pcEnvVar = GetEnvironmentVariableACint("LD_POSTFREE", vcLdPpostloadEnvBuffer, 1023, &szEnvLen);
 	if ((szEnvLen > 0) && (szEnvLen < 1023)) {

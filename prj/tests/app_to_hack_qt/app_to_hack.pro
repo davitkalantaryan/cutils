@@ -5,30 +5,22 @@
 # created by:	Davit Kalantaryan
 #
 
-include ( "$${PWD}/../../common/common_qt/sys_common.pri" )
-#include ( "$${PWD}/../../common/common_qt/flags_common.pri" )
+message("!!! $${_PRO_FILE_}")
+include ( "$${PWD}/../../common/common_qt/flagsandsys_common.pri" )
 
-DESTDIR     = "$${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/test"
+DESTDIR     = "$${artifactRoot}/sys/$${CODENAME}/$$CONFIGURATION/test"
 
 QT -= gui
 QT -= core
 QT -= widgets
 CONFIG -= qt
-
-#LIBS += -pthread
-#LIBS += -ldl
-
-DEFINES += CPPUTILS_USING_STATIC_LIB_OR_OBJECTS
+CONFIG += console
 
 
-#SOURCES += $$files($${PWD}/../../../src/core/*.c*,true)
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_app_to_hack.cpp"
 
-COMMON_HDRS	= $$files($${cinternalRepoRoot}/include/*.h,true)
-COMMON_HDRSPP	= $$files($${cinternalRepoRoot}/include/*.hpp,true)
 
-HEADERS += $$COMMON_HDRS
-HEADERS += $$COMMON_HDRSPP
+HEADERS += $$files($${cutilsRepoRoot}/include/*.h,true)
 
 OTHER_FILES += $$files($${PWD}/../app_to_hack_mkfl/*.Makefile,false)
