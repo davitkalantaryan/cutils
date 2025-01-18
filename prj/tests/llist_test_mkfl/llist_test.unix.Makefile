@@ -14,6 +14,8 @@ SOURCES += $(cutilsRepoRoot)/src/core/cutils_core_list_dllist.c
 SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_unit_test_checks.c
 SOURCES += $(cinternalRepoRoot)/src/core/cinternal_core_logger.c
 
+LIBS += -pthread
+
 all: $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName)
 
 $(artifactRoot)/sys/$(lsbCode)/$(Configuration)/test/$(targetName): \
