@@ -12,17 +12,12 @@
 #define CUtilDLListAddCreatedIteratorFrontInline1_needed	1
 #define	CUtilDLListAddCreatedIteratorFrontInline2_needed	1
 #include "cutils_core_list_dllist.impl.h"
-#define cinternal_hash1_small_int_needed				1
-#define CinternalIsMemoriesIdenticalSmallInt_needed		1
-#define CinternalStoreKeySmallInt_needed				1
-#define CinternalUnstoreKeySmallInt_needed				1
-#define CinternalStoreKeyRawMemory_needed				1
-#define CinternalUnstoreKeyRawMemory_needed				1
-#define CinternalIsMemoriesIdenticalRawMemory_needed	1
-//#define DefaultRemainingCleaner_needed					1
-#define cinternal_hash1_raw_mem_needed					1
-#include <cinternal/hash/functions.h>
+#define cinternal_hash1_raw_mem_inline_needed			    1
+#include <cinternal/hash_functions.h>
+#include <cinternal/wrapper.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <string.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define CUTILS_HASH_DEFAULT_NUMBER_OF_BASKETS	4096
 
@@ -45,6 +40,14 @@ struct CPPUTILS_DLL_PRIVATE SCutilDLLHash {
 	TypeCinternalStoreKey				keyStore;
 	TypeCinternalUnstoreKey				keyUnstore;
 };
+
+static bool CinternalIsMemoriesIdenticalRawMemory(const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2) CPPUTILS_NOEXCEPT;
+static bool CinternalStoreKeyRawMemory(TypeCinternalAllocator a_allocator, void** a_pKeyStore, size_t* a_pKeySizeStore, const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT;
+static void CinternalUnstoreKeyRawMemory(TypeCinternalDeallocator a_deallocator, void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT;
+static size_t cinternal_hash1_small_int(const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT;
+static bool CinternalIsMemoriesIdenticalSmallInt(const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2) CPPUTILS_NOEXCEPT;
+static bool CinternalStoreKeySmallInt(TypeCinternalAllocator a_allocator, void** a_pKeyStore, size_t* a_pKeySizeStore, const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT;
+static void CinternalUnstoreKeySmallInt(TypeCinternalDeallocator a_deallocator, void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT;
 
 
 CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAny(size_t a_numberOfBaskets,
@@ -97,7 +100,7 @@ CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAnyDefRawMem(size_t a_numberOfB
 	TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator)
 {
 	return CUtilDLLHashCreateExAny(a_numberOfBaskets,
-		a_hasher ? a_hasher : (&cinternal_hash1_raw_mem), a_isEq ? a_isEq :(&CinternalIsMemoriesIdenticalRawMemory),
+		a_hasher ? a_hasher : (&cinternal_hash1_raw_mem_inline), a_isEq ? a_isEq :(&CinternalIsMemoriesIdenticalRawMemory),
 		a_keyStore ? a_keyStore : (&CinternalStoreKeyRawMemory), a_keyUnstore ? a_keyUnstore :(&CinternalUnstoreKeyRawMemory),
 		a_allocator, a_deallocator);
 }
@@ -118,7 +121,7 @@ CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExAnyDefSmlInt(size_t a_numberOfB
 CUTILS_EXPORT CutilDLLHash_t CUtilDLLHashCreateExRawMem(size_t a_numberOfBaskets, TypeCinternalAllocator a_allocator, TypeCinternalDeallocator a_deallocator)
 {
 	return CUtilDLLHashCreateExAny(a_numberOfBaskets,
-		&cinternal_hash1_raw_mem, &CinternalIsMemoriesIdenticalRawMemory,
+		&cinternal_hash1_raw_mem_inline, &CinternalIsMemoriesIdenticalRawMemory,
 		&CinternalStoreKeyRawMemory, &CinternalUnstoreKeyRawMemory,
 		a_allocator, a_deallocator);
 }
@@ -265,12 +268,70 @@ CUTILS_EXPORT void* CInternalLHashGetDefaultFunctions(int a_function)
 {
 	switch (a_function) {
 	case CUTILS_HASH_DEFAULT_FUNC_MMEM_HASH:
-		return (void*)(&cinternal_hash1_raw_mem);
+		return (void*)(&cinternal_hash1_raw_mem_inline);
 	case CUTILS_HASH_DEFAULT_FUNC_SML_INT_HASH:
 		return (void*)(&cinternal_hash1_small_int);
 	default:
 		return CPPUTILS_NULL;
 	}  //  switch (a_function) {
+}
+
+
+static bool CinternalIsMemoriesIdenticalRawMemory(const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2) CPPUTILS_NOEXCEPT
+{
+    return (a_keySize1 == a_keySize2) && (memcmp(a_key1, a_key2, a_keySize1) == 0);
+}
+
+
+static bool CinternalStoreKeyRawMemory(TypeCinternalAllocator a_allocator, void** a_pKeyStore, size_t* a_pKeySizeStore, const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT
+{
+    *a_pKeyStore = (*a_allocator)(a_keySize);
+    if (!(*a_pKeyStore)) {
+        return false;
+    }
+    CinternalWrapperMemcpy(*a_pKeyStore, a_key, a_keySize);
+    *a_pKeySizeStore = a_keySize;
+    return true;
+}
+
+
+static void CinternalUnstoreKeyRawMemory(TypeCinternalDeallocator a_deallocator, void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT
+{
+    CPPUTILS_STATIC_CAST(void, a_keySize);
+    (*a_deallocator)(a_key);
+}
+
+
+static size_t cinternal_hash1_small_int(const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT
+{
+    CPPUTILS_STATIC_CAST(void, a_keySize);
+    return CPPUTILS_REINTERPRET_CAST(size_t, a_key);
+}
+
+
+static bool CinternalIsMemoriesIdenticalSmallInt(const void* a_key1, size_t a_keySize1, const void* a_key2, size_t a_keySize2) CPPUTILS_NOEXCEPT
+{
+    CPPUTILS_STATIC_CAST(void, a_keySize1);
+    CPPUTILS_STATIC_CAST(void, a_keySize2);
+    return (a_key1 == a_key2);
+}
+
+
+static bool CinternalStoreKeySmallInt(TypeCinternalAllocator a_allocator, void** a_pKeyStore, size_t* a_pKeySizeStore, const void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT
+{
+    CPPUTILS_STATIC_CAST(void, a_allocator);
+    CPPUTILS_STATIC_CAST(void, a_keySize);
+    CPPUTILS_STATIC_CAST(void, a_pKeySizeStore);
+    *a_pKeyStore = CPPUTILS_CONST_CAST(void*, a_key);
+    return true;
+}
+
+
+static void CinternalUnstoreKeySmallInt(TypeCinternalDeallocator a_deallocator, void* a_key, size_t a_keySize) CPPUTILS_NOEXCEPT
+{
+    CPPUTILS_STATIC_CAST(void, a_deallocator);
+    CPPUTILS_STATIC_CAST(void, a_key);
+    CPPUTILS_STATIC_CAST(void, a_keySize);
 }
 
 

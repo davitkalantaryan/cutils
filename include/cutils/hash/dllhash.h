@@ -11,8 +11,11 @@
 
 #include <cutils/export_symbols.h>
 #include <cutils/common_data02.h>
+#include <cinternal/hash.h>
 #include <cinternal/common_data01.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdbool.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

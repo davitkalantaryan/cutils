@@ -11,6 +11,7 @@
 
 #include <cutils/loadfreelib_on_remote_process_sys.h>
 #include <private/cutils/parser/tokenizer01_windows_p.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -18,6 +19,7 @@
 #include <assert.h>
 #include <fcntl.h>
 #include <io.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define CINTR_MAX_ENV_LEN					1023
 #define CINTR_MAX_CMD_LINE_BUFFER_SIZE		4095

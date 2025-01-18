@@ -10,7 +10,9 @@
 #define CUTILS_INCLUDE_CUTILS_PARSER_ARGPARSER01_H
 
 #include <cutils/export_symbols.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdbool.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

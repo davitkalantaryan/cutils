@@ -8,8 +8,10 @@
 
 
 #include <cutils/replace_function.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 typedef void* (*TypeMallocFnc)(size_t);

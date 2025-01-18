@@ -89,9 +89,6 @@
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h">
-      <Filter>Header Files\include\cutils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cutils\replace_function.h">
       <Filter>Header Files\include\cutils</Filter>
     </ClInclude>

@@ -11,10 +11,12 @@
 
 #include <cutils/parser/argparser01.h>
 #include <cutils/loadfreelib_on_remote_process.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 static inline size_t GetAddressFromStringInline(const char* a_cpcStr) {

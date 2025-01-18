@@ -8,7 +8,9 @@
 
 #include <cinternal/unit_test.h>
 #include <cinternal/fourstateflags.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdbool.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 #define CUTILS_UT_FOURSTATE_RESERVED_BITS		56

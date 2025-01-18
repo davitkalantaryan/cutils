@@ -12,8 +12,8 @@
 #ifdef _WIN32
 
 #include <cutils/replace_function_sys.h>
-#include <string.h>
 #include <cinternal/disable_compiler_warnings.h>
+#include <string.h>
 #include <Psapi.h>
 #include <cinternal/undisable_compiler_warnings.h>
 

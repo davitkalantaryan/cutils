@@ -10,8 +10,10 @@
 #include <private/cutils/parser/tokenizer01_common_p.h>
 #include <cutils/parser/tokenizer01.h>
 #include <cutils/loadfreelib_on_remote_process.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

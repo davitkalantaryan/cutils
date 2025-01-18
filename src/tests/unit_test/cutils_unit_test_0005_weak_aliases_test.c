@@ -8,8 +8,10 @@
 
 
 #include <cinternal/unit_test.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 static int s_nNumberOfFunctionCall = 0;
