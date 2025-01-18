@@ -13,8 +13,8 @@
 #include <cutils/parser/argparser01.h>
 #include <cutils/list/dllist.h>
 #include <private/cutils/parser/tokenizer02_common_p.h>
-#include <stddef.h>
 #include <cinternal/disable_compiler_warnings.h>
+#include <stddef.h>
 #ifdef _WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>

@@ -11,10 +11,10 @@
 #ifdef _WIN32
 
 #include <cutils/loadfreelib_on_remote_process_sys.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <cinternal/disable_compiler_warnings.h>
 #include <Psapi.h>
 #include <cinternal/undisable_compiler_warnings.h>
 

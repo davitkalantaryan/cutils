@@ -7,8 +7,10 @@
 //
 
 #include <cutils/parser/tokenizer01.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <string.h>
 #include <stddef.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 CPPUTILS_BEGIN_C
 

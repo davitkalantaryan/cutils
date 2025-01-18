@@ -8,7 +8,9 @@
 
 
 #include <cinternal/unit_test.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdbool.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_EXTERN_C CPPUTILS_DLL_PRIVATE int s_nMagicNumber = 0;

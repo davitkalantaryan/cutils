@@ -8,7 +8,9 @@
 
 #include <cutils/list/dllist.h>
 #include <cinternal/unit_test.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 int main(void)
 {

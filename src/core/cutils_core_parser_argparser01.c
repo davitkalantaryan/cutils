@@ -7,7 +7,9 @@
 //
 
 #include <cutils/parser/argparser01.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <string.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

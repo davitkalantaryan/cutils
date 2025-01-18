@@ -8,7 +8,9 @@
 
 #include <cinternal/unit_test.h>
 #include <cinternal/bistateflags.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdbool.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define CINTERNAL_UT_BISTATE_RESERVED_BITS		60
 

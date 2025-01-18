@@ -306,7 +306,6 @@
     <ClInclude Include="..\..\..\include\cutils\list\dllist.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process.h" />
     <ClInclude Include="..\..\..\include\cutils\loadfreelib_on_remote_process_sys.h" />
-    <ClInclude Include="..\..\..\include\cutils\lw_mutex_recursive.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\argparser01.h" />
     <ClInclude Include="..\..\..\include\cutils\parser\tokenizer01.h" />
     <ClInclude Include="..\..\..\include\cutils\replace_function.h" />

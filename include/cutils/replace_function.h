@@ -30,7 +30,7 @@ struct SCInternalReplaceFunctionData {
 	const void* newFuncAddress;
 	const void* replaceIfAddressIs;  // In the case of NULL in any case case this will be replaced and old address will be put here
 	bool bFound;
-	bool reserved[sizeof(void*)-sizeof(bool)];
+	bool reserved[(sizeof(void*)-sizeof(bool))/sizeof(bool)];
 };
 
 
