@@ -17,10 +17,7 @@ set "repositoryRoot=%cd%\"
 
 echo "repositoryRoot is %repositoryRoot%"
 
-set "PlatformToolsetVarMid=%VCToolsVersion:~0,2%"
-set "PlatformToolsetVarEnd=%VCToolsVersion:~3,1%"
-set "PlatformToolsetVar=v%PlatformToolsetVarMid%%PlatformToolsetVarEnd%"
-echo PlatformToolsetVar=%PlatformToolsetVar%
+call "%scriptDirectory%windows_source_per_session.bat"
 
 
 devenv workspaces\cutils_all_vs\cutils_all.sln
